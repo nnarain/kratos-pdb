@@ -1,0 +1,6 @@
+[submodule "hardware/kratos/libraries/digikey-kicad-library"]
+	path = hardware/kratos/libraries/digikey-kicad-library
+	url = https://github.com/Digi-Key/digikey-kicad-library.git
+[submodule "hardware/kratos/libraries/kicad-inventory"]
+	path = hardware/kratos/libraries/kicad-inventory
+	url = https://github.com/nnarain/kicad-inventory.git
