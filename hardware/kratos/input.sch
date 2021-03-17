@@ -3,10 +3,10 @@ EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 2 6
+Sheet 6 6
 Title "Voltage Input"
 Date "2021-03-04"
-Rev "REVA"
+Rev "A"
 Comp ""
 Comment1 "Author: Natesh Narain"
 Comment2 ""
@@ -18,8 +18,8 @@ L dk_barrel:PJ-102A J?
 U 1 1 60428798
 P 4300 1950
 AR Path="/60428798" Ref="J?"  Part="1" 
-AR Path="/60426E80/60428798" Ref="J2"  Part="1" 
-F 0 "J2" H 4233 2175 50  0000 C CNN
+AR Path="/60426E80/60428798" Ref="J5"  Part="1" 
+F 0 "J5" H 4233 2175 50  0000 C CNN
 F 1 "PJ-102A" H 4233 2084 50  0000 C CNN
 F 2 "digikey-footprints:Barrel_Jack_5.5mmODx2.1mmID_PJ-102A" H 4500 2150 60  0001 L CNN
 F 3 "https://www.cui.com/product/resource/digikeypdf/pj-102a.pdf" H 4500 2250 60  0001 L CNN
@@ -40,23 +40,23 @@ L Connector_Generic:Conn_01x02 J?
 U 1 1 604287B1
 P 4100 2950
 AR Path="/604287B1" Ref="J?"  Part="1" 
-AR Path="/60426E80/604287B1" Ref="J1"  Part="1" 
-F 0 "J1" H 4018 3167 50  0000 C CNN
+AR Path="/60426E80/604287B1" Ref="J4"  Part="1" 
+F 0 "J4" H 4018 3167 50  0000 C CNN
 F 1 "VIN" H 4018 3076 50  0000 C CNN
-F 2 "Connector_PinSocket_2.54mm:PinSocket_1x02_P2.54mm_Vertical" H 4100 2950 50  0001 C CNN
+F 2 "Connector_JST:JST_EH_B02B-EH-A_1x02_P2.50mm_Vertical" H 4100 2950 50  0001 C CNN
 F 3 "~" H 4100 2950 50  0001 C CNN
 	1    4100 2950
 	-1   0    0    -1  
 $EndComp
 Text HLabel 7350 1950 2    50   Output ~ 0
-VDC
+VOUT
 Text Notes 2350 2650 0    50   ~ 0
-Input from barrel jack or 2 pin header\n\n5V - 12V
+Input from barrel jack or 2 pin header\n\n9V - 26V
 $Comp
-L Connector_Generic:Conn_01x02 J3
+L Connector_Generic:Conn_01x02 J6
 U 1 1 604496EC
 P 5200 1600
-F 0 "J3" V 5164 1412 50  0000 R CNN
+F 0 "J6" V 5164 1412 50  0000 R CNN
 F 1 "External Switch" V 5073 1412 50  0000 R CNN
 F 2 "Connector_PinSocket_2.54mm:PinSocket_1x02_P2.54mm_Vertical" H 5200 1600 50  0001 C CNN
 F 3 "~" H 5200 1600 50  0001 C CNN
@@ -64,10 +64,10 @@ F 3 "~" H 5200 1600 50  0001 C CNN
 	0    -1   -1   0   
 $EndComp
 $Comp
-L Battery_Management:DS2745U U1
+L Battery_Management:DS2745U U4
 U 1 1 6045194E
 P 6300 3100
-F 0 "U1" H 6450 3400 50  0000 C CNN
+F 0 "U4" H 6450 3400 50  0000 C CNN
 F 1 "DS2745U" H 6550 2750 50  0000 C CNN
 F 2 "Package_SO:TSSOP-8_3x3mm_P0.65mm" H 6300 2600 50  0001 C CNN
 F 3 "https://datasheets.maximintegrated.com/en/ds/DS2745.pdf" H 6400 2700 50  0001 C CNN
@@ -75,10 +75,10 @@ F 3 "https://datasheets.maximintegrated.com/en/ds/DS2745.pdf" H 6400 2700 50  00
 	1    0    0    -1  
 $EndComp
 $Comp
-L power:GND #PWR010
+L power:GND #PWR017
 U 1 1 60452663
 P 6800 3300
-F 0 "#PWR010" H 6800 3050 50  0001 C CNN
+F 0 "#PWR017" H 6800 3050 50  0001 C CNN
 F 1 "GND" V 6800 3100 50  0000 C CNN
 F 2 "" H 6800 3300 50  0001 C CNN
 F 3 "" H 6800 3300 50  0001 C CNN
@@ -88,10 +88,10 @@ $EndComp
 Wire Wire Line
 	6700 3300 6800 3300
 $Comp
-L power:GND #PWR09
+L power:GND #PWR016
 U 1 1 6042D03E
 P 5000 4400
-F 0 "#PWR09" H 5000 4150 50  0001 C CNN
+F 0 "#PWR016" H 5000 4150 50  0001 C CNN
 F 1 "GND" H 5005 4227 50  0000 C CNN
 F 2 "" H 5000 4400 50  0001 C CNN
 F 3 "" H 5000 4400 50  0001 C CNN
@@ -114,7 +114,7 @@ U 1 1 6045AF5C
 P 5000 4050
 F 0 "R1" H 5070 4096 50  0000 L CNN
 F 1 "15m" H 5070 4005 50  0000 L CNN
-F 2 "Resistor_SMD:R_0805_2012Metric" V 4930 4050 50  0001 C CNN
+F 2 "Resistor_SMD:R_2512_6332Metric" V 4930 4050 50  0001 C CNN
 F 3 "~" H 5000 4050 50  0001 C CNN
 	1    5000 4050
 	1    0    0    -1  
@@ -159,7 +159,7 @@ L Device:R R4
 U 1 1 6046BAD6
 P 6800 2700
 F 0 "R4" H 6870 2746 50  0000 L CNN
-F 1 "1k" H 6870 2655 50  0000 L CNN
+F 1 "10k" H 6870 2655 50  0000 L CNN
 F 2 "Resistor_SMD:R_0805_2012Metric" V 6730 2700 50  0001 C CNN
 F 3 "~" H 6800 2700 50  0001 C CNN
 	1    6800 2700
@@ -174,7 +174,7 @@ L Device:R R3
 U 1 1 6046CBE4
 P 6550 2300
 F 0 "R3" V 6650 2250 50  0000 L CNN
-F 1 "14k" V 6450 2200 50  0000 L CNN
+F 1 "42k" V 6450 2200 50  0000 L CNN
 F 2 "Resistor_SMD:R_0805_2012Metric" V 6480 2300 50  0001 C CNN
 F 3 "~" H 6550 2300 50  0001 C CNN
 	1    6550 2300
@@ -201,10 +201,10 @@ Wire Wire Line
 Wire Wire Line
 	6400 2300 6300 2300
 $Comp
-L power:GND #PWR011
+L power:GND #PWR018
 U 1 1 60470D2F
 P 7300 2300
-F 0 "#PWR011" H 7300 2050 50  0001 C CNN
+F 0 "#PWR018" H 7300 2050 50  0001 C CNN
 F 1 "GND" V 7300 2100 50  0000 C CNN
 F 2 "" H 7300 2300 50  0001 C CNN
 F 3 "" H 7300 2300 50  0001 C CNN
@@ -216,12 +216,12 @@ Wire Wire Line
 Wire Wire Line
 	5200 1800 5200 1950
 $Comp
-L Device:CP C1
+L Device:CP C3
 U 1 1 60474238
 P 6000 2550
-F 0 "C1" V 6150 2500 50  0000 L CNN
+F 0 "C3" V 6150 2500 50  0000 L CNN
 F 1 "10nF" V 5850 2450 50  0000 L CNN
-F 2 "" H 6038 2400 50  0001 C CNN
+F 2 "Capacitor_SMD:C_0805_2012Metric" H 6038 2400 50  0001 C CNN
 F 3 "~" H 6000 2550 50  0001 C CNN
 	1    6000 2550
 	0    -1   -1   0   
@@ -268,7 +268,7 @@ Connection ~ 5200 1950
 Wire Wire Line
 	5200 1950 5200 2950
 Text Notes 7750 2750 0    50   ~ 0
-Voltage supply monitoring (voltage, current and temperature).\n\nDS2745U's Vin is pulled up to a voltage divider that drops the max input voltage\nof 12V down to 5V.
+Voltage supply monitoring (voltage, current and temperature).\n\nDS2745U's Vin is pulled up to a voltage divider that drops the max input voltage\nof 26V down to 5V.
 Wire Notes Line
 	5250 3650 5250 2100
 Wire Notes Line
@@ -290,44 +290,20 @@ Wire Notes Line
 Wire Notes Line
 	4650 1650 4000 1650
 $Comp
-L Connector:TestPoint TP1
+L Connector:TestPoint VBAT1
 U 1 1 60479995
 P 6800 2300
-F 0 "TP1" H 6750 2550 50  0000 L CNN
+F 0 "VBAT1" H 6700 2550 50  0000 L CNN
 F 1 "DIV_TP" V 6700 2200 50  0001 L CNN
-F 2 "TestPoint:TestPoint_Pad_3.0x3.0mm" H 7000 2300 50  0001 C CNN
+F 2 "TestPoint:TestPoint_Pad_2.0x2.0mm" H 7000 2300 50  0001 C CNN
 F 3 "~" H 7000 2300 50  0001 C CNN
 	1    6800 2300
 	1    0    0    -1  
 $EndComp
-$Comp
-L power:GND #PWR0101
-U 1 1 6047FECE
-P 4250 3700
-F 0 "#PWR0101" H 4250 3450 50  0001 C CNN
-F 1 "GND" H 4255 3527 50  0000 C CNN
-F 2 "" H 4250 3700 50  0001 C CNN
-F 3 "" H 4250 3700 50  0001 C CNN
-	1    4250 3700
-	1    0    0    -1  
-$EndComp
-$Comp
-L Connector:TestPoint TP2
-U 1 1 604802CC
-P 4250 3600
-F 0 "TP2" H 4308 3718 50  0000 L CNN
-F 1 "GND_TP" H 4308 3627 50  0000 L CNN
-F 2 "TestPoint:TestPoint_Pad_3.0x3.0mm" H 4450 3600 50  0001 C CNN
-F 3 "~" H 4450 3600 50  0001 C CNN
-	1    4250 3600
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	4250 3600 4250 3700
 Wire Wire Line
 	4400 1950 5200 1950
 Wire Wire Line
 	5300 1950 6300 1950
 Text Notes 5150 1450 0    50   ~ 0
-Jumper for external switch (connect terminals with no external switch is needed)
+Jumper for external switch (connect terminals when no external switch is needed)
 $EndSCHEMATC
