@@ -1,0 +1,5 @@
+(sym_lib_table
+  (lib (name dk_barrel)(type Legacy)(uri ${KIPRJMOD}/libraries/digikey-kicad-library/digikey-symbols/dk_Barrel-Power-Connectors.lib)(options "")(descr ""))
+  (lib (name linear_regulators)(type Legacy)(uri ${KIPRJMOD}/libraries/kicad-inventory/linear_regulators.lib)(options "")(descr ""))
+  (lib (name adc)(type Legacy)(uri ${KIPRJMOD}/libraries/kicad-inventory/adc.lib)(options "")(descr ""))
+)

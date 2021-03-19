@@ -1,0 +1,5 @@
+(fp_lib_table
+  (lib (name inductors)(type KiCad)(uri ${KIPRJMOD}/libraries/kicad-inventory/inductors.pretty)(options "")(descr ""))
+  (lib (name digikey-footprints)(type KiCad)(uri ${KIPRJMOD}/libraries/digikey-kicad-library/digikey-footprints.pretty)(options "")(descr ""))
+  (lib (name drone)(type KiCad)(uri ${KIPRJMOD}/libraries/kicad-inventory/drone.pretty)(options "")(descr ""))
+)

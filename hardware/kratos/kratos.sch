@@ -1,0 +1,285 @@
+EESchema Schematic File Version 4
+EELAYER 30 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 1 6
+Title "Kratos Power Distribution Board"
+Date "2021-03-01"
+Rev "A"
+Comp ""
+Comment1 "Author: Natesh Narain"
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Sheet
+S 7000 2850 850  700 
+U 6042B634
+F0 "PowerSupply_3V3" 50
+F1 "powersupply_3v3.sch" 50
+F2 "VIN" I L 7000 3000 50 
+F3 "VOUT" O R 7850 3000 50 
+$EndSheet
+$Comp
+L power:+3V3 #PWR04
+U 1 1 6042C995
+P 8350 2800
+F 0 "#PWR04" H 8350 2650 50  0001 C CNN
+F 1 "+3V3" H 8350 3000 50  0000 C CNN
+F 2 "" H 8350 2800 50  0001 C CNN
+F 3 "" H 8350 2800 50  0001 C CNN
+	1    8350 2800
+	1    0    0    -1  
+$EndComp
+$Sheet
+S 9700 2600 850  1100
+U 6044DC5F
+F0 "Breakout" 50
+F1 "breakout.sch" 50
+F2 "VRAW" I L 9700 2700 50 
+F3 "5V" I L 9700 2900 50 
+F4 "3V3" I L 9700 3000 50 
+F5 "SCL" I L 9700 3400 50 
+F6 "SDA" I L 9700 3500 50 
+F7 "P1" I L 9700 3600 50 
+F8 "12V" I L 9700 2800 50 
+$EndSheet
+$Comp
+L power:VDC #PWR05
+U 1 1 60459873
+P 9450 2700
+F 0 "#PWR05" H 9450 2600 50  0001 C CNN
+F 1 "VDC" V 9450 2850 50  0000 L CNN
+F 2 "" H 9450 2700 50  0001 C CNN
+F 3 "" H 9450 2700 50  0001 C CNN
+	1    9450 2700
+	0    -1   -1   0   
+$EndComp
+$Comp
+L power:+3V3 #PWR08
+U 1 1 60459FE8
+P 9450 3000
+F 0 "#PWR08" H 9450 2850 50  0001 C CNN
+F 1 "+3V3" V 9450 3150 50  0000 L CNN
+F 2 "" H 9450 3000 50  0001 C CNN
+F 3 "" H 9450 3000 50  0001 C CNN
+	1    9450 3000
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	9450 2700 9700 2700
+Wire Wire Line
+	9450 2900 9700 2900
+Wire Wire Line
+	9700 3400 9450 3400
+Wire Wire Line
+	9700 3500 9450 3500
+Wire Wire Line
+	9700 3600 9450 3600
+Text Label 9450 3400 2    50   ~ 0
+scl
+Text Label 9450 3500 2    50   ~ 0
+sda
+Text Label 9450 3600 2    50   ~ 0
+p1
+Wire Notes Line
+	10750 2400 10750 3900
+Wire Notes Line
+	10750 3900 8950 3900
+Wire Notes Line
+	8950 3900 8950 2400
+Wire Notes Line
+	8950 2400 10750 2400
+Text Notes 3250 2350 0    50   ~ 0
+Regulators (12V, 5V, 3.3V)
+Text Notes 8950 2350 0    50   ~ 0
+Power and IO Breakouts
+Wire Wire Line
+	9700 3000 9450 3000
+$Comp
+L power:+5V #PWR07
+U 1 1 60482B88
+P 9450 2900
+F 0 "#PWR07" H 9450 2750 50  0001 C CNN
+F 1 "+5V" V 9450 3150 50  0000 C CNN
+F 2 "" H 9450 2900 50  0001 C CNN
+F 3 "" H 9450 2900 50  0001 C CNN
+	1    9450 2900
+	0    -1   -1   0   
+$EndComp
+$Comp
+L power:+5V #PWR03
+U 1 1 604830B5
+P 6500 2800
+F 0 "#PWR03" H 6500 2650 50  0001 C CNN
+F 1 "+5V" H 6515 2973 50  0000 C CNN
+F 2 "" H 6500 2800 50  0001 C CNN
+F 3 "" H 6500 2800 50  0001 C CNN
+	1    6500 2800
+	1    0    0    -1  
+$EndComp
+$Sheet
+S 3300 2850 850  700 
+U 604E226D
+F0 "PowerSupply12V" 50
+F1 "powersupply_12v.sch" 50
+F2 "VIN" I L 3300 3000 50 
+F3 "VOUT" O R 4150 3000 50 
+$EndSheet
+$Sheet
+S 5150 2850 850  700 
+U 604E6CA5
+F0 "PowerSupply_5V" 50
+F1 "powersupply_5v.sch" 50
+F2 "VIN" I L 5150 3000 50 
+F3 "VOUT" O R 6000 3000 50 
+$EndSheet
+$Comp
+L power:+12V #PWR02
+U 1 1 604EB987
+P 4650 2800
+F 0 "#PWR02" H 4650 2650 50  0001 C CNN
+F 1 "+12V" H 4665 2973 50  0000 C CNN
+F 2 "" H 4650 2800 50  0001 C CNN
+F 3 "" H 4650 2800 50  0001 C CNN
+	1    4650 2800
+	1    0    0    -1  
+$EndComp
+Text Label 2450 3450 0    50   ~ 0
+p1
+Text Label 2450 3350 0    50   ~ 0
+sda
+Text Label 2450 3250 0    50   ~ 0
+scl
+Wire Wire Line
+	2300 3450 2450 3450
+Wire Wire Line
+	2300 3350 2450 3350
+Wire Wire Line
+	2300 3250 2450 3250
+Text Notes 1400 2350 0    50   ~ 0
+Main Voltage Supply\n\nVoltage sensor available over I2C\n
+$Comp
+L power:VDC #PWR01
+U 1 1 60459286
+P 2800 2800
+F 0 "#PWR01" H 2800 2700 50  0001 C CNN
+F 1 "VDC" H 2815 2973 50  0000 C CNN
+F 2 "" H 2800 2800 50  0001 C CNN
+F 3 "" H 2800 2800 50  0001 C CNN
+	1    2800 2800
+	1    0    0    -1  
+$EndComp
+$Sheet
+S 1450 2850 850  650 
+U 60426E80
+F0 "Input" 50
+F1 "input.sch" 50
+F2 "VOUT" O R 2300 3000 50 
+F3 "SCL" B R 2300 3250 50 
+F4 "SDA" B R 2300 3350 50 
+F5 "P1" I R 2300 3450 50 
+$EndSheet
+Wire Wire Line
+	2300 3000 2800 3000
+Wire Wire Line
+	4150 3000 4650 3000
+Wire Wire Line
+	6000 3000 6500 3000
+Wire Wire Line
+	7850 3000 8350 3000
+Wire Wire Line
+	8350 3000 8350 2800
+Wire Wire Line
+	2800 2800 2800 3000
+Connection ~ 2800 3000
+Wire Wire Line
+	2800 3000 3300 3000
+Wire Wire Line
+	4650 2800 4650 3000
+Connection ~ 4650 3000
+Wire Wire Line
+	4650 3000 5150 3000
+Wire Wire Line
+	6500 2800 6500 3000
+Connection ~ 6500 3000
+Wire Wire Line
+	6500 3000 7000 3000
+Wire Notes Line
+	1400 3650 2950 3650
+Wire Notes Line
+	2950 3650 2950 2400
+Wire Notes Line
+	2950 2400 1400 2400
+Wire Notes Line
+	1400 2400 1400 3650
+Wire Notes Line
+	3250 2400 3250 3650
+Wire Notes Line
+	3250 3650 8500 3650
+Wire Notes Line
+	8500 3650 8500 2400
+Wire Notes Line
+	3250 2400 8500 2400
+$Comp
+L power:+12V #PWR06
+U 1 1 604F854F
+P 9450 2800
+F 0 "#PWR06" H 9450 2650 50  0001 C CNN
+F 1 "+12V" V 9465 2928 50  0000 L CNN
+F 2 "" H 9450 2800 50  0001 C CNN
+F 3 "" H 9450 2800 50  0001 C CNN
+	1    9450 2800
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	9700 2800 9450 2800
+$Comp
+L Connector_Generic:Conn_01x02 J2
+U 1 1 604E5C61
+P 3450 4300
+F 0 "J2" H 3550 4250 50  0000 L CNN
+F 1 "12V Regulator Bypass" H 2800 4050 50  0000 L CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 3450 4300 50  0001 C CNN
+F 3 "~" H 3450 4300 50  0001 C CNN
+	1    3450 4300
+	-1   0    0    1   
+$EndComp
+$Comp
+L power:VDC #PWR0101
+U 1 1 604E923B
+P 3750 4200
+F 0 "#PWR0101" H 3750 4100 50  0001 C CNN
+F 1 "VDC" V 3750 4400 50  0000 C CNN
+F 2 "" H 3750 4200 50  0001 C CNN
+F 3 "" H 3750 4200 50  0001 C CNN
+	1    3750 4200
+	0    1    1    0   
+$EndComp
+$Comp
+L power:+12V #PWR0102
+U 1 1 604E95CD
+P 3750 4300
+F 0 "#PWR0102" H 3750 4150 50  0001 C CNN
+F 1 "+12V" V 3750 4500 50  0000 C CNN
+F 2 "" H 3750 4300 50  0001 C CNN
+F 3 "" H 3750 4300 50  0001 C CNN
+	1    3750 4300
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	3650 4200 3750 4200
+Wire Wire Line
+	3650 4300 3750 4300
+Wire Notes Line
+	3250 3950 3250 4400
+Wire Notes Line
+	3250 4400 4150 4400
+Wire Notes Line
+	4150 4400 4150 3950
+Wire Notes Line
+	4150 3950 3250 3950
+Text Notes 3250 4600 0    50   ~ 0
+Allow bypassing the 12V regulator\nif the input voltage is less then 12V.
+$EndSCHEMATC
