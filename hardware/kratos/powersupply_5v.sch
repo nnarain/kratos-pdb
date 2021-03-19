@@ -51,18 +51,6 @@ F 3 "" H 6300 3850 50  0001 C CNN
 	1    6300 3850
 	1    0    0    -1  
 $EndComp
-$Comp
-L Device:C C2
-U 1 1 604EA0E2
-P 6300 3550
-F 0 "C2" H 6415 3596 50  0000 L CNN
-F 1 "10uF, 16V" H 6415 3505 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0805_2012Metric" H 6338 3400 50  0001 C CNN
-F 3 "~" H 6300 3550 50  0001 C CNN
-F 4 "511-1683-2-ND" H 6300 3550 50  0001 C CNN "Digi-Key_PN"
-	1    6300 3550
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	4600 3200 5150 3200
 Wire Wire Line
@@ -124,4 +112,18 @@ Wire Wire Line
 	7000 4100 7000 4300
 Text Notes 5250 4300 0    50   ~ 0
 5V Linear Regulator
+$Comp
+L Device:CP C?
+U 1 1 60553334
+P 6300 3550
+AR Path="/604E226D/60553334" Ref="C?"  Part="1" 
+AR Path="/604E6CA5/60553334" Ref="C2"  Part="1" 
+F 0 "C2" H 6418 3596 50  0000 L CNN
+F 1 "10uF, 16V" H 6418 3505 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0805_2012Metric" H 6338 3400 50  0001 C CNN
+F 3 "~" H 6300 3550 50  0001 C CNN
+F 4 "511-1683-2-ND" H 6300 3550 50  0001 C CNN "Digi-Key_PN"
+	1    6300 3550
+	1    0    0    -1  
+$EndComp
 $EndSCHEMATC
