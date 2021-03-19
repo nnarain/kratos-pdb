@@ -21,6 +21,7 @@ F 0 "U1" H 5550 3042 50  0000 C CNN
 F 1 "AP2138" H 5550 2951 50  0000 C CNN
 F 2 "Package_TO_SOT_SMD:SOT-23" H 6300 2950 50  0001 C CNN
 F 3 "https://www.diodes.com/assets/Datasheets/AP2138-9.pdf" H 5550 3050 50  0001 C CNN
+F 4 "AP2138N-3.3TRG1DITR-ND" H 5550 2950 50  0001 C CNN "Digi-Key_PN"
 	1    5550 2950
 	1    0    0    -1  
 $EndComp
@@ -45,4 +46,6 @@ Wire Wire Line
 	5850 3100 5950 3100
 Text HLabel 5950 3100 2    50   Output ~ 0
 VOUT
+Text Notes 5150 3900 0    50   ~ 0
+3.3V Linear Regulator\n
 $EndSCHEMATC

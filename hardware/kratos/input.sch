@@ -71,6 +71,7 @@ F 0 "U4" H 6450 3400 50  0000 C CNN
 F 1 "DS2745U" H 6550 2750 50  0000 C CNN
 F 2 "Package_SO:TSSOP-8_3x3mm_P0.65mm" H 6300 2600 50  0001 C CNN
 F 3 "https://datasheets.maximintegrated.com/en/ds/DS2745.pdf" H 6400 2700 50  0001 C CNN
+F 4 "DS2745U+TR-NDDS2745U+TR-ND" H 6300 3100 50  0001 C CNN "Digi-Key_PN"
 	1    6300 3100
 	1    0    0    -1  
 $EndComp
@@ -113,9 +114,10 @@ L Device:R R1
 U 1 1 6045AF5C
 P 5000 4050
 F 0 "R1" H 5070 4096 50  0000 L CNN
-F 1 "15m" H 5070 4005 50  0000 L CNN
+F 1 "10m" H 5070 4005 50  0000 L CNN
 F 2 "Resistor_SMD:R_2512_6332Metric" V 4930 4050 50  0001 C CNN
-F 3 "~" H 5000 4050 50  0001 C CNN
+F 3 "https://www.te.com/commerce/DocumentDelivery/DDEController?Action=srchrtrv&DocNm=1773449-3&DocType=DS&DocLang=English" H 5000 4050 50  0001 C CNN
+F 4 "A131799TR-ND" H 5000 4050 50  0001 C CNN "Digi-Key_PN"
 	1    5000 4050
 	1    0    0    -1  
 $EndComp
@@ -154,17 +156,6 @@ Text HLabel 5800 3000 0    50   Output ~ 0
 P1
 Wire Wire Line
 	5900 3000 5800 3000
-$Comp
-L Device:R R4
-U 1 1 6046BAD6
-P 6800 2700
-F 0 "R4" H 6870 2746 50  0000 L CNN
-F 1 "10k" H 6870 2655 50  0000 L CNN
-F 2 "Resistor_SMD:R_0805_2012Metric" V 6730 2700 50  0001 C CNN
-F 3 "~" H 6800 2700 50  0001 C CNN
-	1    6800 2700
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	6700 3000 6800 3000
 Wire Wire Line
@@ -174,7 +165,7 @@ L Device:R R3
 U 1 1 6046CBE4
 P 6550 2300
 F 0 "R3" V 6650 2250 50  0000 L CNN
-F 1 "42k" V 6450 2200 50  0000 L CNN
+F 1 "20k" V 6450 2200 50  0000 L CNN
 F 2 "Resistor_SMD:R_0805_2012Metric" V 6480 2300 50  0001 C CNN
 F 3 "~" H 6550 2300 50  0001 C CNN
 	1    6550 2300
@@ -185,9 +176,10 @@ L Device:R R5
 U 1 1 6046D145
 P 7050 2300
 F 0 "R5" V 7150 2250 50  0000 L CNN
-F 1 "10k" V 6950 2200 50  0000 L CNN
+F 1 "4.7k" V 6950 2200 50  0000 L CNN
 F 2 "Resistor_SMD:R_0805_2012Metric" V 6980 2300 50  0001 C CNN
 F 3 "~" H 7050 2300 50  0001 C CNN
+F 4 "RMCF0805FT20K0CT-ND" V 7050 2300 50  0001 C CNN "Digi-Key_PN"
 	1    7050 2300
 	0    -1   -1   0   
 $EndComp
@@ -223,6 +215,7 @@ F 0 "C3" V 6150 2500 50  0000 L CNN
 F 1 "10nF" V 5850 2450 50  0000 L CNN
 F 2 "Capacitor_SMD:C_0805_2012Metric" H 6038 2400 50  0001 C CNN
 F 3 "~" H 6000 2550 50  0001 C CNN
+F 4 "1276-1015-2-ND" V 6000 2550 50  0001 C CNN "Digi-Key_PN"
 	1    6000 2550
 	0    -1   -1   0   
 $EndComp
@@ -306,4 +299,16 @@ Wire Wire Line
 	5300 1950 6300 1950
 Text Notes 5150 1450 0    50   ~ 0
 Jumper for external switch (connect terminals when no external switch is needed)
+$Comp
+L Device:R R4
+U 1 1 6046BAD6
+P 6800 2700
+F 0 "R4" H 6870 2746 50  0000 L CNN
+F 1 "10k" H 6870 2655 50  0000 L CNN
+F 2 "Resistor_SMD:R_0805_2012Metric" V 6730 2700 50  0001 C CNN
+F 3 "~" H 6800 2700 50  0001 C CNN
+F 4 "A131799TR-ND" H 6800 2700 50  0001 C CNN "Digi-Key_PN"
+	1    6800 2700
+	1    0    0    -1  
+$EndComp
 $EndSCHEMATC

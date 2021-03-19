@@ -21,6 +21,7 @@ F 0 "U2" H 5750 3665 50  0000 C CNN
 F 1 "MIC29300-12" H 5750 3574 50  0000 C CNN
 F 2 "Package_TO_SOT_SMD:TO-263-3_TabPin2" H 5800 2600 50  0001 C CNN
 F 3 "http://ww1.microchip.com/downloads/en/DeviceDoc/MIC2915x-30x-50x-75x-High-Current-Low-Dropout-Regulators-DS20005685B.pdf" H 5750 3450 50  0001 C CNN
+F 4 "576-2222-ND" H 5750 3300 50  0001 C CNN "Digi-Key_PN"
 	1    5750 3300
 	1    0    0    -1  
 $EndComp
@@ -48,9 +49,10 @@ L Device:C C1
 U 1 1 604E58D6
 P 6500 3600
 F 0 "C1" H 6615 3646 50  0000 L CNN
-F 1 "10uF" H 6615 3555 50  0000 L CNN
+F 1 "10uF, 16V" H 6615 3555 50  0000 L CNN
 F 2 "Capacitor_SMD:C_0805_2012Metric" H 6538 3450 50  0001 C CNN
 F 3 "~" H 6500 3600 50  0001 C CNN
+F 4 "511-1683-2-ND" H 6500 3600 50  0001 C CNN "Digi-Key_PN"
 	1    6500 3600
 	1    0    0    -1  
 $EndComp
