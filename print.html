@@ -1,0 +1,2474 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Kratos</title>
+        
+        <meta name="robots" content="noindex" />
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        
+        <link rel="icon" href="favicon.svg">
+        
+        
+        <link rel="shortcut icon" href="favicon.png">
+        
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        
+        <link rel="stylesheet" href="css/print.css" media="print">
+        
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="intro.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="design.html"><strong aria-hidden="true">2.</strong> Design</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.</strong> Firmware</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.</strong> References</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="_generated/ibom.html"><strong aria-hidden="true">4.1.</strong> BOM</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title">Kratos</h1>
+
+                    <div class="right-buttons">
+                        
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                        
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <p><img src="./_images/banner.png" alt="Image not found" /></p>
+<p>This is a simple power distribution board for personal projects. It has 12V, 5V and 3.3V linear regulators and can draw from a wall DC adapter or a battery.</p>
+<p>Maximum input voltage is 26V and the board and has onboard voltage, current and temperature sensing over I2C.</p>
+<h1 id="design-summary"><a class="header" href="#design-summary">Design Summary</a></h1>
+<p>Schematics can be found <a href="./_generated/kratos.pdf">here</a>.</p>
+<h2 id="voltage-regulators"><a class="header" href="#voltage-regulators">Voltage Regulators</a></h2>
+<p>This board has 3 cascading linear voltage regulators: 12V, 5V and 3.3V.</p>
+<p>Linear regulators were chosen mostly for simplicity and also I found I could build a smaller PCB compared to a switch mode design.</p>
+<p>The 12V and 5V regulators can both supply up to 3A, since the intent of this board was to power motorized projects.</p>
+<h2 id="sensing"><a class="header" href="#sensing">Sensing</a></h2>
+<p>This board has a built in battery monitor and that can report voltage, current and temperature over I2C.</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive BOM for KiCAD</title>
+  <style type="text/css">
+:root {
+  --pcb-edge-color: black;
+  --pad-color: #878787;
+  --pad-color-highlight: #D04040;
+  --pin1-outline-color: #ffb629;
+  --pin1-outline-color-highlight: #b4ff03;
+  --silkscreen-edge-color: #aa4;
+  --silkscreen-polygon-color: #4aa;
+  --silkscreen-text-color: #4aa;
+  --fabrication-edge-color: #907651;
+  --fabrication-polygon-color: #907651;
+  --fabrication-text-color: #a27c24;
+}
+<p>html, body {
+margin: 0px;
+height: 100%;
+font-family: Verdana, sans-serif;
+}</p>
+<p>.dark {
+--pcb-edge-color: #eee;
+--pad-color: #808080;
+--pin1-outline-color: #ffa800;
+--pin1-outline-color-highlight: #ccff00;
+background-color: #252c30;
+color: #eee;
+}</p>
+<p>button {
+background-color: #eee;
+border: 1px solid #888;
+color: black;
+height: 44px;
+width: 44px;
+text-align: center;
+text-decoration: none;
+display: inline-block;
+font-size: 14px;
+font-weight: bolder;
+}</p>
+<p>.dark button {
+/* This will be inverted */
+background-color: #c3b7b5;
+}</p>
+<p>button.depressed {
+background-color: #0a0;
+color: white;
+}</p>
+<p>.dark button.depressed {
+/* This will be inverted */
+background-color: #b3b;
+}</p>
+<p>button:focus {
+outline: 0;
+}</p>
+<p>button#tb-btn {
+background-image: url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8.47 8.47'%3E%3Crect transform='translate(0 -288.53)' ry='1.17' y='288.8' x='.27' height='7.94' width='7.94' fill='%23f9f9f9'/%3E%3Cg transform='translate(0 -288.53)'%3E%3Crect width='7.94' height='7.94' x='.27' y='288.8' ry='1.17' fill='none' stroke='%23000' stroke-width='.4' stroke-linejoin='round'/%3E%3Cpath d='M1.32 290.12h5.82M1.32 291.45h5.82' fill='none' stroke='%23000' stroke-width='.4'/%3E%3Cpath d='M4.37 292.5v4.23M.26 292.63H8.2' fill='none' stroke='%23000' stroke-width='.3'/%3E%3Ctext font-weight='700' font-size='3.17' font-family='sans-serif'%3E%3Ctspan x='1.35' y='295.73'%3EF%3C/tspan%3E%3Ctspan x='5.03' y='295.68'%3EB%3C/tspan%3E%3C/text%3E%3C/g%3E%3C/svg%3E%0A&quot;);
+background-size: 32px 32px;
+background-position: 5px 5px;
+background-repeat: no-repeat;
+}</p>
+<p>button#lr-btn {
+background-image: url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8.47 8.47'%3E%3Crect transform='translate(0 -288.53)' ry='1.17' y='288.8' x='.27' height='7.94' width='7.94' fill='%23f9f9f9'/%3E%3Cg transform='translate(0 -288.53)'%3E%3Crect width='7.94' height='7.94' x='.27' y='288.8' ry='1.17' fill='none' stroke='%23000' stroke-width='.4' stroke-linejoin='round'/%3E%3Cpath d='M1.06 290.12H3.7m-2.64 1.33H3.7m-2.64 1.32H3.7m-2.64 1.3H3.7m-2.64 1.33H3.7' fill='none' stroke='%23000' stroke-width='.4'/%3E%3Cpath d='M4.37 288.8v7.94m0-4.11h3.96' fill='none' stroke='%23000' stroke-width='.3'/%3E%3Ctext font-weight='700' font-size='3.17' font-family='sans-serif'%3E%3Ctspan x='5.11' y='291.96'%3EF%3C/tspan%3E%3Ctspan x='5.03' y='295.68'%3EB%3C/tspan%3E%3C/text%3E%3C/g%3E%3C/svg%3E%0A&quot;);
+background-size: 32px 32px;
+background-position: 5px 5px;
+background-repeat: no-repeat;
+}</p>
+<p>button#bom-btn {
+background-image: url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8.47 8.47'%3E%3Crect transform='translate(0 -288.53)' ry='1.17' y='288.8' x='.27' height='7.94' width='7.94' fill='%23f9f9f9'/%3E%3Cg transform='translate(0 -288.53)' fill='none' stroke='%23000' stroke-width='.4'%3E%3Crect width='7.94' height='7.94' x='.27' y='288.8' ry='1.17' stroke-linejoin='round'/%3E%3Cpath d='M1.59 290.12h5.29M1.59 291.45h5.33M1.59 292.75h5.33M1.59 294.09h5.33M1.59 295.41h5.33'/%3E%3C/g%3E%3C/svg%3E&quot;);
+background-size: 32px 32px;
+background-position: 5px 5px;
+background-repeat: no-repeat;
+}</p>
+<p>button#copy {
+background-image: url(&quot;data:image/svg+xml,%3Csvg height='48' viewBox='0 0 48 48' width='48' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h48v48h-48z' fill='none'/%3E%3Cpath d='M32 2h-24c-2.21 0-4 1.79-4 4v28h4v-28h24v-4zm6 8h-22c-2.21 0-4 1.79-4 4v28c0 2.21 1.79 4 4 4h22c2.21 0 4-1.79 4-4v-28c0-2.21-1.79-4-4-4zm0 32h-22v-28h22v28z'/%3E%3C/svg%3E&quot;);
+background-position: 6px 6px;
+background-repeat: no-repeat;
+background-size: 26px 26px;
+border-radius: 6px;
+height: 40px;
+width: 40px;
+margin: 10px 5px;
+}</p>
+<p>button#copy:active {
+box-shadow: inset 0px 0px 5px #6c6c6c;
+}</p>
+<p>textarea.clipboard-temp {
+position: fixed;
+top: 0;
+left: 0;
+width: 2em;
+height: 2em;
+padding: 0;
+border: None;
+outline: None;
+box-shadow: None;
+background: transparent;
+}</p>
+<p>.left-most-button {
+border-right: 0;
+border-top-left-radius: 6px;
+border-bottom-left-radius: 6px;
+}</p>
+<p>.middle-button {
+border-right: 0;
+}</p>
+<p>.right-most-button {
+border-top-right-radius: 6px;
+border-bottom-right-radius: 6px;
+}</p>
+<p>.button-container {
+font-size: 0;
+}</p>
+<p>.dark .button-container {
+filter: invert(1);
+}</p>
+<p>@media print {
+.hideonprint {
+display: none;
+}
+}</p>
+<p>canvas {
+cursor: crosshair;
+}</p>
+<p>canvas:active {
+cursor: grabbing;
+}</p>
+<p>.fileinfo {
+width: 100%;
+max-width: 1000px;
+border: none;
+padding: 5px;
+}</p>
+<p>.fileinfo .title {
+font-size: 20pt;
+font-weight: bold;
+}</p>
+<p>.fileinfo td {
+overflow: hidden;
+white-space: nowrap;
+max-width: 1px;
+width: 50%;
+text-overflow: ellipsis;
+}</p>
+<p>.bom {
+border-collapse: collapse;
+font-family: Consolas, &quot;DejaVu Sans Mono&quot;, Monaco, monospace;
+font-size: 10pt;
+table-layout: fixed;
+width: 100%;
+margin-top: 1px;
+}</p>
+<p>.bom th, .bom td {
+border: 1px solid black;
+padding: 5px;
+word-wrap: break-word;
+text-align: center;
+position: relative;
+}</p>
+<p>.dark .bom th, .dark .bom td {
+border: 1px solid #777;
+}</p>
+<p>.bom th {
+background-color: #CCCCCC;
+background-clip: padding-box;
+}</p>
+<p>.dark .bom th {
+background-color: #3b4749;
+}</p>
+<p>.bom tr.highlighted:nth-child(n) {
+background-color: #cfc;
+}</p>
+<p>.dark .bom tr.highlighted:nth-child(n) {
+background-color: #226022;
+}</p>
+<p>.bom tr:nth-child(even) {
+background-color: #f2f2f2;
+}</p>
+<p>.dark .bom tr:nth-child(even) {
+background-color: #313b40;
+}</p>
+<p>.bom tr {
+transition: background-color 0.2s;
+}</p>
+<p>.bom .numCol {
+width: 25px;
+}</p>
+<p>.bom .Description {
+width: 10%;
+}</p>
+<p>.bom .Part {
+width: 10%;
+}</p>
+<p>.bom .Value {
+width: 15%;
+}</p>
+<p>.bom .Quantity {
+width: 65px;
+}</p>
+<p>.bom th .sortmark {
+position: absolute;
+right: 1px;
+top: 1px;
+margin-top: -5px;
+border-width: 5px;
+border-style: solid;
+border-color: transparent transparent #221 transparent;
+transform-origin: 50% 85%;
+transition: opacity 0.2s, transform 0.4s;
+}</p>
+<p>.dark .bom th .sortmark {
+filter: invert(1);
+}</p>
+<p>.bom th .sortmark.none {
+opacity: 0;
+}</p>
+<p>.bom th .sortmark.desc {
+transform: rotate(180deg);
+}</p>
+<p>.bom th:hover .sortmark.none {
+opacity: 0.5;
+}</p>
+<p>.bom .bom-checkbox {
+width: 30px;
+position: relative;
+user-select: none;
+-moz-user-select: none;
+}</p>
+<p>.bom .bom-checkbox:before {
+content: &quot;&quot;;
+position: absolute;
+border-width: 15px;
+border-style: solid;
+border-color: #51829f transparent transparent transparent;
+visibility: hidden;
+top: -15px;
+}</p>
+<p>.bom .bom-checkbox:after {
+content: &quot;Double click to set/unset all&quot;;
+position: absolute;
+color: white;
+top: -35px;
+left: -26px;
+background: #51829f;
+padding: 5px 15px;
+border-radius: 8px;
+white-space: nowrap;
+visibility: hidden;
+}</p>
+<p>.bom .bom-checkbox:hover:before, .bom .bom-checkbox:hover:after {
+visibility: visible;
+transition: visibility 0.2s linear 1s;
+}</p>
+<p>.split {
+-webkit-box-sizing: border-box;
+-moz-box-sizing: border-box;
+box-sizing: border-box;
+overflow-y: auto;
+overflow-x: hidden;
+background-color: inherit;
+}</p>
+<p>.split.split-horizontal, .gutter.gutter-horizontal {
+height: 100%;
+float: left;
+}</p>
+<p>.gutter {
+background-color: #ddd;
+background-repeat: no-repeat;
+background-position: 50%;
+transition: background-color 0.3s;
+}</p>
+<p>.dark .gutter {
+background-color: #777;
+}</p>
+<p>.gutter.gutter-horizontal {
+background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAeCAYAAADkftS9AAAAIklEQVQoU2M4c+bMfxAGAgYYmwGrIIiDjrELjpo5aiZeMwF+yNnOs5KSvgAAAABJRU5ErkJggg==');
+cursor: ew-resize;
+width: 5px;
+}</p>
+<p>.gutter.gutter-vertical {
+background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAFAQMAAABo7865AAAABlBMVEVHcEzMzMzyAv2sAAAAAXRSTlMAQObYZgAAABBJREFUeF5jOAMEEAIEEFwAn3kMwcB6I2AAAAAASUVORK5CYII=');
+cursor: ns-resize;
+height: 5px;
+}</p>
+<p>.searchbox {
+float: left;
+height: 40px;
+margin: 10px 5px;
+padding: 12px 32px;
+font-family: Consolas, &quot;DejaVu Sans Mono&quot;, Monaco, monospace;
+font-size: 18px;
+box-sizing: border-box;
+border: 1px solid #888;
+border-radius: 6px;
+outline: none;
+background-color: #eee;
+transition: background-color 0.2s, border 0.2s;
+background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABNklEQVQ4T8XSMUvDQBQH8P/LElFa/AIZHcTBQSz0I/gFstTBRR2KUC4ldDxw7h0Bl3RRUATxi4iiODgoiLNrbQYp5J6cpJJqomkX33Z37/14d/dIa33MzDuYI4johOI4XhyNRteO46zNYjDzAxE1yBZprVeZ+QbAUhXEGJMA2Ox2u4+fQIa0mPmsCgCgJYQ4t7lfgF0opQYAdv9ABkKI/UnOFCClXKjX61cA1osQY8x9kiRNKeV7IWA3oyhaSdP0FkAtjxhj3hzH2RBCPOf3pzqYHCilfAAX+URm9oMguPzeWSGQvUcMYC8rOBJCHBRdqxTo9/vbRHRqi8bj8XKv1xvODbiuW2u32/bvf0SlDv4XYOY7z/Mavu+nM1+BmQ+NMc0wDF/LprP0DbTWW0T00ul0nn4b7Q87+X4Qmfiq2wAAAABJRU5ErkJggg==');
+background-position: 10px 10px;
+background-repeat: no-repeat;
+}</p>
+<p>.dark .searchbox {
+background-color: #111;
+color: #eee;
+}</p>
+<p>.searchbox::placeholder {
+color: #ccc;
+}</p>
+<p>.dark .searchbox::placeholder {
+color: #666;
+}</p>
+<p>.filter {
+width: calc(60% - 64px);
+}</p>
+<p>.reflookup {
+width: calc(40% - 10px);
+}</p>
+<p>input[type=text]:focus {
+background-color: white;
+border: 1px solid #333;
+}</p>
+<p>.dark input[type=text]:focus {
+background-color: #333;
+border: 1px solid #ccc;
+}</p>
+<p>mark.highlight {
+background-color: #5050ff;
+color: #fff;
+padding: 2px;
+border-radius: 6px;
+}</p>
+<p>.dark mark.highlight {
+background-color: #76a6da;
+color: #111;
+}</p>
+<p>.menubtn {
+background-color: white;
+font-size: 16px;
+border: none;
+background-image: url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='36' viewBox='0 0 20 20'%3E%3Cpath fill='none' d='M0 0h20v20H0V0z'/%3E%3Cpath d='M15.95 10.78c.03-.25.05-.51.05-.78s-.02-.53-.06-.78l1.69-1.32c.15-.12.19-.34.1-.51l-1.6-2.77c-.1-.18-.31-.24-.49-.18l-1.99.8c-.42-.32-.86-.58-1.35-.78L12 2.34c-.03-.2-.2-.34-.4-.34H8.4c-.2 0-.36.14-.39.34l-.3 2.12c-.49.2-.94.47-1.35.78l-1.99-.8c-.18-.07-.39 0-.49.18l-1.6 2.77c-.1.18-.06.39.1.51l1.69 1.32c-.04.25-.07.52-.07.78s.02.53.06.78L2.37 12.1c-.15.12-.19.34-.1.51l1.6 2.77c.1.18.31.24.49.18l1.99-.8c.42.32.86.58 1.35.78l.3 2.12c.04.2.2.34.4.34h3.2c.2 0 .37-.14.39-.34l.3-2.12c.49-.2.94-.47 1.35-.78l1.99.8c.18.07.39 0 .49-.18l1.6-2.77c.1-.18.06-.39-.1-.51l-1.67-1.32zM10 13c-1.65 0-3-1.35-3-3s1.35-3 3-3 3 1.35 3 3-1.35 3-3 3z'/%3E%3C/svg%3E%0A&quot;);
+background-position: center;
+background-repeat: no-repeat;
+}</p>
+<p>.dark .menubtn {
+filter: invert(1);
+}</p>
+<p>.menu {
+position: relative;
+display: inline-block;
+}</p>
+<p>.menu-content {
+display: none;
+position: absolute;
+background-color: white;
+right: 0;
+min-width: 300px;
+box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+z-index: 100;
+padding: 8px;
+}</p>
+<p>.dark .menu-content {
+background-color: #111;
+}</p>
+<p>.menu:hover .menu-content {
+display: block;
+}</p>
+<p>.menu:hover .menubtn {
+background-color: #eee;
+}</p>
+<p>.dark .menu:hover .menubtn {}</p>
+<p>.menu-label {
+display: inline-block;
+padding: 8px;
+border: 1px solid #ccc;
+border-top: 0;
+width: calc(100% - 18px);
+}</p>
+<p>.menu-label-top {
+border-top: 1px solid #ccc;
+}</p>
+<p>.menu-textbox {
+float: left;
+height: 24px;
+margin: 10px 5px;
+padding: 5px 5px;
+font-family: Consolas, &quot;DejaVu Sans Mono&quot;, Monaco, monospace;
+font-size: 14px;
+box-sizing: border-box;
+border: 1px solid #888;
+border-radius: 4px;
+outline: none;
+background-color: #eee;
+transition: background-color 0.2s, border 0.2s;
+width: calc(100% - 10px);
+}</p>
+<p>.dark .menu-textbox {
+background-color: #222;
+color: #eee;
+}</p>
+<p>#topmostdiv {
+transition: background-color 0.3s;
+}</p>
+<p>#top {
+height: 78px;
+border-bottom: 2px solid black;
+}</p>
+<p>.dark #top {
+border-bottom: 2px solid #ccc;
+}</p>
+<p>#dbg {
+display: block;
+}</p>
+<p>::-webkit-scrollbar {
+width: 8px;
+}</p>
+<p>::-webkit-scrollbar-track {
+background: #aaa;
+}</p>
+<p>::-webkit-scrollbar-thumb {
+background: #666;
+border-radius: 3px;
+}</p>
+<p>::-webkit-scrollbar-thumb:hover {
+background: #555;
+}</p>
+<p>.slider {
+-webkit-appearance: none;
+width: 100%;
+margin: 3px 0;
+padding: 0;
+outline: none;
+opacity: 0.7;
+-webkit-transition: .2s;
+transition: opacity .2s;
+border-radius: 3px;
+}</p>
+<p>.slider:hover {
+opacity: 1;
+}</p>
+<p>.slider:focus {
+outline: none;
+}</p>
+<p>.slider::-webkit-slider-runnable-track {
+-webkit-appearance: none;
+width: 100%;
+height: 8px;
+background: #d3d3d3;
+border-radius: 3px;
+border: none;
+}</p>
+<p>.slider::-webkit-slider-thumb {
+-webkit-appearance: none;
+width: 15px;
+height: 15px;
+border-radius: 50%;
+background: #0a0;
+cursor: pointer;
+margin-top: -4px;
+}</p>
+<p>.dark .slider::-webkit-slider-thumb {
+background: #3d3;
+}</p>
+<p>.slider::-moz-range-thumb {
+width: 15px;
+height: 15px;
+border-radius: 50%;
+background: #0a0;
+cursor: pointer;
+}</p>
+<p>.slider::-moz-range-track {
+height: 8px;
+background: #d3d3d3;
+border-radius: 3px;
+}</p>
+<p>.dark .slider::-moz-range-thumb {
+background: #3d3;
+}</p>
+<p>.slider::-ms-track {
+width: 100%;
+height: 8px;
+border-width: 3px 0;
+background: transparent;
+border-color: transparent;
+color: transparent;
+transition: opacity .2s;
+}</p>
+<p>.slider::-ms-fill-lower {
+background: #d3d3d3;
+border: none;
+border-radius: 3px;
+}</p>
+<p>.slider::-ms-fill-upper {
+background: #d3d3d3;
+border: none;
+border-radius: 3px;
+}</p>
+<p>.slider::-ms-thumb {
+width: 15px;
+height: 15px;
+border-radius: 50%;
+background: #0a0;
+cursor: pointer;
+margin: 0;
+}</p>
+<p>.shameless-plug {
+font-size: 0.8em;
+text-align: center;
+display: block;
+}</p>
+<p>a {
+color: #0278a4;
+}</p>
+<p>.dark a {
+color: #00b9fd;
+}</p>
+</style>
+  <script type="text/javascript" >
+///////////////////////////////////////////////
+/*
+  Split.js - v1.3.5
+  MIT License
+  https://github.com/nathancahill/Split.js
+*/
+!function(e,t){"object"==typeof exports&&"undefined"!=typeof module?module.exports=t():"function"==typeof define&&define.amd?define(t):e.Split=t()}(this,function(){"use strict";var e=window,t=e.document,n="addEventListener",i="removeEventListener",r="getBoundingClientRect",s=function(){return!1},o=e.attachEvent&&!e[n],a=["","-webkit-","-moz-","-o-"].filter(function(e){var n=t.createElement("div");return n.style.cssText="width:"+e+"calc(9px)",!!n.style.length}).shift()+"calc",l=function(e){return"string"==typeof e||e instanceof String?t.querySelector(e):e};return function(u,c){function z(e,t,n){var i=A(y,t,n);Object.keys(i).forEach(function(t){return e.style[t]=i[t]})}function h(e,t){var n=B(y,t);Object.keys(n).forEach(function(t){return e.style[t]=n[t]})}function f(e){var t=E[this.a],n=E[this.b],i=t.size+n.size;t.size=e/this.size*i,n.size=i-e/this.size*i,z(t.element,t.size,this.aGutterSize),z(n.element,n.size,this.bGutterSize)}function m(e){var t;this.dragging&&((t="touches"in e?e.touches[0][b]-this.start:e[b]-this.start)<=E[this.a].minSize+M+this.aGutterSize?t=E[this.a].minSize+this.aGutterSize:t>=this.size-(E[this.b].minSize+M+this.bGutterSize)&&(t=this.size-(E[this.b].minSize+this.bGutterSize)),f.call(this,t),c.onDrag&&c.onDrag())}function g(){var e=E[this.a].element,t=E[this.b].element;this.size=e[r]()[y]+t[r]()[y]+this.aGutterSize+this.bGutterSize,this.start=e[r]()[G]}function d(){var t=this,n=E[t.a].element,r=E[t.b].element;t.dragging&&c.onDragEnd&&c.onDragEnd(),t.dragging=!1,e[i]("mouseup",t.stop),e[i]("touchend",t.stop),e[i]("touchcancel",t.stop),t.parent[i]("mousemove",t.move),t.parent[i]("touchmove",t.move),delete t.stop,delete t.move,n[i]("selectstart",s),n[i]("dragstart",s),r[i]("selectstart",s),r[i]("dragstart",s),n.style.userSelect="",n.style.webkitUserSelect="",n.style.MozUserSelect="",n.style.pointerEvents="",r.style.userSelect="",r.style.webkitUserSelect="",r.style.MozUserSelect="",r.style.pointerEvents="",t.gutter.style.cursor="",t.parent.style.cursor=""}function S(t){var i=this,r=E[i.a].element,o=E[i.b].element;!i.dragging&&c.onDragStart&&c.onDragStart(),t.preventDefault(),i.dragging=!0,i.move=m.bind(i),i.stop=d.bind(i),e[n]("mouseup",i.stop),e[n]("touchend",i.stop),e[n]("touchcancel",i.stop),i.parent[n]("mousemove",i.move),i.parent[n]("touchmove",i.move),r[n]("selectstart",s),r[n]("dragstart",s),o[n]("selectstart",s),o[n]("dragstart",s),r.style.userSelect="none",r.style.webkitUserSelect="none",r.style.MozUserSelect="none",r.style.pointerEvents="none",o.style.userSelect="none",o.style.webkitUserSelect="none",o.style.MozUserSelect="none",o.style.pointerEvents="none",i.gutter.style.cursor=j,i.parent.style.cursor=j,g.call(i)}function v(e){e.forEach(function(t,n){if(n>0){var i=F[n-1],r=E[i.a],s=E[i.b];r.size=e[n-1],s.size=t,z(r.element,r.size,i.aGutterSize),z(s.element,s.size,i.bGutterSize)}})}function p(){F.forEach(function(e){e.parent.removeChild(e.gutter),E[e.a].element.style[y]="",E[e.b].element.style[y]=""})}void 0===c&&(c={});var y,b,G,E,w=l(u[0]).parentNode,D=e.getComputedStyle(w).flexDirection,U=c.sizes||u.map(function(){return 100/u.length}),k=void 0!==c.minSize?c.minSize:100,x=Array.isArray(k)?k:u.map(function(){return k}),L=void 0!==c.gutterSize?c.gutterSize:10,M=void 0!==c.snapOffset?c.snapOffset:30,O=c.direction||"horizontal",j=c.cursor||("horizontal"===O?"ew-resize":"ns-resize"),C=c.gutter||function(e,n){var i=t.createElement("div");return i.className="gutter gutter-"+n,i},A=c.elementStyle||function(e,t,n){var i={};return"string"==typeof t||t instanceof String?i[e]=t:i[e]=o?t+"%":a+"("+t+"% - "+n+"px)",i},B=c.gutterStyle||function(e,t){return n={},n[e]=t+"px",n;var n};"horizontal"===O?(y="width","clientWidth",b="clientX",G="left","paddingLeft"):"vertical"===O&&(y="height","clientHeight",b="clientY",G="top","paddingTop");var F=[];return E=u.map(function(e,t){var i,s={element:l(e),size:U[t],minSize:x[t]};if(t>0&&(i={a:t-1,b:t,dragging:!1,isFirst:1===t,isLast:t===u.length-1,direction:O,parent:w},i.aGutterSize=L,i.bGutterSize=L,i.isFirst&&(i.aGutterSize=L/2),i.isLast&&(i.bGutterSize=L/2),"row-reverse"===D||"column-reverse"===D)){var a=i.a;i.a=i.b,i.b=a}if(!o&&t>0){var c=C(t,O);h(c,L),c[n]("mousedown",S.bind(i)),c[n]("touchstart",S.bind(i)),w.insertBefore(c,s.element),i.gutter=c}0===t||t===u.length-1?z(s.element,s.size,L/2):z(s.element,s.size,L);var f=s.element[r]()[y];return f<s.minSize&&(s.minSize=f),t>0&&F.push(i),s}),o?{setSizes:v,destroy:p}:{setSizes:v,getSizes:function(){return E.map(function(e){return e.size})},collapse:function(e){if(e===F.length){var t=F[e-1];g.call(t),o||f.call(t,t.size-t.bGutterSize)}else{var n=F[e];g.call(n),o||f.call(n,n.aGutterSize)}},destroy:p}}});
+<p>///////////////////////////////////////////////</p>
+<p>///////////////////////////////////////////////
+var config = {&quot;dark_mode&quot;: false, &quot;show_pads&quot;: true, &quot;show_fabrication&quot;: false, &quot;show_silkscreen&quot;: true, &quot;highlight_pin1&quot;: true, &quot;redraw_on_drag&quot;: true, &quot;board_rotation&quot;: 0.0, &quot;checkboxes&quot;: &quot;Sourced,Placed&quot;, &quot;bom_view&quot;: &quot;left-right&quot;, &quot;layer_view&quot;: &quot;FB&quot;, &quot;extra_fields&quot;: []}
+///////////////////////////////////////////////</p>
+<p>///////////////////////////////////////////////
+var pcbdata = {&quot;edges_bbox&quot;: {&quot;minx&quot;: 86.84299899999999, &quot;miny&quot;: 78.460999, &quot;maxx&quot;: 119.151001, &quot;maxy&quot;: 129.05700099999999}, &quot;edges&quot;: [{&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [119.12599999999999, 129.03199999999998], &quot;end&quot;: [86.868, 129.03199999999998], &quot;width&quot;: 0.049999999999999996}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [119.12599999999999, 78.48599999999999], &quot;end&quot;: [119.12599999999999, 129.03199999999998], &quot;width&quot;: 0.049999999999999996}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [86.868, 78.48599999999999], &quot;end&quot;: [119.12599999999999, 78.48599999999999], &quot;width&quot;: 0.049999999999999996}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [86.868, 129.03199999999998], &quot;end&quot;: [86.868, 78.48599999999999], &quot;width&quot;: 0.049999999999999996}], &quot;silkscreen&quot;: {&quot;F&quot;: [{&quot;pos&quot;: [88.646, 117.094], &quot;text&quot;: &quot;kratos&quot;, &quot;height&quot;: 1.5, &quot;width&quot;: 1.5, &quot;horiz_justify&quot;: 0, &quot;thickness&quot;: 0.3, &quot;attr&quot;: [], &quot;angle&quot;: 90.0}, {&quot;pos&quot;: [89.154, 81.53399999999999], &quot;text&quot;: &quot;PWR&quot;, &quot;height&quot;: 1.0, &quot;width&quot;: 1.0, &quot;horiz_justify&quot;: 0, &quot;thickness&quot;: 0.15, &quot;attr&quot;: [], &quot;angle&quot;: 0.0}, {&quot;pos&quot;: [101.34599999999999, 123.698], &quot;text&quot;: &quot;+  -&quot;, &quot;height&quot;: 1.0, &quot;width&quot;: 1.0, &quot;horiz_justify&quot;: 0, &quot;thickness&quot;: 0.15, &quot;attr&quot;: [], &quot;angle&quot;: 0.0}, {&quot;pos&quot;: [91.44, 125.72999999999999], &quot;text&quot;: &quot;+   -&quot;, &quot;height&quot;: 1.0, &quot;width&quot;: 1.0, &quot;horiz_justify&quot;: 0, &quot;thickness&quot;: 0.15, &quot;attr&quot;: [], &quot;angle&quot;: 90.0}, {&quot;pos&quot;: [91.694, 104.648], &quot;text&quot;: &quot;P1&quot;, &quot;height&quot;: 1.0, &quot;width&quot;: 1.0, &quot;horiz_justify&quot;: 0, &quot;thickness&quot;: 0.15, &quot;attr&quot;: [], &quot;angle&quot;: 0.0}, {&quot;pos&quot;: [92.202, 101.854], &quot;text&quot;: &quot;SDA&quot;, &quot;height&quot;: 1.0, &quot;width&quot;: 1.0, &quot;horiz_justify&quot;: 0, &quot;thickness&quot;: 0.15, &quot;attr&quot;: [], &quot;angle&quot;: 0.0}, {&quot;pos&quot;: [92.202, 99.314], &quot;text&quot;: &quot;SCL&quot;, &quot;height&quot;: 1.0, &quot;width&quot;: 1.0, &quot;horiz_justify&quot;: 0, &quot;thickness&quot;: 0.15, &quot;attr&quot;: [], &quot;angle&quot;: 0.0}, {&quot;pos&quot;: [92.202, 109.728], &quot;text&quot;: &quot;GND&quot;, &quot;height&quot;: 1.0, &quot;width&quot;: 1.0, &quot;horiz_justify&quot;: 0, &quot;thickness&quot;: 0.15, &quot;attr&quot;: [], &quot;angle&quot;: 0.0}, {&quot;pos&quot;: [92.202, 107.18799999999999], &quot;text&quot;: &quot;3V3&quot;, &quot;height&quot;: 1.0, &quot;width&quot;: 1.0, &quot;horiz_justify&quot;: 0, &quot;thickness&quot;: 0.15, &quot;attr&quot;: [], &quot;angle&quot;: 0.0}, {&quot;pos&quot;: [116.332, 88.646], &quot;text&quot;: &quot;GND&quot;, &quot;height&quot;: 1.0, &quot;width&quot;: 1.0, &quot;horiz_justify&quot;: 0, &quot;thickness&quot;: 0.15, &quot;attr&quot;: [], &quot;angle&quot;: 0.0}, {&quot;pos&quot;: [111.506, 88.392], &quot;text&quot;: &quot;3V3&quot;, &quot;height&quot;: 1.0, &quot;width&quot;: 1.0, &quot;horiz_justify&quot;: 0, &quot;thickness&quot;: 0.15, &quot;attr&quot;: [], &quot;angle&quot;: 0.0}, {&quot;pos&quot;: [105.91799999999999, 88.646], &quot;text&quot;: &quot;5V&quot;, &quot;height&quot;: 1.0, &quot;width&quot;: 1.0, &quot;horiz_justify&quot;: 0, &quot;thickness&quot;: 0.15, &quot;attr&quot;: [], &quot;angle&quot;: 0.0}, {&quot;pos&quot;: [100.838, 88.646], &quot;text&quot;: &quot;12V&quot;, &quot;height&quot;: 1.0, &quot;width&quot;: 1.0, &quot;horiz_justify&quot;: 0, &quot;thickness&quot;: 0.15, &quot;attr&quot;: [], &quot;angle&quot;: 0.0}, {&quot;pos&quot;: [95.758, 88.646], &quot;text&quot;: &quot;RAW&quot;, &quot;height&quot;: 1.0, &quot;width&quot;: 1.0, &quot;horiz_justify&quot;: 0, &quot;thickness&quot;: 0.15, &quot;attr&quot;: [], &quot;angle&quot;: 0.0}, {&quot;pos&quot;: [96.26599999999999, 111.252], &quot;text&quot;: &quot;C1&quot;, &quot;height&quot;: 1.0, &quot;width&quot;: 1.0, &quot;horiz_justify&quot;: 0, &quot;thickness&quot;: 0.15, &quot;attr&quot;: [], &quot;angle&quot;: 0.0}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [99.318578, 110.542], &quot;end&quot;: [98.801422, 110.542], &quot;width&quot;: 0.12}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [99.318578, 111.96199999999999], &quot;end&quot;: [98.801422, 111.96199999999999], &quot;width&quot;: 0.12}, {&quot;pos&quot;: [111.3305, 111.252], &quot;text&quot;: &quot;C2&quot;, &quot;height&quot;: 1.0, &quot;width&quot;: 1.0, &quot;horiz_justify&quot;: 0, &quot;thickness&quot;: 0.15, &quot;attr&quot;: [], &quot;angle&quot;: 0.0}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [114.558578, 111.96199999999999], &quot;end&quot;: [114.041422, 111.96199999999999], &quot;width&quot;: 0.12}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [114.558578, 110.542], &quot;end&quot;: [114.041422, 110.542], &quot;width&quot;: 0.12}, {&quot;pos&quot;: [91.948, 117.094], &quot;text&quot;: &quot;C3&quot;, &quot;height&quot;: 1.0, &quot;width&quot;: 1.0, &quot;horiz_justify&quot;: 0, &quot;thickness&quot;: 0.15, &quot;attr&quot;: [], &quot;angle&quot;: 0.0}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [91.689422, 119.32799999999999], &quot;end&quot;: [92.206578, 119.32799999999999], &quot;width&quot;: 0.12}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [91.689422, 117.908], &quot;end&quot;: [92.206578, 117.908], &quot;width&quot;: 0.12}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [88.408, 84.27199999999999], &quot;end&quot;: [91.09299999999999, 84.27199999999999], &quot;width&quot;: 0.12}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [91.09299999999999, 84.27199999999999], &quot;end&quot;: [91.09299999999999, 82.35199999999999], &quot;width&quot;: 0.12}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [91.09299999999999, 82.35199999999999], &quot;end&quot;: [88.408, 82.35199999999999], &quot;width&quot;: 0.12}, {&quot;pos&quot;: [104.39399999999999, 115.57], &quot;text&quot;: &quot;12BP&quot;, &quot;height&quot;: 1.0, &quot;width&quot;: 1.0, &quot;horiz_justify&quot;: 0, &quot;thickness&quot;: 0.15, &quot;attr&quot;: [], &quot;angle&quot;: 0.0}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [106.74, 111.446], &quot;end&quot;: [106.74, 112.776], &quot;width&quot;: 0.12}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [105.41, 111.446], &quot;end&quot;: [106.74, 111.446], &quot;width&quot;: 0.12}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [104.14, 111.446], &quot;end&quot;: [104.14, 114.106], &quot;width&quot;: 0.12}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [104.14, 114.106], &quot;end&quot;: [101.53999999999999, 114.106], &quot;width&quot;: 0.12}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [104.14, 111.446], &quot;end&quot;: [101.53999999999999, 111.446], &quot;width&quot;: 0.12}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [101.53999999999999, 111.446], &quot;end&quot;: [101.53999999999999, 114.106], &quot;width&quot;: 0.12}, {&quot;pos&quot;: [94.488, 79.502], &quot;text&quot;: &quot;J3&quot;, &quot;height&quot;: 1.0, &quot;width&quot;: 1.0, &quot;horiz_justify&quot;: 0, &quot;thickness&quot;: 0.15, &quot;attr&quot;: [], &quot;angle&quot;: 0.0}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [93.472, 78.74], &quot;end&quot;: [93.472, 86.36], &quot;width&quot;: 0.12}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [118.872, 78.74], &quot;end&quot;: [118.872, 86.36], &quot;width&quot;: 0.12}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [93.472, 78.74], &quot;end&quot;: [118.872, 78.74], &quot;width&quot;: 0.12}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [93.472, 85.08999999999999], &quot;end&quot;: [118.872, 85.08999999999999], &quot;width&quot;: 0.12}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [93.472, 86.36], &quot;end&quot;: [118.872, 86.36], &quot;width&quot;: 0.12}, {&quot;pos&quot;: [101.34599999999999, 128.016], &quot;text&quot;: &quot;J4&quot;, &quot;height&quot;: 1.0, &quot;width&quot;: 1.0, &quot;horiz_justify&quot;: 0, &quot;thickness&quot;: 0.15, &quot;attr&quot;: [], &quot;angle&quot;: 0.0}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [97.166, 128.84799999999998], &quot;end&quot;: [99.666, 128.84799999999998], &quot;width&quot;: 0.12}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [97.166, 126.348], &quot;end&quot;: [97.166, 128.84799999999998], &quot;width&quot;: 0.12}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [104.18599999999999, 127.04799999999999], &quot;end&quot;: [104.18599999999999, 128.548], &quot;width&quot;: 0.12}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [105.18599999999999, 127.04799999999999], &quot;end&quot;: [104.18599999999999, 127.04799999999999], &quot;width&quot;: 0.12}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [98.466, 127.04799999999999], &quot;end&quot;: [98.466, 128.548], &quot;width&quot;: 0.12}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [97.466, 127.04799999999999], &quot;end&quot;: [98.466, 127.04799999999999], &quot;width&quot;: 0.12}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [104.68599999999999, 126.238], &quot;end&quot;: [105.18599999999999, 126.238], &quot;width&quot;: 0.12}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [104.68599999999999, 125.02799999999999], &quot;end&quot;: [104.68599999999999, 126.238], &quot;width&quot;: 0.12}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [97.966, 125.02799999999999], &quot;end&quot;: [104.68599999999999, 125.02799999999999], &quot;width&quot;: 0.12}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [97.966, 126.238], &quot;end&quot;: [97.966, 125.02799999999999], &quot;width&quot;: 0.12}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [97.466, 126.238], &quot;end&quot;: [97.966, 126.238], &quot;width&quot;: 0.12}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [105.18599999999999, 124.52799999999999], &quot;end&quot;: [97.466, 124.52799999999999], &quot;width&quot;: 0.12}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [105.18599999999999, 128.548], &quot;end&quot;: [105.18599999999999, 124.52799999999999], &quot;width&quot;: 0.12}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [97.466, 128.548], &quot;end&quot;: [105.18599999999999, 128.548], &quot;width&quot;: 0.12}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [97.466, 124.52799999999999], &quot;end&quot;: [97.466, 128.548], &quot;width&quot;: 0.12}, {&quot;pos&quot;: [113.03, 128.016], &quot;text&quot;: &quot;J5&quot;, &quot;height&quot;: 1.0, &quot;width&quot;: 1.0, &quot;horiz_justify&quot;: 0, &quot;thickness&quot;: 0.15, &quot;attr&quot;: [], &quot;angle&quot;: 0.0}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [107.66799999999999, 114.056], &quot;end&quot;: [108.16799999999999, 114.056], &quot;width&quot;: 0.09999999999999999}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [107.66799999999999, 114.056], &quot;end&quot;: [107.66799999999999, 114.556], &quot;width&quot;: 0.09999999999999999}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [116.868, 114.056], &quot;end&quot;: [116.368, 114.056], &quot;width&quot;: 0.09999999999999999}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [116.868, 114.056], &quot;end&quot;: [116.868, 114.556], &quot;width&quot;: 0.09999999999999999}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [113.46799999999999, 119.65599999999999], &quot;end&quot;: [111.068, 119.65599999999999], &quot;width&quot;: 0.09999999999999999}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [116.868, 128.656], &quot;end&quot;: [116.868, 128.156], &quot;width&quot;: 0.09999999999999999}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [116.868, 128.656], &quot;end&quot;: [116.368, 128.656], &quot;width&quot;: 0.09999999999999999}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [107.66799999999999, 128.656], &quot;end&quot;: [108.16799999999999, 128.656], &quot;width&quot;: 0.09999999999999999}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [107.66799999999999, 128.656], &quot;end&quot;: [107.66799999999999, 128.156], &quot;width&quot;: 0.09999999999999999}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [116.868, 121.356], &quot;end&quot;: [116.868, 122.356], &quot;width&quot;: 0.09999999999999999}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [107.66799999999999, 121.356], &quot;end&quot;: [107.66799999999999, 122.356], &quot;width&quot;: 0.09999999999999999}, {&quot;pos&quot;: [91.694, 125.72999999999999], &quot;text&quot;: &quot;SW&quot;, &quot;height&quot;: 1.0, &quot;width&quot;: 1.0, &quot;horiz_justify&quot;: 0, &quot;thickness&quot;: 0.15, &quot;attr&quot;: [], &quot;angle&quot;: 0.0}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [88.89999999999999, 128.32999999999998], &quot;end&quot;: [87.57, 128.32999999999998], &quot;width&quot;: 0.12}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [87.57, 128.32999999999998], &quot;end&quot;: [87.57, 127.0], &quot;width&quot;: 0.12}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [87.57, 125.72999999999999], &quot;end&quot;: [87.57, 123.13], &quot;width&quot;: 0.12}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [90.22999999999999, 123.13], &quot;end&quot;: [87.57, 123.13], &quot;width&quot;: 0.12}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [90.22999999999999, 125.72999999999999], &quot;end&quot;: [90.22999999999999, 123.13], &quot;width&quot;: 0.12}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [90.22999999999999, 125.72999999999999], &quot;end&quot;: [87.57, 125.72999999999999], &quot;width&quot;: 0.12}, {&quot;pos&quot;: [91.948, 113.792], &quot;text&quot;: &quot;R2&quot;, &quot;height&quot;: 1.0, &quot;width&quot;: 1.0, &quot;horiz_justify&quot;: 0, &quot;thickness&quot;: 0.15, &quot;attr&quot;: [], &quot;angle&quot;: 0.0}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [92.206578, 114.606], &quot;end&quot;: [91.689422, 114.606], &quot;width&quot;: 0.12}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [92.206578, 116.026], &quot;end&quot;: [91.689422, 116.026], &quot;width&quot;: 0.12}, {&quot;pos&quot;: [102.616, 119.88799999999999], &quot;text&quot;: &quot;R3&quot;, &quot;height&quot;: 1.0, &quot;width&quot;: 1.0, &quot;horiz_justify&quot;: 0, &quot;thickness&quot;: 0.15, &quot;attr&quot;: [], &quot;angle&quot;: 0.0}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [105.151422, 119.178], &quot;end&quot;: [105.668578, 119.178], &quot;width&quot;: 0.12}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [105.151422, 120.598], &quot;end&quot;: [105.668578, 120.598], &quot;width&quot;: 0.12}, {&quot;pos&quot;: [102.616, 117.60199999999999], &quot;text&quot;: &quot;R4&quot;, &quot;height&quot;: 1.0, &quot;width&quot;: 1.0, &quot;horiz_justify&quot;: 0, &quot;thickness&quot;: 0.15, &quot;attr&quot;: [], &quot;angle&quot;: 0.0}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [105.668578, 116.892], &quot;end&quot;: [105.151422, 116.892], &quot;width&quot;: 0.12}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [105.668578, 118.312], &quot;end&quot;: [105.151422, 118.312], &quot;width&quot;: 0.12}, {&quot;pos&quot;: [102.616, 122.17399999999999], &quot;text&quot;: &quot;R5&quot;, &quot;height&quot;: 1.0, &quot;width&quot;: 1.0, &quot;horiz_justify&quot;: 0, &quot;thickness&quot;: 0.15, &quot;attr&quot;: [], &quot;angle&quot;: 0.0}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [105.668578, 121.464], &quot;end&quot;: [105.151422, 121.464], &quot;width&quot;: 0.12}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [105.668578, 122.884], &quot;end&quot;: [105.151422, 122.884], &quot;width&quot;: 0.12}, {&quot;pos&quot;: [92.202, 85.85199999999999], &quot;text&quot;: &quot;R6&quot;, &quot;height&quot;: 1.0, &quot;width&quot;: 1.0, &quot;horiz_justify&quot;: 0, &quot;thickness&quot;: 0.15, &quot;attr&quot;: [], &quot;angle&quot;: 0.0}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [89.666578, 86.562], &quot;end&quot;: [89.149422, 86.562], &quot;width&quot;: 0.12}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [89.666578, 85.142], &quot;end&quot;: [89.149422, 85.142], &quot;width&quot;: 0.12}, {&quot;pos&quot;: [103.63199999999999, 91.694], &quot;text&quot;: &quot;U1&quot;, &quot;height&quot;: 1.0, &quot;width&quot;: 1.0, &quot;horiz_justify&quot;: 0, &quot;thickness&quot;: 0.15, &quot;attr&quot;: [], &quot;angle&quot;: 0.0}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [108.25999999999999, 90.67999999999999], &quot;end&quot;: [108.25999999999999, 92.14], &quot;width&quot;: 0.12}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [105.1, 90.67999999999999], &quot;end&quot;: [105.1, 92.83999999999999], &quot;width&quot;: 0.12}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [105.1, 90.67999999999999], &quot;end&quot;: [106.03, 90.67999999999999], &quot;width&quot;: 0.12}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [108.25999999999999, 90.67999999999999], &quot;end&quot;: [107.33, 90.67999999999999], &quot;width&quot;: 0.12}, {&quot;pos&quot;: [95.758, 92.45599999999999], &quot;text&quot;: &quot;U2&quot;, &quot;height&quot;: 1.0, &quot;width&quot;: 1.0, &quot;horiz_justify&quot;: 0, &quot;thickness&quot;: 0.15, &quot;attr&quot;: [], &quot;angle&quot;: 0.0}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [103.97399999999999, 104.55], &quot;end&quot;: [103.97399999999999, 105.64999999999999], &quot;width&quot;: 0.12}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [105.78399999999999, 104.55], &quot;end&quot;: [103.97399999999999, 104.55], &quot;width&quot;: 0.12}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [105.78399999999999, 103.05], &quot;end&quot;: [105.78399999999999, 104.55], &quot;width&quot;: 0.12}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [97.194, 104.55], &quot;end&quot;: [97.194, 109.675], &quot;width&quot;: 0.12}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [95.384, 104.55], &quot;end&quot;: [97.194, 104.55], &quot;width&quot;: 0.12}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [95.384, 103.05], &quot;end&quot;: [95.384, 104.55], &quot;width&quot;: 0.12}, {&quot;pos&quot;: [117.60199999999999, 92.45599999999999], &quot;text&quot;: &quot;U3&quot;, &quot;height&quot;: 1.0, &quot;width&quot;: 1.0, &quot;horiz_justify&quot;: 0, &quot;thickness&quot;: 0.15, &quot;attr&quot;: [], &quot;angle&quot;: 0.0}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [107.576, 103.05], &quot;end&quot;: [107.576, 104.55], &quot;width&quot;: 0.12}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [107.576, 104.55], &quot;end&quot;: [109.386, 104.55], &quot;width&quot;: 0.12}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [109.386, 104.55], &quot;end&quot;: [109.386, 109.675], &quot;width&quot;: 0.12}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [117.976, 103.05], &quot;end&quot;: [117.976, 104.55], &quot;width&quot;: 0.12}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [117.976, 104.55], &quot;end&quot;: [116.166, 104.55], &quot;width&quot;: 0.12}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [116.166, 104.55], &quot;end&quot;: [116.166, 105.64999999999999], &quot;width&quot;: 0.12}, {&quot;pos&quot;: [98.044, 113.274], &quot;text&quot;: &quot;U4&quot;, &quot;height&quot;: 1.0, &quot;width&quot;: 1.0, &quot;horiz_justify&quot;: 0, &quot;thickness&quot;: 0.15, &quot;attr&quot;: [], &quot;angle&quot;: 0.0}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [96.419, 114.324], &quot;end&quot;: [95.344, 114.324], &quot;width&quot;: 0.15}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [96.419, 117.449], &quot;end&quot;: [99.669, 117.449], &quot;width&quot;: 0.15}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [96.419, 114.199], &quot;end&quot;: [99.669, 114.199], &quot;width&quot;: 0.15}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [96.419, 117.449], &quot;end&quot;: [96.419, 117.22399999999999], &quot;width&quot;: 0.15}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [99.669, 117.449], &quot;end&quot;: [99.669, 117.22399999999999], &quot;width&quot;: 0.15}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [99.669, 114.199], &quot;end&quot;: [99.669, 114.42399999999999], &quot;width&quot;: 0.15}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [96.419, 114.199], &quot;end&quot;: [96.419, 114.324], &quot;width&quot;: 0.15}, {&quot;pos&quot;: [98.55199999999999, 119.634], &quot;text&quot;: &quot;VBAT1&quot;, &quot;height&quot;: 1.0, &quot;width&quot;: 1.0, &quot;horiz_justify&quot;: 0, &quot;thickness&quot;: 0.15, &quot;attr&quot;: [], &quot;angle&quot;: 0.0}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [97.35199999999999, 123.11999999999999], &quot;end&quot;: [97.35199999999999, 120.72], &quot;width&quot;: 0.12}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [99.752, 123.11999999999999], &quot;end&quot;: [97.35199999999999, 123.11999999999999], &quot;width&quot;: 0.12}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [99.752, 120.72], &quot;end&quot;: [99.752, 123.11999999999999], &quot;width&quot;: 0.12}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [97.35199999999999, 120.72], &quot;end&quot;: [99.752, 120.72], &quot;width&quot;: 0.12}, {&quot;pos&quot;: [94.488, 120.396], &quot;text&quot;: &quot;R1&quot;, &quot;height&quot;: 1.0, &quot;width&quot;: 1.0, &quot;horiz_justify&quot;: 0, &quot;thickness&quot;: 0.15, &quot;attr&quot;: [], &quot;angle&quot;: 0.0}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [96.198, 127.02006399999999], &quot;end&quot;: [96.198, 122.91593599999999], &quot;width&quot;: 0.12}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [92.77799999999999, 127.02006399999999], &quot;end&quot;: [92.77799999999999, 122.91593599999999], &quot;width&quot;: 0.12}, {&quot;pos&quot;: [88.89999999999999, 96.544], &quot;text&quot;: &quot;J1&quot;, &quot;height&quot;: 1.0, &quot;width&quot;: 1.0, &quot;horiz_justify&quot;: 0, &quot;thickness&quot;: 0.15, &quot;attr&quot;: [], &quot;angle&quot;: 0.0}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [87.57, 100.58399999999999], &quot;end&quot;: [90.22999999999999, 100.58399999999999], &quot;width&quot;: 0.12}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [87.57, 100.58399999999999], &quot;end&quot;: [87.57, 110.804], &quot;width&quot;: 0.12}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [87.57, 110.804], &quot;end&quot;: [90.22999999999999, 110.804], &quot;width&quot;: 0.12}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [90.22999999999999, 100.58399999999999], &quot;end&quot;: [90.22999999999999, 110.804], &quot;width&quot;: 0.12}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [90.22999999999999, 97.984], &quot;end&quot;: [90.22999999999999, 99.314], &quot;width&quot;: 0.12}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [88.89999999999999, 97.984], &quot;end&quot;: [90.22999999999999, 97.984], &quot;width&quot;: 0.12}], &quot;B&quot;: [{&quot;pos&quot;: [117.094, 89.66199999999999], &quot;text&quot;: &quot;kratos-pdb :: REVA\nnnarain&quot;, &quot;height&quot;: 1.5, &quot;width&quot;: 1.5, &quot;horiz_justify&quot;: -1, &quot;thickness&quot;: 0.3, &quot;attr&quot;: [&quot;mirrored&quot;], &quot;angle&quot;: 0.0}]}, &quot;fabrication&quot;: {&quot;F&quot;: [{&quot;pos&quot;: [99.06, 109.60199999999999], &quot;text&quot;: &quot;10uF&quot;, &quot;height&quot;: 1.0, &quot;width&quot;: 1.0, &quot;horiz_justify&quot;: 0, &quot;thickness&quot;: 0.15, &quot;attr&quot;: [], &quot;angle&quot;: 0.0}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [98.06, 110.652], &quot;end&quot;: [100.06, 110.652], &quot;width&quot;: 0.09999999999999999}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [98.06, 111.85199999999999], &quot;end&quot;: [98.06, 110.652], &quot;width&quot;: 0.09999999999999999}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [100.06, 111.85199999999999], &quot;end&quot;: [98.06, 111.85199999999999], &quot;width&quot;: 0.09999999999999999}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [100.06, 110.652], &quot;end&quot;: [100.06, 111.85199999999999], &quot;width&quot;: 0.09999999999999999}, {&quot;pos&quot;: [99.06, 111.252], &quot;text&quot;: &quot;C1&quot;, &quot;height&quot;: 0.5, &quot;width&quot;: 0.5, &quot;horiz_justify&quot;: 0, &quot;thickness&quot;: 0.08, &quot;attr&quot;: [], &quot;angle&quot;: 0.0}, {&quot;pos&quot;: [114.3, 109.60199999999999], &quot;text&quot;: &quot;10uF&quot;, &quot;height&quot;: 1.0, &quot;width&quot;: 1.0, &quot;horiz_justify&quot;: 0, &quot;thickness&quot;: 0.15, &quot;attr&quot;: [], &quot;angle&quot;: 0.0}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [115.3, 110.652], &quot;end&quot;: [115.3, 111.85199999999999], &quot;width&quot;: 0.09999999999999999}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [115.3, 111.85199999999999], &quot;end&quot;: [113.3, 111.85199999999999], &quot;width&quot;: 0.09999999999999999}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [113.3, 111.85199999999999], &quot;end&quot;: [113.3, 110.652], &quot;width&quot;: 0.09999999999999999}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [113.3, 110.652], &quot;end&quot;: [115.3, 110.652], &quot;width&quot;: 0.09999999999999999}, {&quot;pos&quot;: [114.3, 111.252], &quot;text&quot;: &quot;C2&quot;, &quot;height&quot;: 0.5, &quot;width&quot;: 0.5, &quot;horiz_justify&quot;: 0, &quot;thickness&quot;: 0.08, &quot;attr&quot;: [], &quot;angle&quot;: 0.0}, {&quot;pos&quot;: [91.948, 120.268], &quot;text&quot;: &quot;10nF&quot;, &quot;height&quot;: 1.0, &quot;width&quot;: 1.0, &quot;horiz_justify&quot;: 0, &quot;thickness&quot;: 0.15, &quot;attr&quot;: [], &quot;angle&quot;: 0.0}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [92.948, 119.21799999999999], &quot;end&quot;: [90.948, 119.21799999999999], &quot;width&quot;: 0.09999999999999999}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [92.948, 118.018], &quot;end&quot;: [92.948, 119.21799999999999], &quot;width&quot;: 0.09999999999999999}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [90.948, 118.018], &quot;end&quot;: [92.948, 118.018], &quot;width&quot;: 0.09999999999999999}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [90.948, 119.21799999999999], &quot;end&quot;: [90.948, 118.018], &quot;width&quot;: 0.09999999999999999}, {&quot;pos&quot;: [91.948, 118.618], &quot;text&quot;: &quot;C3&quot;, &quot;height&quot;: 0.5, &quot;width&quot;: 0.5, &quot;horiz_justify&quot;: 0, &quot;thickness&quot;: 0.08, &quot;attr&quot;: [], &quot;angle&quot;: 0.0}, {&quot;pos&quot;: [89.408, 81.66199999999999], &quot;text&quot;: &quot;PWR_5V&quot;, &quot;height&quot;: 1.0, &quot;width&quot;: 1.0, &quot;horiz_justify&quot;: 0, &quot;thickness&quot;: 0.15, &quot;attr&quot;: [], &quot;angle&quot;: 0.0}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [88.408, 83.91199999999999], &quot;end&quot;: [90.10799999999999, 83.91199999999999], &quot;width&quot;: 0.09999999999999999}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [90.10799999999999, 83.91199999999999], &quot;end&quot;: [90.408, 83.612], &quot;width&quot;: 0.09999999999999999}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [90.408, 83.612], &quot;end&quot;: [90.408, 82.712], &quot;width&quot;: 0.09999999999999999}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [90.408, 82.712], &quot;end&quot;: [88.408, 82.712], &quot;width&quot;: 0.09999999999999999}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [88.408, 82.712], &quot;end&quot;: [88.408, 83.91199999999999], &quot;width&quot;: 0.09999999999999999}, {&quot;pos&quot;: [89.408, 83.312], &quot;text&quot;: &quot;D1&quot;, &quot;height&quot;: 0.5, &quot;width&quot;: 0.5, &quot;horiz_justify&quot;: 0, &quot;thickness&quot;: 0.08, &quot;attr&quot;: [], &quot;angle&quot;: 0.0}, {&quot;pos&quot;: [100.53999999999999, 112.776], &quot;text&quot;: &quot;12V Regulator Bypass&quot;, &quot;height&quot;: 1.0, &quot;width&quot;: 1.0, &quot;horiz_justify&quot;: 0, &quot;thickness&quot;: 0.15, &quot;attr&quot;: [], &quot;angle&quot;: 90.0}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [106.045, 111.506], &quot;end&quot;: [106.67999999999999, 112.14099999999999], &quot;width&quot;: 0.09999999999999999}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [101.6, 111.506], &quot;end&quot;: [106.045, 111.506], &quot;width&quot;: 0.09999999999999999}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [101.6, 114.04599999999999], &quot;end&quot;: [101.6, 111.506], &quot;width&quot;: 0.09999999999999999}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [106.67999999999999, 114.04599999999999], &quot;end&quot;: [101.6, 114.04599999999999], &quot;width&quot;: 0.09999999999999999}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [106.67999999999999, 112.14099999999999], &quot;end&quot;: [106.67999999999999, 114.04599999999999], &quot;width&quot;: 0.09999999999999999}, {&quot;pos&quot;: [104.14, 112.776], &quot;text&quot;: &quot;12BP&quot;, &quot;height&quot;: 1.0, &quot;width&quot;: 1.0, &quot;horiz_justify&quot;: 0, &quot;thickness&quot;: 0.15, &quot;attr&quot;: [], &quot;angle&quot;: 0.0}, {&quot;pos&quot;: [106.16199999999999, 87.14999999999999], &quot;text&quot;: &quot;Power Terminal&quot;, &quot;height&quot;: 1.0, &quot;width&quot;: 1.0, &quot;horiz_justify&quot;: 0, &quot;thickness&quot;: 0.15, &quot;attr&quot;: [], &quot;angle&quot;: 0.0}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [118.82199999999999, 78.8], &quot;end&quot;: [93.52199999999999, 78.8], &quot;width&quot;: 0.09999999999999999}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [118.82199999999999, 86.3], &quot;end&quot;: [118.82199999999999, 78.8], &quot;width&quot;: 0.09999999999999999}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [93.52199999999999, 86.3], &quot;end&quot;: [118.82199999999999, 86.3], &quot;width&quot;: 0.09999999999999999}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [93.52199999999999, 78.8], &quot;end&quot;: [93.52199999999999, 86.3], &quot;width&quot;: 0.09999999999999999}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [93.52199999999999, 85.1], &quot;end&quot;: [118.82199999999999, 85.1], &quot;width&quot;: 0.09999999999999999}, {&quot;pos&quot;: [106.172, 82.55], &quot;text&quot;: &quot;J3&quot;, &quot;height&quot;: 1.0, &quot;width&quot;: 1.0, &quot;horiz_justify&quot;: 0, &quot;thickness&quot;: 0.15, &quot;attr&quot;: [], &quot;angle&quot;: 0.0}, {&quot;pos&quot;: [101.326, 129.638], &quot;text&quot;: &quot;VIN&quot;, &quot;height&quot;: 1.0, &quot;width&quot;: 1.0, &quot;horiz_justify&quot;: 0, &quot;thickness&quot;: 0.15, &quot;attr&quot;: [], &quot;angle&quot;: 0.0}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [97.166, 128.84799999999998], &quot;end&quot;: [99.666, 128.84799999999998], &quot;width&quot;: 0.09999999999999999}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [97.166, 126.348], &quot;end&quot;: [97.166, 128.84799999999998], &quot;width&quot;: 0.09999999999999999}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [105.076, 124.63799999999999], &quot;end&quot;: [97.576, 124.63799999999999], &quot;width&quot;: 0.09999999999999999}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [105.076, 128.438], &quot;end&quot;: [105.076, 124.63799999999999], &quot;width&quot;: 0.09999999999999999}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [97.576, 128.438], &quot;end&quot;: [105.076, 128.438], &quot;width&quot;: 0.09999999999999999}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [97.576, 124.63799999999999], &quot;end&quot;: [97.576, 128.438], &quot;width&quot;: 0.09999999999999999}, {&quot;pos&quot;: [101.326, 127.738], &quot;text&quot;: &quot;J4&quot;, &quot;height&quot;: 1.0, &quot;width&quot;: 1.0, &quot;horiz_justify&quot;: 0, &quot;thickness&quot;: 0.15, &quot;attr&quot;: [], &quot;angle&quot;: 0.0}, {&quot;pos&quot;: [112.268, 112.056], &quot;text&quot;: &quot;PJ-102A&quot;, &quot;height&quot;: 1.0, &quot;width&quot;: 1.0, &quot;horiz_justify&quot;: 0, &quot;thickness&quot;: 0.15, &quot;attr&quot;: [], &quot;angle&quot;: 0.0}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [116.768, 114.15599999999999], &quot;end&quot;: [107.768, 114.15599999999999], &quot;width&quot;: 0.09999999999999999}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [116.768, 114.15599999999999], &quot;end&quot;: [116.768, 128.55599999999998], &quot;width&quot;: 0.09999999999999999}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [107.768, 114.15599999999999], &quot;end&quot;: [107.768, 128.55599999999998], &quot;width&quot;: 0.09999999999999999}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [116.768, 128.55599999999998], &quot;end&quot;: [107.768, 128.55599999999998], &quot;width&quot;: 0.09999999999999999}, {&quot;pos&quot;: [88.89999999999999, 121.69], &quot;text&quot;: &quot;External Switch&quot;, &quot;height&quot;: 1.0, &quot;width&quot;: 1.0, &quot;horiz_justify&quot;: 0, &quot;thickness&quot;: 0.15, &quot;attr&quot;: [], &quot;angle&quot;: 0.0}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [90.17, 123.19], &quot;end&quot;: [90.17, 128.26999999999998], &quot;width&quot;: 0.09999999999999999}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [87.63, 123.19], &quot;end&quot;: [90.17, 123.19], &quot;width&quot;: 0.09999999999999999}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [87.63, 127.63499999999999], &quot;end&quot;: [87.63, 123.19], &quot;width&quot;: 0.09999999999999999}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [88.265, 128.26999999999998], &quot;end&quot;: [87.63, 127.63499999999999], &quot;width&quot;: 0.09999999999999999}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [90.17, 128.26999999999998], &quot;end&quot;: [88.265, 128.26999999999998], &quot;width&quot;: 0.09999999999999999}, {&quot;pos&quot;: [88.89999999999999, 125.72999999999999], &quot;text&quot;: &quot;SW&quot;, &quot;height&quot;: 1.0, &quot;width&quot;: 1.0, &quot;horiz_justify&quot;: 0, &quot;thickness&quot;: 0.15, &quot;attr&quot;: [], &quot;angle&quot;: 90.0}, {&quot;pos&quot;: [91.948, 113.666], &quot;text&quot;: &quot;500&quot;, &quot;height&quot;: 1.0, &quot;width&quot;: 1.0, &quot;horiz_justify&quot;: 0, &quot;thickness&quot;: 0.15, &quot;attr&quot;: [], &quot;angle&quot;: 0.0}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [90.948, 114.716], &quot;end&quot;: [92.948, 114.716], &quot;width&quot;: 0.09999999999999999}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [90.948, 115.916], &quot;end&quot;: [90.948, 114.716], &quot;width&quot;: 0.09999999999999999}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [92.948, 115.916], &quot;end&quot;: [90.948, 115.916], &quot;width&quot;: 0.09999999999999999}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [92.948, 114.716], &quot;end&quot;: [92.948, 115.916], &quot;width&quot;: 0.09999999999999999}, {&quot;pos&quot;: [91.948, 115.31599999999999], &quot;text&quot;: &quot;R2&quot;, &quot;height&quot;: 0.5, &quot;width&quot;: 0.5, &quot;horiz_justify&quot;: 0, &quot;thickness&quot;: 0.08, &quot;attr&quot;: [], &quot;angle&quot;: 0.0}, {&quot;pos&quot;: [105.41, 121.538], &quot;text&quot;: &quot;42k&quot;, &quot;height&quot;: 1.0, &quot;width&quot;: 1.0, &quot;horiz_justify&quot;: 0, &quot;thickness&quot;: 0.15, &quot;attr&quot;: [], &quot;angle&quot;: 0.0}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [104.41, 120.488], &quot;end&quot;: [104.41, 119.288], &quot;width&quot;: 0.09999999999999999}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [104.41, 119.288], &quot;end&quot;: [106.41, 119.288], &quot;width&quot;: 0.09999999999999999}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [106.41, 119.288], &quot;end&quot;: [106.41, 120.488], &quot;width&quot;: 0.09999999999999999}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [106.41, 120.488], &quot;end&quot;: [104.41, 120.488], &quot;width&quot;: 0.09999999999999999}, {&quot;pos&quot;: [105.41, 119.88799999999999], &quot;text&quot;: &quot;R3&quot;, &quot;height&quot;: 0.5, &quot;width&quot;: 0.5, &quot;horiz_justify&quot;: 0, &quot;thickness&quot;: 0.08, &quot;attr&quot;: [], &quot;angle&quot;: 0.0}, {&quot;pos&quot;: [105.41, 115.952], &quot;text&quot;: &quot;10k&quot;, &quot;height&quot;: 1.0, &quot;width&quot;: 1.0, &quot;horiz_justify&quot;: 0, &quot;thickness&quot;: 0.15, &quot;attr&quot;: [], &quot;angle&quot;: 0.0}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [104.41, 117.002], &quot;end&quot;: [106.41, 117.002], &quot;width&quot;: 0.09999999999999999}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [104.41, 118.202], &quot;end&quot;: [104.41, 117.002], &quot;width&quot;: 0.09999999999999999}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [106.41, 118.202], &quot;end&quot;: [104.41, 118.202], &quot;width&quot;: 0.09999999999999999}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [106.41, 117.002], &quot;end&quot;: [106.41, 118.202], &quot;width&quot;: 0.09999999999999999}, {&quot;pos&quot;: [105.41, 117.60199999999999], &quot;text&quot;: &quot;R4&quot;, &quot;height&quot;: 0.5, &quot;width&quot;: 0.5, &quot;horiz_justify&quot;: 0, &quot;thickness&quot;: 0.08, &quot;attr&quot;: [], &quot;angle&quot;: 0.0}, {&quot;pos&quot;: [105.41, 120.524], &quot;text&quot;: &quot;10k&quot;, &quot;height&quot;: 1.0, &quot;width&quot;: 1.0, &quot;horiz_justify&quot;: 0, &quot;thickness&quot;: 0.15, &quot;attr&quot;: [], &quot;angle&quot;: 0.0}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [104.41, 121.574], &quot;end&quot;: [106.41, 121.574], &quot;width&quot;: 0.09999999999999999}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [104.41, 122.774], &quot;end&quot;: [104.41, 121.574], &quot;width&quot;: 0.09999999999999999}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [106.41, 122.774], &quot;end&quot;: [104.41, 122.774], &quot;width&quot;: 0.09999999999999999}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [106.41, 121.574], &quot;end&quot;: [106.41, 122.774], &quot;width&quot;: 0.09999999999999999}, {&quot;pos&quot;: [105.41, 122.17399999999999], &quot;text&quot;: &quot;R5&quot;, &quot;height&quot;: 0.5, &quot;width&quot;: 0.5, &quot;horiz_justify&quot;: 0, &quot;thickness&quot;: 0.08, &quot;attr&quot;: [], &quot;angle&quot;: 0.0}, {&quot;pos&quot;: [89.408, 84.202], &quot;text&quot;: &quot;200&quot;, &quot;height&quot;: 1.0, &quot;width&quot;: 1.0, &quot;horiz_justify&quot;: 0, &quot;thickness&quot;: 0.15, &quot;attr&quot;: [], &quot;angle&quot;: 0.0}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [90.408, 85.252], &quot;end&quot;: [90.408, 86.452], &quot;width&quot;: 0.09999999999999999}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [90.408, 86.452], &quot;end&quot;: [88.408, 86.452], &quot;width&quot;: 0.09999999999999999}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [88.408, 86.452], &quot;end&quot;: [88.408, 85.252], &quot;width&quot;: 0.09999999999999999}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [88.408, 85.252], &quot;end&quot;: [90.408, 85.252], &quot;width&quot;: 0.09999999999999999}, {&quot;pos&quot;: [89.408, 85.85199999999999], &quot;text&quot;: &quot;R6&quot;, &quot;height&quot;: 0.5, &quot;width&quot;: 0.5, &quot;horiz_justify&quot;: 0, &quot;thickness&quot;: 0.08, &quot;attr&quot;: [], &quot;angle&quot;: 0.0}, {&quot;pos&quot;: [109.17999999999999, 91.44], &quot;text&quot;: &quot;AP2138&quot;, &quot;height&quot;: 1.0, &quot;width&quot;: 1.0, &quot;horiz_justify&quot;: 0, &quot;thickness&quot;: 0.15, &quot;attr&quot;: [], &quot;angle&quot;: 90.0}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [108.19999999999999, 92.14], &quot;end&quot;: [108.19999999999999, 90.74], &quot;width&quot;: 0.09999999999999999}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [105.16, 90.74], &quot;end&quot;: [108.19999999999999, 90.74], &quot;width&quot;: 0.09999999999999999}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [105.72999999999999, 92.14], &quot;end&quot;: [105.16, 91.58999999999999], &quot;width&quot;: 0.09999999999999999}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [105.16, 91.58999999999999], &quot;end&quot;: [105.16, 90.74], &quot;width&quot;: 0.09999999999999999}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [105.72999999999999, 92.14], &quot;end&quot;: [108.17999999999999, 92.14], &quot;width&quot;: 0.09999999999999999}, {&quot;pos&quot;: [106.67999999999999, 91.44], &quot;text&quot;: &quot;U1&quot;, &quot;height&quot;: 0.5, &quot;width&quot;: 0.5, &quot;horiz_justify&quot;: 0, &quot;thickness&quot;: 0.075, &quot;attr&quot;: [], &quot;angle&quot;: 0.0}, {&quot;pos&quot;: [107.234, 101.6], &quot;text&quot;: &quot;MIC29300-12&quot;, &quot;height&quot;: 1.0, &quot;width&quot;: 1.0, &quot;horiz_justify&quot;: 0, &quot;thickness&quot;: 0.15, &quot;attr&quot;: [], &quot;angle&quot;: 90.0}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [103.624, 109.05], &quot;end&quot;: [103.624, 104.35], &quot;width&quot;: 0.09999999999999999}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [102.624, 109.05], &quot;end&quot;: [103.624, 109.05], &quot;width&quot;: 0.09999999999999999}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [102.624, 104.35], &quot;end&quot;: [102.624, 109.05], &quot;width&quot;: 0.09999999999999999}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [101.08399999999999, 109.05], &quot;end&quot;: [101.08399999999999, 104.35], &quot;width&quot;: 0.09999999999999999}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [100.08399999999999, 109.05], &quot;end&quot;: [101.08399999999999, 109.05], &quot;width&quot;: 0.09999999999999999}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [100.08399999999999, 104.35], &quot;end&quot;: [100.08399999999999, 109.05], &quot;width&quot;: 0.09999999999999999}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [98.544, 109.05], &quot;end&quot;: [98.544, 104.35], &quot;width&quot;: 0.09999999999999999}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [97.544, 109.05], &quot;end&quot;: [98.544, 109.05], &quot;width&quot;: 0.09999999999999999}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [97.544, 104.35], &quot;end&quot;: [97.544, 109.05], &quot;width&quot;: 0.09999999999999999}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [95.58399999999999, 103.35], &quot;end&quot;: [95.58399999999999, 95.1], &quot;width&quot;: 0.09999999999999999}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [96.58399999999999, 104.35], &quot;end&quot;: [95.58399999999999, 103.35], &quot;width&quot;: 0.09999999999999999}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [105.58399999999999, 104.35], &quot;end&quot;: [96.58399999999999, 104.35], &quot;width&quot;: 0.09999999999999999}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [105.58399999999999, 95.1], &quot;end&quot;: [105.58399999999999, 104.35], &quot;width&quot;: 0.09999999999999999}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [95.58399999999999, 95.1], &quot;end&quot;: [105.58399999999999, 95.1], &quot;width&quot;: 0.09999999999999999}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [105.58399999999999, 94.1], &quot;end&quot;: [105.58399999999999, 95.1], &quot;width&quot;: 0.09999999999999999}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [95.58399999999999, 94.1], &quot;end&quot;: [105.58399999999999, 94.1], &quot;width&quot;: 0.09999999999999999}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [95.58399999999999, 95.1], &quot;end&quot;: [95.58399999999999, 94.1], &quot;width&quot;: 0.09999999999999999}, {&quot;pos&quot;: [100.58399999999999, 101.6], &quot;text&quot;: &quot;U2&quot;, &quot;height&quot;: 1.0, &quot;width&quot;: 1.0, &quot;horiz_justify&quot;: 0, &quot;thickness&quot;: 0.15, &quot;attr&quot;: [], &quot;angle&quot;: 90.0}, {&quot;pos&quot;: [119.42599999999999, 101.6], &quot;text&quot;: &quot;MIC29310-5.0&quot;, &quot;height&quot;: 1.0, &quot;width&quot;: 1.0, &quot;horiz_justify&quot;: 0, &quot;thickness&quot;: 0.15, &quot;attr&quot;: [], &quot;angle&quot;: 90.0}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [107.776, 95.1], &quot;end&quot;: [107.776, 94.1], &quot;width&quot;: 0.09999999999999999}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [107.776, 94.1], &quot;end&quot;: [117.776, 94.1], &quot;width&quot;: 0.09999999999999999}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [117.776, 94.1], &quot;end&quot;: [117.776, 95.1], &quot;width&quot;: 0.09999999999999999}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [107.776, 95.1], &quot;end&quot;: [117.776, 95.1], &quot;width&quot;: 0.09999999999999999}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [117.776, 95.1], &quot;end&quot;: [117.776, 104.35], &quot;width&quot;: 0.09999999999999999}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [117.776, 104.35], &quot;end&quot;: [108.776, 104.35], &quot;width&quot;: 0.09999999999999999}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [108.776, 104.35], &quot;end&quot;: [107.776, 103.35], &quot;width&quot;: 0.09999999999999999}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [107.776, 103.35], &quot;end&quot;: [107.776, 95.1], &quot;width&quot;: 0.09999999999999999}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [109.73599999999999, 104.35], &quot;end&quot;: [109.73599999999999, 109.05], &quot;width&quot;: 0.09999999999999999}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [109.73599999999999, 109.05], &quot;end&quot;: [110.73599999999999, 109.05], &quot;width&quot;: 0.09999999999999999}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [110.73599999999999, 109.05], &quot;end&quot;: [110.73599999999999, 104.35], &quot;width&quot;: 0.09999999999999999}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [112.276, 104.35], &quot;end&quot;: [112.276, 109.05], &quot;width&quot;: 0.09999999999999999}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [112.276, 109.05], &quot;end&quot;: [113.276, 109.05], &quot;width&quot;: 0.09999999999999999}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [113.276, 109.05], &quot;end&quot;: [113.276, 104.35], &quot;width&quot;: 0.09999999999999999}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [114.81599999999999, 104.35], &quot;end&quot;: [114.81599999999999, 109.05], &quot;width&quot;: 0.09999999999999999}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [114.81599999999999, 109.05], &quot;end&quot;: [115.81599999999999, 109.05], &quot;width&quot;: 0.09999999999999999}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [115.81599999999999, 109.05], &quot;end&quot;: [115.81599999999999, 104.35], &quot;width&quot;: 0.09999999999999999}, {&quot;pos&quot;: [112.776, 101.6], &quot;text&quot;: &quot;U3&quot;, &quot;height&quot;: 1.0, &quot;width&quot;: 1.0, &quot;horiz_justify&quot;: 0, &quot;thickness&quot;: 0.15, &quot;attr&quot;: [], &quot;angle&quot;: 90.0}, {&quot;pos&quot;: [98.044, 118.374], &quot;text&quot;: &quot;DS2745U&quot;, &quot;height&quot;: 1.0, &quot;width&quot;: 1.0, &quot;horiz_justify&quot;: 0, &quot;thickness&quot;: 0.15, &quot;attr&quot;: [], &quot;angle&quot;: 0.0}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [96.544, 115.324], &quot;end&quot;: [97.544, 114.324], &quot;width&quot;: 0.15}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [96.544, 117.324], &quot;end&quot;: [96.544, 115.324], &quot;width&quot;: 0.15}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [99.544, 117.324], &quot;end&quot;: [96.544, 117.324], &quot;width&quot;: 0.15}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [99.544, 114.324], &quot;end&quot;: [99.544, 117.324], &quot;width&quot;: 0.15}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [97.544, 114.324], &quot;end&quot;: [99.544, 114.324], &quot;width&quot;: 0.15}, {&quot;pos&quot;: [98.044, 115.824], &quot;text&quot;: &quot;U4&quot;, &quot;height&quot;: 0.6, &quot;width&quot;: 0.6, &quot;horiz_justify&quot;: 0, &quot;thickness&quot;: 0.15, &quot;attr&quot;: [], &quot;angle&quot;: 0.0}, {&quot;pos&quot;: [98.55199999999999, 123.97], &quot;text&quot;: &quot;DIV_TP&quot;, &quot;height&quot;: 1.0, &quot;width&quot;: 1.0, &quot;horiz_justify&quot;: 0, &quot;thickness&quot;: 0.15, &quot;attr&quot;: [], &quot;angle&quot;: 0.0}, {&quot;pos&quot;: [98.55199999999999, 119.91999999999999], &quot;text&quot;: &quot;VBAT1&quot;, &quot;height&quot;: 1.0, &quot;width&quot;: 1.0, &quot;horiz_justify&quot;: 0, &quot;thickness&quot;: 0.15, &quot;attr&quot;: [], &quot;angle&quot;: 0.0}, {&quot;pos&quot;: [97.10799999999999, 124.96799999999999], &quot;text&quot;: &quot;15m&quot;, &quot;height&quot;: 1.0, &quot;width&quot;: 1.0, &quot;horiz_justify&quot;: 0, &quot;thickness&quot;: 0.15, &quot;attr&quot;: [], &quot;angle&quot;: 90.0}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [96.088, 121.818], &quot;end&quot;: [96.088, 128.118], &quot;width&quot;: 0.09999999999999999}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [92.88799999999999, 121.818], &quot;end&quot;: [96.088, 121.818], &quot;width&quot;: 0.09999999999999999}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [92.88799999999999, 128.118], &quot;end&quot;: [92.88799999999999, 121.818], &quot;width&quot;: 0.09999999999999999}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [96.088, 128.118], &quot;end&quot;: [92.88799999999999, 128.118], &quot;width&quot;: 0.09999999999999999}, {&quot;pos&quot;: [94.488, 124.96799999999999], &quot;text&quot;: &quot;R1&quot;, &quot;height&quot;: 1.0, &quot;width&quot;: 1.0, &quot;horiz_justify&quot;: 0, &quot;thickness&quot;: 0.15, &quot;attr&quot;: [], &quot;angle&quot;: 90.0}, {&quot;pos&quot;: [88.89999999999999, 112.244], &quot;text&quot;: &quot;IO Header&quot;, &quot;height&quot;: 1.0, &quot;width&quot;: 1.0, &quot;horiz_justify&quot;: 0, &quot;thickness&quot;: 0.15, &quot;attr&quot;: [], &quot;angle&quot;: 0.0}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [87.63, 98.044], &quot;end&quot;: [89.535, 98.044], &quot;width&quot;: 0.09999999999999999}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [89.535, 98.044], &quot;end&quot;: [90.17, 98.679], &quot;width&quot;: 0.09999999999999999}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [90.17, 98.679], &quot;end&quot;: [90.17, 110.744], &quot;width&quot;: 0.09999999999999999}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [90.17, 110.744], &quot;end&quot;: [87.63, 110.744], &quot;width&quot;: 0.09999999999999999}, {&quot;type&quot;: &quot;segment&quot;, &quot;start&quot;: [87.63, 110.744], &quot;end&quot;: [87.63, 98.044], &quot;width&quot;: 0.09999999999999999}, {&quot;pos&quot;: [88.89999999999999, 104.39399999999999], &quot;text&quot;: &quot;J1&quot;, &quot;height&quot;: 1.0, &quot;width&quot;: 1.0, &quot;horiz_justify&quot;: 0, &quot;thickness&quot;: 0.15, &quot;attr&quot;: [], &quot;angle&quot;: 90.0}], &quot;B&quot;: []}, &quot;modules&quot;: [{&quot;ref&quot;: &quot;C1&quot;, &quot;center&quot;: [99.06, 111.252], &quot;bbox&quot;: {&quot;pos&quot;: [97.35499899999999, 110.27699899999999], &quot;size&quot;: [3.410002, 1.950002]}, &quot;pads&quot;: [{&quot;layers&quot;: [&quot;F&quot;], &quot;pos&quot;: [99.9975, 111.252], &quot;size&quot;: [0.975, 1.4], &quot;angle&quot;: -180.0, &quot;shape&quot;: &quot;roundrect&quot;, &quot;pin1&quot;: 1, &quot;radius&quot;: 0.24375, &quot;type&quot;: &quot;smd&quot;, &quot;offset&quot;: [0.0, 0.0]}, {&quot;layers&quot;: [&quot;F&quot;], &quot;pos&quot;: [98.1225, 111.252], &quot;size&quot;: [0.975, 1.4], &quot;angle&quot;: -180.0, &quot;shape&quot;: &quot;roundrect&quot;, &quot;radius&quot;: 0.24375, &quot;type&quot;: &quot;smd&quot;, &quot;offset&quot;: [0.0, 0.0]}], &quot;drawings&quot;: [], &quot;layer&quot;: &quot;F&quot;}, {&quot;ref&quot;: &quot;C2&quot;, &quot;center&quot;: [114.3, 111.252], &quot;bbox&quot;: {&quot;pos&quot;: [112.594999, 110.27699899999999], &quot;size&quot;: [3.410002, 1.950002]}, &quot;pads&quot;: [{&quot;layers&quot;: [&quot;F&quot;], &quot;pos&quot;: [113.3625, 111.252], &quot;size&quot;: [0.975, 1.4], &quot;angle&quot;: -180.0, &quot;shape&quot;: &quot;roundrect&quot;, &quot;radius&quot;: 0.24375, &quot;type&quot;: &quot;smd&quot;, &quot;offset&quot;: [0.0, 0.0]}, {&quot;layers&quot;: [&quot;F&quot;], &quot;pos&quot;: [115.2375, 111.252], &quot;size&quot;: [0.975, 1.4], &quot;angle&quot;: -180.0, &quot;shape&quot;: &quot;roundrect&quot;, &quot;pin1&quot;: 1, &quot;radius&quot;: 0.24375, &quot;type&quot;: &quot;smd&quot;, &quot;offset&quot;: [0.0, 0.0]}], &quot;drawings&quot;: [], &quot;layer&quot;: &quot;F&quot;}, {&quot;ref&quot;: &quot;C3&quot;, &quot;center&quot;: [91.948, 118.618], &quot;bbox&quot;: {&quot;pos&quot;: [90.242999, 117.64299899999999], &quot;size&quot;: [3.410002, 1.950002]}, &quot;pads&quot;: [{&quot;layers&quot;: [&quot;F&quot;], &quot;pos&quot;: [91.0105, 118.618], &quot;size&quot;: [0.975, 1.4], &quot;angle&quot;: -0.0, &quot;shape&quot;: &quot;roundrect&quot;, &quot;pin1&quot;: 1, &quot;radius&quot;: 0.24375, &quot;type&quot;: &quot;smd&quot;, &quot;offset&quot;: [0.0, 0.0]}, {&quot;layers&quot;: [&quot;F&quot;], &quot;pos&quot;: [92.8855, 118.618], &quot;size&quot;: [0.975, 1.4], &quot;angle&quot;: -0.0, &quot;shape&quot;: &quot;roundrect&quot;, &quot;radius&quot;: 0.24375, &quot;type&quot;: &quot;smd&quot;, &quot;offset&quot;: [0.0, 0.0]}], &quot;drawings&quot;: [], &quot;layer&quot;: &quot;F&quot;}, {&quot;ref&quot;: &quot;D1&quot;, &quot;center&quot;: [89.408, 83.312], &quot;bbox&quot;: {&quot;pos&quot;: [87.70299899999999, 82.29199899999999], &quot;size&quot;: [3.450002, 2.040002]}, &quot;pads&quot;: [{&quot;layers&quot;: [&quot;F&quot;], &quot;pos&quot;: [88.4705, 83.312], &quot;size&quot;: [0.975, 1.4], &quot;angle&quot;: -180.0, &quot;shape&quot;: &quot;roundrect&quot;, &quot;radius&quot;: 0.24375, &quot;type&quot;: &quot;smd&quot;, &quot;offset&quot;: [0.0, 0.0]}, {&quot;layers&quot;: [&quot;F&quot;], &quot;pos&quot;: [90.3455, 83.312], &quot;size&quot;: [0.975, 1.4], &quot;angle&quot;: -180.0, &quot;shape&quot;: &quot;roundrect&quot;, &quot;pin1&quot;: 1, &quot;radius&quot;: 0.24375, &quot;type&quot;: &quot;smd&quot;, &quot;offset&quot;: [0.0, 0.0]}], &quot;drawings&quot;: [], &quot;layer&quot;: &quot;F&quot;}, {&quot;ref&quot;: &quot;12BP&quot;, &quot;center&quot;: [105.41, 112.776], &quot;bbox&quot;: {&quot;pos&quot;: [101.034999, 110.950999], &quot;size&quot;: [6.200002, 3.6500019999999997]}, &quot;pads&quot;: [{&quot;layers&quot;: [&quot;F&quot;, &quot;B&quot;], &quot;pos&quot;: [105.41, 112.776], &quot;size&quot;: [1.7, 1.7], &quot;angle&quot;: -270.0, &quot;shape&quot;: &quot;rect&quot;, &quot;pin1&quot;: 1, &quot;type&quot;: &quot;th&quot;, &quot;drillshape&quot;: &quot;circle&quot;, &quot;drillsize&quot;: [1.0, 1.0], &quot;offset&quot;: [0.0, 0.0]}, {&quot;layers&quot;: [&quot;F&quot;, &quot;B&quot;], &quot;pos&quot;: [102.86999999999999, 112.776], &quot;size&quot;: [1.7, 1.7], &quot;angle&quot;: -270.0, &quot;shape&quot;: &quot;oval&quot;, &quot;type&quot;: &quot;th&quot;, &quot;drillshape&quot;: &quot;circle&quot;, &quot;drillsize&quot;: [1.0, 1.0], &quot;offset&quot;: [0.0, 0.0]}], &quot;drawings&quot;: [], &quot;layer&quot;: &quot;F&quot;}, {&quot;ref&quot;: &quot;J3&quot;, &quot;center&quot;: [96.012, 82.55], &quot;bbox&quot;: {&quot;pos&quot;: [93.246999, 78.524999], &quot;size&quot;: [25.850002, 8.050002]}, &quot;pads&quot;: [{&quot;layers&quot;: [&quot;F&quot;, &quot;B&quot;], &quot;pos&quot;: [101.092, 82.55], &quot;size&quot;: [3.0, 3.0], &quot;angle&quot;: -0.0, &quot;shape&quot;: &quot;circle&quot;, &quot;type&quot;: &quot;th&quot;, &quot;drillshape&quot;: &quot;circle&quot;, &quot;drillsize&quot;: [1.52, 1.52], &quot;offset&quot;: [0.0, 0.0]}, {&quot;layers&quot;: [&quot;F&quot;, &quot;B&quot;], &quot;pos&quot;: [106.172, 82.55], &quot;size&quot;: [3.0, 3.0], &quot;angle&quot;: -0.0, &quot;shape&quot;: &quot;circle&quot;, &quot;type&quot;: &quot;th&quot;, &quot;drillshape&quot;: &quot;circle&quot;, &quot;drillsize&quot;: [1.52, 1.52], &quot;offset&quot;: [0.0, 0.0]}, {&quot;layers&quot;: [&quot;F&quot;, &quot;B&quot;], &quot;pos&quot;: [96.012, 82.55], &quot;size&quot;: [3.0, 3.0], &quot;angle&quot;: -0.0, &quot;shape&quot;: &quot;rect&quot;, &quot;pin1&quot;: 1, &quot;type&quot;: &quot;th&quot;, &quot;drillshape&quot;: &quot;circle&quot;, &quot;drillsize&quot;: [1.52, 1.52], &quot;offset&quot;: [0.0, 0.0]}, {&quot;layers&quot;: [&quot;F&quot;, &quot;B&quot;], &quot;pos&quot;: [111.252, 82.55], &quot;size&quot;: [3.0, 3.0], &quot;angle&quot;: -0.0, &quot;shape&quot;: &quot;circle&quot;, &quot;type&quot;: &quot;th&quot;, &quot;drillshape&quot;: &quot;circle&quot;, &quot;drillsize&quot;: [1.52, 1.52], &quot;offset&quot;: [0.0, 0.0]}, {&quot;layers&quot;: [&quot;F&quot;, &quot;B&quot;], &quot;pos&quot;: [116.332, 82.55], &quot;size&quot;: [3.0, 3.0], &quot;angle&quot;: -0.0, &quot;shape&quot;: &quot;circle&quot;, &quot;type&quot;: &quot;th&quot;, &quot;drillshape&quot;: &quot;circle&quot;, &quot;drillsize&quot;: [1.52, 1.52], &quot;offset&quot;: [0.0, 0.0]}], &quot;drawings&quot;: [], &quot;layer&quot;: &quot;F&quot;}, {&quot;ref&quot;: &quot;J4&quot;, &quot;center&quot;: [100.076, 126.238], &quot;bbox&quot;: {&quot;pos&quot;: [97.05099899999999, 124.11299899999999], &quot;size&quot;: [8.550002, 4.850002]}, &quot;pads&quot;: [{&quot;layers&quot;: [&quot;F&quot;, &quot;B&quot;], &quot;pos&quot;: [100.076, 126.238], &quot;size&quot;: [1.7, 2.0], &quot;angle&quot;: -0.0, &quot;shape&quot;: &quot;roundrect&quot;, &quot;pin1&quot;: 1, &quot;radius&quot;: 0.25, &quot;type&quot;: &quot;th&quot;, &quot;drillshape&quot;: &quot;circle&quot;, &quot;drillsize&quot;: [1.0, 1.0], &quot;offset&quot;: [0.0, 0.0]}, {&quot;layers&quot;: [&quot;F&quot;, &quot;B&quot;], &quot;pos&quot;: [102.576, 126.238], &quot;size&quot;: [1.7, 2.0], &quot;angle&quot;: -0.0, &quot;shape&quot;: &quot;oval&quot;, &quot;type&quot;: &quot;th&quot;, &quot;drillshape&quot;: &quot;circle&quot;, &quot;drillsize&quot;: [1.0, 1.0], &quot;offset&quot;: [0.0, 0.0]}], &quot;drawings&quot;: [], &quot;layer&quot;: &quot;F&quot;}, {&quot;ref&quot;: &quot;J5&quot;, &quot;center&quot;: [112.268, 117.856], &quot;bbox&quot;: {&quot;pos&quot;: [107.442999, 113.58099899999999], &quot;size&quot;: [10.750002, 15.250001999999999]}, &quot;pads&quot;: [{&quot;layers&quot;: [&quot;F&quot;, &quot;B&quot;], &quot;pos&quot;: [116.96799999999999, 117.856], &quot;size&quot;: [2.0, 2.6], &quot;angle&quot;: -180.0, &quot;shape&quot;: &quot;rect&quot;, &quot;type&quot;: &quot;th&quot;, &quot;drillshape&quot;: &quot;oblong&quot;, &quot;drillsize&quot;: [1.0, 1.5999999999999999], &quot;offset&quot;: [0.0, 0.0]}, {&quot;layers&quot;: [&quot;F&quot;, &quot;B&quot;], &quot;pos&quot;: [112.268, 114.856], &quot;size&quot;: [2.6, 2.0], &quot;angle&quot;: -180.0, &quot;shape&quot;: &quot;rect&quot;, &quot;pin1&quot;: 1, &quot;type&quot;: &quot;th&quot;, &quot;drillshape&quot;: &quot;oblong&quot;, &quot;drillsize&quot;: [1.5999999999999999, 1.0], &quot;offset&quot;: [0.0, 0.0]}, {&quot;layers&quot;: [&quot;F&quot;, &quot;B&quot;], &quot;pos&quot;: [112.268, 120.856], &quot;size&quot;: [2.6, 2.0], &quot;angle&quot;: -180.0, &quot;shape&quot;: &quot;rect&quot;, &quot;type&quot;: &quot;th&quot;, &quot;drillshape&quot;: &quot;oblong&quot;, &quot;drillsize&quot;: [1.5999999999999999, 1.0], &quot;offset&quot;: [0.0, 0.0]}], &quot;drawings&quot;: [], &quot;layer&quot;: &quot;F&quot;}, {&quot;ref&quot;: &quot;SW&quot;, &quot;center&quot;: [88.89999999999999, 127.0], &quot;bbox&quot;: {&quot;pos&quot;: [87.124999, 122.674999], &quot;size&quot;: [3.600002, 6.150002]}, &quot;pads&quot;: [{&quot;layers&quot;: [&quot;F&quot;, &quot;B&quot;], &quot;pos&quot;: [88.89999999999999, 127.0], &quot;size&quot;: [1.7, 1.7], &quot;angle&quot;: -180.0, &quot;shape&quot;: &quot;rect&quot;, &quot;pin1&quot;: 1, &quot;type&quot;: &quot;th&quot;, &quot;drillshape&quot;: &quot;circle&quot;, &quot;drillsize&quot;: [1.0, 1.0], &quot;offset&quot;: [0.0, 0.0]}, {&quot;layers&quot;: [&quot;F&quot;, &quot;B&quot;], &quot;pos&quot;: [88.89999999999999, 124.46], &quot;size&quot;: [1.7, 1.7], &quot;angle&quot;: -180.0, &quot;shape&quot;: &quot;oval&quot;, &quot;type&quot;: &quot;th&quot;, &quot;drillshape&quot;: &quot;circle&quot;, &quot;drillsize&quot;: [1.0, 1.0], &quot;offset&quot;: [0.0, 0.0]}], &quot;drawings&quot;: [], &quot;layer&quot;: &quot;F&quot;}, {&quot;ref&quot;: &quot;R2&quot;, &quot;center&quot;: [91.948, 115.31599999999999], &quot;bbox&quot;: {&quot;pos&quot;: [90.242999, 114.340999], &quot;size&quot;: [3.410002, 1.950002]}, &quot;pads&quot;: [{&quot;layers&quot;: [&quot;F&quot;], &quot;pos&quot;: [92.8855, 115.31599999999999], &quot;size&quot;: [0.975, 1.4], &quot;angle&quot;: -180.0, &quot;shape&quot;: &quot;roundrect&quot;, &quot;pin1&quot;: 1, &quot;radius&quot;: 0.24375, &quot;type&quot;: &quot;smd&quot;, &quot;offset&quot;: [0.0, 0.0]}, {&quot;layers&quot;: [&quot;F&quot;], &quot;pos&quot;: [91.0105, 115.31599999999999], &quot;size&quot;: [0.975, 1.4], &quot;angle&quot;: -180.0, &quot;shape&quot;: &quot;roundrect&quot;, &quot;radius&quot;: 0.24375, &quot;type&quot;: &quot;smd&quot;, &quot;offset&quot;: [0.0, 0.0]}], &quot;drawings&quot;: [], &quot;layer&quot;: &quot;F&quot;}, {&quot;ref&quot;: &quot;R3&quot;, &quot;center&quot;: [105.41, 119.88799999999999], &quot;bbox&quot;: {&quot;pos&quot;: [103.704999, 118.912999], &quot;size&quot;: [3.410002, 1.950002]}, &quot;pads&quot;: [{&quot;layers&quot;: [&quot;F&quot;], &quot;pos&quot;: [106.3475, 119.88799999999999], &quot;size&quot;: [0.975, 1.4], &quot;angle&quot;: -0.0, &quot;shape&quot;: &quot;roundrect&quot;, &quot;radius&quot;: 0.24375, &quot;type&quot;: &quot;smd&quot;, &quot;offset&quot;: [0.0, 0.0]}, {&quot;layers&quot;: [&quot;F&quot;], &quot;pos&quot;: [104.4725, 119.88799999999999], &quot;size&quot;: [0.975, 1.4], &quot;angle&quot;: -0.0, &quot;shape&quot;: &quot;roundrect&quot;, &quot;pin1&quot;: 1, &quot;radius&quot;: 0.24375, &quot;type&quot;: &quot;smd&quot;, &quot;offset&quot;: [0.0, 0.0]}], &quot;drawings&quot;: [], &quot;layer&quot;: &quot;F&quot;}, {&quot;ref&quot;: &quot;R4&quot;, &quot;center&quot;: [105.41, 117.60199999999999], &quot;bbox&quot;: {&quot;pos&quot;: [103.704999, 116.626999], &quot;size&quot;: [3.410002, 1.950002]}, &quot;pads&quot;: [{&quot;layers&quot;: [&quot;F&quot;], &quot;pos&quot;: [106.3475, 117.60199999999999], &quot;size&quot;: [0.975, 1.4], &quot;angle&quot;: -180.0, &quot;shape&quot;: &quot;roundrect&quot;, &quot;pin1&quot;: 1, &quot;radius&quot;: 0.24375, &quot;type&quot;: &quot;smd&quot;, &quot;offset&quot;: [0.0, 0.0]}, {&quot;layers&quot;: [&quot;F&quot;], &quot;pos&quot;: [104.4725, 117.60199999999999], &quot;size&quot;: [0.975, 1.4], &quot;angle&quot;: -180.0, &quot;shape&quot;: &quot;roundrect&quot;, &quot;radius&quot;: 0.24375, &quot;type&quot;: &quot;smd&quot;, &quot;offset&quot;: [0.0, 0.0]}], &quot;drawings&quot;: [], &quot;layer&quot;: &quot;F&quot;}, {&quot;ref&quot;: &quot;R5&quot;, &quot;center&quot;: [105.41, 122.17399999999999], &quot;bbox&quot;: {&quot;pos&quot;: [103.704999, 121.198999], &quot;size&quot;: [3.410002, 1.950002]}, &quot;pads&quot;: [{&quot;layers&quot;: [&quot;F&quot;], &quot;pos&quot;: [106.3475, 122.17399999999999], &quot;size&quot;: [0.975, 1.4], &quot;angle&quot;: -180.0, &quot;shape&quot;: &quot;roundrect&quot;, &quot;pin1&quot;: 1, &quot;radius&quot;: 0.24375, &quot;type&quot;: &quot;smd&quot;, &quot;offset&quot;: [0.0, 0.0]}, {&quot;layers&quot;: [&quot;F&quot;], &quot;pos&quot;: [104.4725, 122.17399999999999], &quot;size&quot;: [0.975, 1.4], &quot;angle&quot;: -180.0, &quot;shape&quot;: &quot;roundrect&quot;, &quot;radius&quot;: 0.24375, &quot;type&quot;: &quot;smd&quot;, &quot;offset&quot;: [0.0, 0.0]}], &quot;drawings&quot;: [], &quot;layer&quot;: &quot;F&quot;}, {&quot;ref&quot;: &quot;R6&quot;, &quot;center&quot;: [89.408, 85.85199999999999], &quot;bbox&quot;: {&quot;pos&quot;: [87.70299899999999, 84.876999], &quot;size&quot;: [3.410002, 1.950002]}, &quot;pads&quot;: [{&quot;layers&quot;: [&quot;F&quot;], &quot;pos&quot;: [88.4705, 85.85199999999999], &quot;size&quot;: [0.975, 1.4], &quot;angle&quot;: -180.0, &quot;shape&quot;: &quot;roundrect&quot;, &quot;radius&quot;: 0.24375, &quot;type&quot;: &quot;smd&quot;, &quot;offset&quot;: [0.0, 0.0]}, {&quot;layers&quot;: [&quot;F&quot;], &quot;pos&quot;: [90.3455, 85.85199999999999], &quot;size&quot;: [0.975, 1.4], &quot;angle&quot;: -180.0, &quot;shape&quot;: &quot;roundrect&quot;, &quot;pin1&quot;: 1, &quot;radius&quot;: 0.24375, &quot;type&quot;: &quot;smd&quot;, &quot;offset&quot;: [0.0, 0.0]}], &quot;drawings&quot;: [], &quot;layer&quot;: &quot;F&quot;}, {&quot;ref&quot;: &quot;U1&quot;, &quot;center&quot;: [106.67999999999999, 91.44], &quot;bbox&quot;: {&quot;pos&quot;: [104.90499899999999, 89.71499899999999], &quot;size&quot;: [3.5500019999999997, 3.450002]}, &quot;pads&quot;: [{&quot;layers&quot;: [&quot;F&quot;], &quot;pos&quot;: [105.72999999999999, 92.44], &quot;size&quot;: [0.8999999999999999, 0.7999999999999999], &quot;angle&quot;: -90.0, &quot;shape&quot;: &quot;rect&quot;, &quot;pin1&quot;: 1, &quot;type&quot;: &quot;smd&quot;, &quot;offset&quot;: [0.0, 0.0]}, {&quot;layers&quot;: [&quot;F&quot;], &quot;pos&quot;: [107.63, 92.44], &quot;size&quot;: [0.8999999999999999, 0.7999999999999999], &quot;angle&quot;: -90.0, &quot;shape&quot;: &quot;rect&quot;, &quot;type&quot;: &quot;smd&quot;, &quot;offset&quot;: [0.0, 0.0]}, {&quot;layers&quot;: [&quot;F&quot;], &quot;pos&quot;: [106.67999999999999, 90.44], &quot;size&quot;: [0.8999999999999999, 0.7999999999999999], &quot;angle&quot;: -90.0, &quot;shape&quot;: &quot;rect&quot;, &quot;type&quot;: &quot;smd&quot;, &quot;offset&quot;: [0.0, 0.0]}], &quot;drawings&quot;: [], &quot;layer&quot;: &quot;F&quot;}, {&quot;ref&quot;: &quot;U2&quot;, &quot;center&quot;: [100.58399999999999, 101.6], &quot;bbox&quot;: {&quot;pos&quot;: [94.908999, 93.254999], &quot;size&quot;: [11.350002, 16.690002]}, &quot;pads&quot;: [{&quot;layers&quot;: [&quot;F&quot;], &quot;pos&quot;: [98.044, 107.375], &quot;size&quot;: [4.6, 1.0999999999999999], &quot;angle&quot;: -90.0, &quot;shape&quot;: &quot;rect&quot;, &quot;pin1&quot;: 1, &quot;type&quot;: &quot;smd&quot;, &quot;offset&quot;: [0.0, 0.0]}, {&quot;layers&quot;: [&quot;F&quot;], &quot;pos&quot;: [100.58399999999999, 107.375], &quot;size&quot;: [4.6, 1.0999999999999999], &quot;angle&quot;: -90.0, &quot;shape&quot;: &quot;rect&quot;, &quot;type&quot;: &quot;smd&quot;, &quot;offset&quot;: [0.0, 0.0]}, {&quot;layers&quot;: [&quot;F&quot;], &quot;pos&quot;: [103.124, 107.375], &quot;size&quot;: [4.6, 1.0999999999999999], &quot;angle&quot;: -90.0, &quot;shape&quot;: &quot;rect&quot;, &quot;type&quot;: &quot;smd&quot;, &quot;offset&quot;: [0.0, 0.0]}, {&quot;layers&quot;: [&quot;F&quot;], &quot;pos&quot;: [100.58399999999999, 98.225], &quot;size&quot;: [9.4, 10.799999999999999], &quot;angle&quot;: -90.0, &quot;shape&quot;: &quot;rect&quot;, &quot;type&quot;: &quot;smd&quot;, &quot;offset&quot;: [0.0, 0.0]}, {&quot;layers&quot;: [], &quot;pos&quot;: [103.359, 95.8], &quot;size&quot;: [4.55, 5.25], &quot;angle&quot;: -90.0, &quot;shape&quot;: &quot;rect&quot;, &quot;type&quot;: &quot;smd&quot;, &quot;offset&quot;: [0.0, 0.0]}, {&quot;layers&quot;: [], &quot;pos&quot;: [97.809, 100.64999999999999], &quot;size&quot;: [4.55, 5.25], &quot;angle&quot;: -90.0, &quot;shape&quot;: &quot;rect&quot;, &quot;type&quot;: &quot;smd&quot;, &quot;offset&quot;: [0.0, 0.0]}, {&quot;layers&quot;: [], &quot;pos&quot;: [97.809, 95.8], &quot;size&quot;: [4.55, 5.25], &quot;angle&quot;: -90.0, &quot;shape&quot;: &quot;rect&quot;, &quot;type&quot;: &quot;smd&quot;, &quot;offset&quot;: [0.0, 0.0]}, {&quot;layers&quot;: [], &quot;pos&quot;: [103.359, 100.64999999999999], &quot;size&quot;: [4.55, 5.25], &quot;angle&quot;: -90.0, &quot;shape&quot;: &quot;rect&quot;, &quot;type&quot;: &quot;smd&quot;, &quot;offset&quot;: [0.0, 0.0]}], &quot;drawings&quot;: [], &quot;layer&quot;: &quot;F&quot;}, {&quot;ref&quot;: &quot;U3&quot;, &quot;center&quot;: [112.776, 101.6], &quot;bbox&quot;: {&quot;pos&quot;: [107.100999, 93.254999], &quot;size&quot;: [11.350002, 16.690002]}, &quot;pads&quot;: [{&quot;layers&quot;: [], &quot;pos&quot;: [115.55099999999999, 100.64999999999999], &quot;size&quot;: [4.55, 5.25], &quot;angle&quot;: -90.0, &quot;shape&quot;: &quot;rect&quot;, &quot;type&quot;: &quot;smd&quot;, &quot;offset&quot;: [0.0, 0.0]}, {&quot;layers&quot;: [], &quot;pos&quot;: [110.00099999999999, 95.8], &quot;size&quot;: [4.55, 5.25], &quot;angle&quot;: -90.0, &quot;shape&quot;: &quot;rect&quot;, &quot;type&quot;: &quot;smd&quot;, &quot;offset&quot;: [0.0, 0.0]}, {&quot;layers&quot;: [], &quot;pos&quot;: [110.00099999999999, 100.64999999999999], &quot;size&quot;: [4.55, 5.25], &quot;angle&quot;: -90.0, &quot;shape&quot;: &quot;rect&quot;, &quot;type&quot;: &quot;smd&quot;, &quot;offset&quot;: [0.0, 0.0]}, {&quot;layers&quot;: [], &quot;pos&quot;: [115.55099999999999, 95.8], &quot;size&quot;: [4.55, 5.25], &quot;angle&quot;: -90.0, &quot;shape&quot;: &quot;rect&quot;, &quot;type&quot;: &quot;smd&quot;, &quot;offset&quot;: [0.0, 0.0]}, {&quot;layers&quot;: [&quot;F&quot;], &quot;pos&quot;: [112.776, 98.225], &quot;size&quot;: [9.4, 10.799999999999999], &quot;angle&quot;: -90.0, &quot;shape&quot;: &quot;rect&quot;, &quot;type&quot;: &quot;smd&quot;, &quot;offset&quot;: [0.0, 0.0]}, {&quot;layers&quot;: [&quot;F&quot;], &quot;pos&quot;: [115.31599999999999, 107.375], &quot;size&quot;: [4.6, 1.0999999999999999], &quot;angle&quot;: -90.0, &quot;shape&quot;: &quot;rect&quot;, &quot;type&quot;: &quot;smd&quot;, &quot;offset&quot;: [0.0, 0.0]}, {&quot;layers&quot;: [&quot;F&quot;], &quot;pos&quot;: [112.776, 107.375], &quot;size&quot;: [4.6, 1.0999999999999999], &quot;angle&quot;: -90.0, &quot;shape&quot;: &quot;rect&quot;, &quot;type&quot;: &quot;smd&quot;, &quot;offset&quot;: [0.0, 0.0]}, {&quot;layers&quot;: [&quot;F&quot;], &quot;pos&quot;: [110.23599999999999, 107.375], &quot;size&quot;: [4.6, 1.0999999999999999], &quot;angle&quot;: -90.0, &quot;shape&quot;: &quot;rect&quot;, &quot;pin1&quot;: 1, &quot;type&quot;: &quot;smd&quot;, &quot;offset&quot;: [0.0, 0.0]}], &quot;drawings&quot;: [], &quot;layer&quot;: &quot;F&quot;}, {&quot;ref&quot;: &quot;U4&quot;, &quot;center&quot;: [98.044, 115.824], &quot;bbox&quot;: {&quot;pos&quot;: [95.06899899999999, 113.998999], &quot;size&quot;: [5.950002, 3.6500019999999997]}, &quot;pads&quot;: [{&quot;layers&quot;: [&quot;F&quot;], &quot;pos&quot;: [95.89399999999999, 114.84899999999999], &quot;size&quot;: [1.0999999999999999, 0.39999999999999997], &quot;angle&quot;: -0.0, &quot;shape&quot;: &quot;rect&quot;, &quot;pin1&quot;: 1, &quot;type&quot;: &quot;smd&quot;, &quot;offset&quot;: [0.0, 0.0]}, {&quot;layers&quot;: [&quot;F&quot;], &quot;pos&quot;: [95.89399999999999, 115.499], &quot;size&quot;: [1.0999999999999999, 0.39999999999999997], &quot;angle&quot;: -0.0, &quot;shape&quot;: &quot;rect&quot;, &quot;type&quot;: &quot;smd&quot;, &quot;offset&quot;: [0.0, 0.0]}, {&quot;layers&quot;: [&quot;F&quot;], &quot;pos&quot;: [95.89399999999999, 116.149], &quot;size&quot;: [1.0999999999999999, 0.39999999999999997], &quot;angle&quot;: -0.0, &quot;shape&quot;: &quot;rect&quot;, &quot;type&quot;: &quot;smd&quot;, &quot;offset&quot;: [0.0, 0.0]}, {&quot;layers&quot;: [&quot;F&quot;], &quot;pos&quot;: [95.89399999999999, 116.79899999999999], &quot;size&quot;: [1.0999999999999999, 0.39999999999999997], &quot;angle&quot;: -0.0, &quot;shape&quot;: &quot;rect&quot;, &quot;type&quot;: &quot;smd&quot;, &quot;offset&quot;: [0.0, 0.0]}, {&quot;layers&quot;: [&quot;F&quot;], &quot;pos&quot;: [100.19399999999999, 116.79899999999999], &quot;size&quot;: [1.0999999999999999, 0.39999999999999997], &quot;angle&quot;: -0.0, &quot;shape&quot;: &quot;rect&quot;, &quot;type&quot;: &quot;smd&quot;, &quot;offset&quot;: [0.0, 0.0]}, {&quot;layers&quot;: [&quot;F&quot;], &quot;pos&quot;: [100.19399999999999, 116.149], &quot;size&quot;: [1.0999999999999999, 0.39999999999999997], &quot;angle&quot;: -0.0, &quot;shape&quot;: &quot;rect&quot;, &quot;type&quot;: &quot;smd&quot;, &quot;offset&quot;: [0.0, 0.0]}, {&quot;layers&quot;: [&quot;F&quot;], &quot;pos&quot;: [100.19399999999999, 115.499], &quot;size&quot;: [1.0999999999999999, 0.39999999999999997], &quot;angle&quot;: -0.0, &quot;shape&quot;: &quot;rect&quot;, &quot;type&quot;: &quot;smd&quot;, &quot;offset&quot;: [0.0, 0.0]}, {&quot;layers&quot;: [&quot;F&quot;], &quot;pos&quot;: [100.19399999999999, 114.84899999999999], &quot;size&quot;: [1.0999999999999999, 0.39999999999999997], &quot;angle&quot;: -0.0, &quot;shape&quot;: &quot;rect&quot;, &quot;type&quot;: &quot;smd&quot;, &quot;offset&quot;: [0.0, 0.0]}], &quot;drawings&quot;: [], &quot;layer&quot;: &quot;F&quot;}, {&quot;ref&quot;: &quot;VBAT1&quot;, &quot;center&quot;: [98.55199999999999, 121.91999999999999], &quot;bbox&quot;: {&quot;pos&quot;: [97.02699899999999, 120.394999], &quot;size&quot;: [3.0500019999999997, 3.0500019999999997]}, &quot;pads&quot;: [{&quot;layers&quot;: [&quot;F&quot;], &quot;pos&quot;: [98.55199999999999, 121.91999999999999], &quot;size&quot;: [2.0, 2.0], &quot;angle&quot;: -0.0, &quot;shape&quot;: &quot;rect&quot;, &quot;pin1&quot;: 1, &quot;type&quot;: &quot;smd&quot;, &quot;offset&quot;: [0.0, 0.0]}], &quot;drawings&quot;: [], &quot;layer&quot;: &quot;F&quot;}, {&quot;ref&quot;: &quot;R1&quot;, &quot;center&quot;: [94.488, 124.96799999999999], &quot;bbox&quot;: {&quot;pos&quot;: [92.542999, 121.122999], &quot;size&quot;: [3.890002, 7.690002]}, &quot;pads&quot;: [{&quot;layers&quot;: [&quot;F&quot;], &quot;pos&quot;: [94.488, 127.868], &quot;size&quot;: [1.3499999999999999, 3.3499999999999996], &quot;angle&quot;: -90.0, &quot;shape&quot;: &quot;roundrect&quot;, &quot;pin1&quot;: 1, &quot;radius&quot;: 0.249999, &quot;type&quot;: &quot;smd&quot;, &quot;offset&quot;: [0.0, 0.0]}, {&quot;layers&quot;: [&quot;F&quot;], &quot;pos&quot;: [94.488, 122.068], &quot;size&quot;: [1.3499999999999999, 3.3499999999999996], &quot;angle&quot;: -90.0, &quot;shape&quot;: &quot;roundrect&quot;, &quot;radius&quot;: 0.249999, &quot;type&quot;: &quot;smd&quot;, &quot;offset&quot;: [0.0, 0.0]}], &quot;drawings&quot;: [], &quot;layer&quot;: &quot;F&quot;}, {&quot;ref&quot;: &quot;J1&quot;, &quot;center&quot;: [88.89999999999999, 99.314], &quot;bbox&quot;: {&quot;pos&quot;: [87.07499899999999, 97.48899899999999], &quot;size&quot;: [3.600002, 13.750001999999999]}, &quot;pads&quot;: [{&quot;layers&quot;: [&quot;F&quot;, &quot;B&quot;], &quot;pos&quot;: [88.89999999999999, 99.314], &quot;size&quot;: [1.7, 1.7], &quot;angle&quot;: -0.0, &quot;shape&quot;: &quot;rect&quot;, &quot;pin1&quot;: 1, &quot;type&quot;: &quot;th&quot;, &quot;drillshape&quot;: &quot;circle&quot;, &quot;drillsize&quot;: [1.0, 1.0], &quot;offset&quot;: [0.0, 0.0]}, {&quot;layers&quot;: [&quot;F&quot;, &quot;B&quot;], &quot;pos&quot;: [88.89999999999999, 101.854], &quot;size&quot;: [1.7, 1.7], &quot;angle&quot;: -0.0, &quot;shape&quot;: &quot;oval&quot;, &quot;type&quot;: &quot;th&quot;, &quot;drillshape&quot;: &quot;circle&quot;, &quot;drillsize&quot;: [1.0, 1.0], &quot;offset&quot;: [0.0, 0.0]}, {&quot;layers&quot;: [&quot;F&quot;, &quot;B&quot;], &quot;pos&quot;: [88.89999999999999, 104.39399999999999], &quot;size&quot;: [1.7, 1.7], &quot;angle&quot;: -0.0, &quot;shape&quot;: &quot;oval&quot;, &quot;type&quot;: &quot;th&quot;, &quot;drillshape&quot;: &quot;circle&quot;, &quot;drillsize&quot;: [1.0, 1.0], &quot;offset&quot;: [0.0, 0.0]}, {&quot;layers&quot;: [&quot;F&quot;, &quot;B&quot;], &quot;pos&quot;: [88.89999999999999, 106.934], &quot;size&quot;: [1.7, 1.7], &quot;angle&quot;: -0.0, &quot;shape&quot;: &quot;oval&quot;, &quot;type&quot;: &quot;th&quot;, &quot;drillshape&quot;: &quot;circle&quot;, &quot;drillsize&quot;: [1.0, 1.0], &quot;offset&quot;: [0.0, 0.0]}, {&quot;layers&quot;: [&quot;F&quot;, &quot;B&quot;], &quot;pos&quot;: [88.89999999999999, 109.47399999999999], &quot;size&quot;: [1.7, 1.7], &quot;angle&quot;: -0.0, &quot;shape&quot;: &quot;oval&quot;, &quot;type&quot;: &quot;th&quot;, &quot;drillshape&quot;: &quot;circle&quot;, &quot;drillsize&quot;: [1.0, 1.0], &quot;offset&quot;: [0.0, 0.0]}], &quot;drawings&quot;: [], &quot;layer&quot;: &quot;F&quot;}], &quot;metadata&quot;: {&quot;title&quot;: &quot;Kratos Power Distribution Board&quot;, &quot;revision&quot;: &quot;A&quot;, &quot;company&quot;: &quot;&quot;, &quot;date&quot;: &quot;2021-03-08&quot;}, &quot;bom&quot;: {&quot;both&quot;: [[2, &quot;10uF&quot;, &quot;C_0805_2012Metric&quot;, [[&quot;C1&quot;, 0], [&quot;C2&quot;, 1]], []], [1, &quot;10nF&quot;, &quot;C_0805_2012Metric&quot;, [[&quot;C3&quot;, 2]], []], [2, &quot;10k&quot;, &quot;R_0805_2012Metric&quot;, [[&quot;R4&quot;, 11], [&quot;R5&quot;, 12]], []], [1, &quot;500&quot;, &quot;R_0805_2012Metric&quot;, [[&quot;R2&quot;, 9]], []], [1, &quot;42k&quot;, &quot;R_0805_2012Metric&quot;, [[&quot;R3&quot;, 10]], []], [1, &quot;200&quot;, &quot;R_0805_2012Metric&quot;, [[&quot;R6&quot;, 13]], []], [1, &quot;15m&quot;, &quot;R_2512_6332Metric&quot;, [[&quot;R1&quot;, 19]], []], [1, &quot;PWR_5V&quot;, &quot;LED_0805_2012Metric&quot;, [[&quot;D1&quot;, 3]], []], [1, &quot;AP2138&quot;, &quot;SOT-23&quot;, [[&quot;U1&quot;, 14]], []], [1, &quot;MIC29300-12&quot;, &quot;TO-263-3_TabPin2&quot;, [[&quot;U2&quot;, 15]], []], [1, &quot;MIC29310-5.0&quot;, &quot;TO-263-3_TabPin2&quot;, [[&quot;U3&quot;, 16]], []], [1, &quot;DS2745U&quot;, &quot;TSSOP-8_3x3mm_P0.65mm&quot;, [[&quot;U4&quot;, 17]], []], [1, &quot;External Switch&quot;, &quot;PinSocket_1x02_P2.54mm_Vertical&quot;, [[&quot;SW&quot;, 8]], []], [1, &quot;12V Regulator Bypass&quot;, &quot;PinHeader_1x02_P2.54mm_Vertical&quot;, [[&quot;12BP&quot;, 4]], []], [1, &quot;PJ-102A&quot;, &quot;Barrel_Jack_5.5mmODx2.1mmID_PJ-102A&quot;, [[&quot;J5&quot;, 7]], []], [1, &quot;VIN&quot;, &quot;JST_EH_B02B-EH-A_1x02_P2.50mm_Vertical&quot;, [[&quot;J4&quot;, 6]], []], [1, &quot;IO Header&quot;, &quot;PinSocket_1x05_P2.54mm_Vertical&quot;, [[&quot;J1&quot;, 20]], []], [1, &quot;Power Terminal&quot;, &quot;TerminalBlock_bornier-5_P5.08mm&quot;, [[&quot;J3&quot;, 5]], []]], &quot;F&quot;: [[2, &quot;10uF&quot;, &quot;C_0805_2012Metric&quot;, [[&quot;C1&quot;, 0], [&quot;C2&quot;, 1]], []], [1, &quot;10nF&quot;, &quot;C_0805_2012Metric&quot;, [[&quot;C3&quot;, 2]], []], [2, &quot;10k&quot;, &quot;R_0805_2012Metric&quot;, [[&quot;R4&quot;, 11], [&quot;R5&quot;, 12]], []], [1, &quot;500&quot;, &quot;R_0805_2012Metric&quot;, [[&quot;R2&quot;, 9]], []], [1, &quot;42k&quot;, &quot;R_0805_2012Metric&quot;, [[&quot;R3&quot;, 10]], []], [1, &quot;200&quot;, &quot;R_0805_2012Metric&quot;, [[&quot;R6&quot;, 13]], []], [1, &quot;15m&quot;, &quot;R_2512_6332Metric&quot;, [[&quot;R1&quot;, 19]], []], [1, &quot;PWR_5V&quot;, &quot;LED_0805_2012Metric&quot;, [[&quot;D1&quot;, 3]], []], [1, &quot;AP2138&quot;, &quot;SOT-23&quot;, [[&quot;U1&quot;, 14]], []], [1, &quot;MIC29300-12&quot;, &quot;TO-263-3_TabPin2&quot;, [[&quot;U2&quot;, 15]], []], [1, &quot;MIC29310-5.0&quot;, &quot;TO-263-3_TabPin2&quot;, [[&quot;U3&quot;, 16]], []], [1, &quot;DS2745U&quot;, &quot;TSSOP-8_3x3mm_P0.65mm&quot;, [[&quot;U4&quot;, 17]], []], [1, &quot;External Switch&quot;, &quot;PinSocket_1x02_P2.54mm_Vertical&quot;, [[&quot;SW&quot;, 8]], []], [1, &quot;12V Regulator Bypass&quot;, &quot;PinHeader_1x02_P2.54mm_Vertical&quot;, [[&quot;12BP&quot;, 4]], []], [1, &quot;PJ-102A&quot;, &quot;Barrel_Jack_5.5mmODx2.1mmID_PJ-102A&quot;, [[&quot;J5&quot;, 7]], []], [1, &quot;VIN&quot;, &quot;JST_EH_B02B-EH-A_1x02_P2.50mm_Vertical&quot;, [[&quot;J4&quot;, 6]], []], [1, &quot;IO Header&quot;, &quot;PinSocket_1x05_P2.54mm_Vertical&quot;, [[&quot;J1&quot;, 20]], []], [1, &quot;Power Terminal&quot;, &quot;TerminalBlock_bornier-5_P5.08mm&quot;, [[&quot;J3&quot;, 5]], []]], &quot;B&quot;: []}, &quot;font_data&quot;: {&quot;k&quot;: {&quot;w&quot;: 0.8095238095238095, &quot;l&quot;: [[[0.23809523809523808, -0.047619047619047616], [0.23809523809523808, -1.0476190476190474]], [[0.3333333333333333, -0.42857142857142855], [0.6190476190476191, -0.047619047619047616]], [[0.6190476190476191, -0.7142857142857142], [0.23809523809523808, -0.3333333333333333]]]}, &quot;r&quot;: {&quot;w&quot;: 0.6190476190476191, &quot;l&quot;: [[[0.23809523809523808, -0.047619047619047616], [0.23809523809523808, -0.7142857142857142]], [[0.23809523809523808, -0.5238095238095237], [0.2857142857142857, -0.6190476190476191], [0.3333333333333333, -0.6666666666666666], [0.42857142857142855, -0.7142857142857142], [0.5238095238095237, -0.7142857142857142]]]}, &quot;a&quot;: {&quot;w&quot;: 0.9047619047619047, &quot;l&quot;: [[[0.6666666666666666, -0.047619047619047616], [0.6666666666666666, -0.5714285714285714], [0.6190476190476191, -0.6666666666666666], [0.5238095238095237, -0.7142857142857142], [0.3333333333333333, -0.7142857142857142], [0.23809523809523808, -0.6666666666666666]], [[0.6666666666666666, -0.09523809523809523], [0.5714285714285714, -0.047619047619047616], [0.3333333333333333, -0.047619047619047616], [0.23809523809523808, -0.09523809523809523], [0.19047619047619047, -0.19047619047619047], [0.19047619047619047, -0.2857142857142857], [0.23809523809523808, -0.38095238095238093], [0.3333333333333333, -0.42857142857142855], [0.5714285714285714, -0.42857142857142855], [0.6666666666666666, -0.47619047619047616]]]}, &quot;t&quot;: {&quot;w&quot;: 0.5714285714285714, &quot;l&quot;: [[[0.09523809523809523, -0.7142857142857142], [0.47619047619047616, -0.7142857142857142]], [[0.23809523809523808, -1.0476190476190474], [0.23809523809523808, -0.19047619047619047], [0.2857142857142857, -0.09523809523809523], [0.38095238095238093, -0.047619047619047616], [0.47619047619047616, -0.047619047619047616]]]}, &quot;o&quot;: {&quot;w&quot;: 0.9047619047619047, &quot;l&quot;: [[[0.38095238095238093, -0.047619047619047616], [0.2857142857142857, -0.09523809523809523], [0.23809523809523808, -0.14285714285714285], [0.19047619047619047, -0.23809523809523808], [0.19047619047619047, -0.5238095238095237], [0.23809523809523808, -0.6190476190476191], [0.2857142857142857, -0.6666666666666666], [0.38095238095238093, -0.7142857142857142], [0.5238095238095237, -0.7142857142857142], [0.6190476190476191, -0.6666666666666666], [0.6666666666666666, -0.6190476190476191], [0.7142857142857142, -0.5238095238095237], [0.7142857142857142, -0.23809523809523808], [0.6666666666666666, -0.14285714285714285], [0.6190476190476191, -0.09523809523809523], [0.5238095238095237, -0.047619047619047616], [0.38095238095238093, -0.047619047619047616]]]}, &quot;s&quot;: {&quot;w&quot;: 0.8095238095238095, &quot;l&quot;: [[[0.19047619047619047, -0.09523809523809523], [0.2857142857142857, -0.047619047619047616], [0.47619047619047616, -0.047619047619047616], [0.5714285714285714, -0.09523809523809523], [0.6190476190476191, -0.19047619047619047], [0.6190476190476191, -0.23809523809523808], [0.5714285714285714, -0.3333333333333333], [0.47619047619047616, -0.38095238095238093], [0.3333333333333333, -0.38095238095238093], [0.23809523809523808, -0.42857142857142855], [0.19047619047619047, -0.5238095238095237], [0.19047619047619047, -0.5714285714285714], [0.23809523809523808, -0.6666666666666666], [0.3333333333333333, -0.7142857142857142], [0.47619047619047616, -0.7142857142857142], [0.5714285714285714, -0.6666666666666666]]]}, &quot;P&quot;: {&quot;w&quot;: 1.0, &quot;l&quot;: [[[0.23809523809523803, -0.047619047619047616], [0.23809523809523803, -1.0476190476190474], [0.619047619047619, -1.0476190476190474], [0.7142857142857142, -1.0], [0.7619047619047619, -0.9523809523809523], [0.8095238095238094, -0.8571428571428571], [0.8095238095238094, -0.7142857142857142], [0.7619047619047619, -0.6190476190476191], [0.7142857142857142, -0.5714285714285714], [0.619047619047619, -0.5238095238095237], [0.23809523809523803, -0.5238095238095237]]]}, &quot;W&quot;: {&quot;w&quot;: 1.1428571428571428, &quot;l&quot;: [[[0.14285714285714285, -1.0476190476190474], [0.38095238095238093, -0.047619047619047616], [0.5714285714285714, -0.7619047619047619], [0.7619047619047619, -0.047619047619047616], [1.0, -1.0476190476190474]]]}, &quot;R&quot;: {&quot;w&quot;: 1.0, &quot;l&quot;: [[[0.8095238095238094, -0.047619047619047616], [0.4761904761904761, -0.5238095238095237]], [[0.23809523809523803, -0.047619047619047616], [0.23809523809523803, -1.0476190476190474], [0.619047619047619, -1.0476190476190474], [0.7142857142857142, -1.0], [0.7619047619047619, -0.9523809523809523], [0.8095238095238094, -0.8571428571428571], [0.8095238095238094, -0.7142857142857142], [0.7619047619047619, -0.6190476190476191], [0.7142857142857142, -0.5714285714285714], [0.619047619047619, -0.5238095238095237], [0.23809523809523803, -0.5238095238095237]]]}, &quot;-&quot;: {&quot;w&quot;: 1.2380952380952381, &quot;l&quot;: [[[0.23809523809523814, -0.42857142857142855], [1.0, -0.42857142857142855]]]}, &quot;p&quot;: {&quot;w&quot;: 0.9047619047619047, &quot;l&quot;: [[[0.23809523809523808, -0.7142857142857142], [0.23809523809523808, 0.2857142857142857]], [[0.23809523809523808, -0.6666666666666666], [0.3333333333333333, -0.7142857142857142], [0.5238095238095237, -0.7142857142857142], [0.6190476190476191, -0.6666666666666666], [0.6666666666666666, -0.6190476190476191], [0.7142857142857142, -0.5238095238095237], [0.7142857142857142, -0.23809523809523808], [0.6666666666666666, -0.14285714285714285], [0.6190476190476191, -0.09523809523809523], [0.5238095238095237, -0.047619047619047616], [0.3333333333333333, -0.047619047619047616], [0.23809523809523808, -0.09523809523809523]]]}, &quot;d&quot;: {&quot;w&quot;: 0.9047619047619047, &quot;l&quot;: [[[0.6666666666666666, -0.047619047619047616], [0.6666666666666666, -1.0476190476190474]], [[0.6666666666666666, -0.09523809523809523], [0.5714285714285714, -0.047619047619047616], [0.38095238095238093, -0.047619047619047616], [0.2857142857142857, -0.09523809523809523], [0.23809523809523808, -0.14285714285714285], [0.19047619047619047, -0.23809523809523808], [0.19047619047619047, -0.5238095238095237], [0.23809523809523808, -0.6190476190476191], [0.2857142857142857, -0.6666666666666666], [0.38095238095238093, -0.7142857142857142], [0.5714285714285714, -0.7142857142857142], [0.6666666666666666, -0.6666666666666666]]]}, &quot;b&quot;: {&quot;w&quot;: 0.9047619047619047, &quot;l&quot;: [[[0.23809523809523808, -0.047619047619047616], [0.23809523809523808, -1.0476190476190474]], [[0.23809523809523808, -0.6666666666666666], [0.3333333333333333, -0.7142857142857142], [0.5238095238095237, -0.7142857142857142], [0.6190476190476191, -0.6666666666666666], [0.6666666666666666, -0.6190476190476191], [0.7142857142857142, -0.5238095238095237], [0.7142857142857142, -0.23809523809523808], [0.6666666666666666, -0.14285714285714285], [0.6190476190476191, -0.09523809523809523], [0.5238095238095237, -0.047619047619047616], [0.3333333333333333, -0.047619047619047616], [0.23809523809523808, -0.09523809523809523]]]}, &quot; &quot;: {&quot;w&quot;: 0.7619047619047619, &quot;l&quot;: []}, &quot;:&quot;: {&quot;w&quot;: 0.47619047619047616, &quot;l&quot;: [[[0.23809523809523808, -0.14285714285714285], [0.2857142857142857, -0.09523809523809523], [0.23809523809523808, -0.047619047619047616], [0.19047619047619047, -0.09523809523809523], [0.23809523809523808, -0.14285714285714285], [0.23809523809523808, -0.047619047619047616]], [[0.23809523809523808, -0.6666666666666666], [0.2857142857142857, -0.6190476190476191], [0.23809523809523808, -0.5714285714285714], [0.19047619047619047, -0.6190476190476191], [0.23809523809523808, -0.6666666666666666], [0.23809523809523808, -0.5714285714285714]]]}, &quot;E&quot;: {&quot;w&quot;: 0.9047619047619047, &quot;l&quot;: [[[0.23809523809523808, -0.5714285714285714], [0.5714285714285714, -0.5714285714285714]], [[0.7142857142857142, -0.047619047619047616], [0.23809523809523808, -0.047619047619047616], [0.23809523809523808, -1.0476190476190474], [0.7142857142857142, -1.0476190476190474]]]}, &quot;V&quot;: {&quot;w&quot;: 0.8571428571428571, &quot;l&quot;: [[[0.09523809523809523, -1.0476190476190474], [0.42857142857142855, -0.047619047619047616], [0.7619047619047619, -1.0476190476190474]]]}, &quot;A&quot;: {&quot;w&quot;: 0.8571428571428571, &quot;l&quot;: [[[0.19047619047619047, -0.3333333333333333], [0.6666666666666666, -0.3333333333333333]], [[0.09523809523809523, -0.047619047619047616], [0.42857142857142855, -1.0476190476190474], [0.7619047619047619, -0.047619047619047616]]]}, &quot;n&quot;: {&quot;w&quot;: 0.9047619047619047, &quot;l&quot;: [[[0.23809523809523808, -0.7142857142857142], [0.23809523809523808, -0.047619047619047616]], [[0.23809523809523808, -0.6190476190476191], [0.2857142857142857, -0.6666666666666666], [0.38095238095238093, -0.7142857142857142], [0.5238095238095237, -0.7142857142857142], [0.6190476190476191, -0.6666666666666666], [0.6666666666666666, -0.5714285714285714], [0.6666666666666666, -0.047619047619047616]]]}, &quot;i&quot;: {&quot;w&quot;: 0.47619047619047616, &quot;l&quot;: [[[0.23809523809523808, -0.047619047619047616], [0.23809523809523808, -0.7142857142857142]], [[0.23809523809523808, -1.0476190476190474], [0.19047619047619047, -1.0], [0.23809523809523808, -0.9523809523809523], [0.2857142857142857, -1.0], [0.23809523809523808, -1.0476190476190474], [0.23809523809523808, -0.9523809523809523]]]}, &quot;+&quot;: {&quot;w&quot;: 1.2380952380952381, &quot;l&quot;: [[[0.23809523809523814, -0.42857142857142855], [1.0, -0.42857142857142855]], [[0.6190476190476191, -0.047619047619047616], [0.6190476190476191, -0.8095238095238095]]]}, &quot;1&quot;: {&quot;w&quot;: 0.9523809523809523, &quot;l&quot;: [[[0.7619047619047619, -0.047619047619047616], [0.19047619047619047, -0.047619047619047616]], [[0.47619047619047616, -0.047619047619047616], [0.47619047619047616, -1.0476190476190474], [0.38095238095238093, -0.9047619047619047], [0.2857142857142857, -0.8095238095238095], [0.19047619047619047, -0.7619047619047619]]]}, &quot;S&quot;: {&quot;w&quot;: 0.9523809523809523, &quot;l&quot;: [[[0.19047619047619047, -0.09523809523809523], [0.3333333333333333, -0.047619047619047616], [0.5714285714285714, -0.047619047619047616], [0.6666666666666666, -0.09523809523809523], [0.7142857142857142, -0.14285714285714285], [0.7619047619047619, -0.23809523809523808], [0.7619047619047619, -0.3333333333333333], [0.7142857142857142, -0.42857142857142855], [0.6666666666666666, -0.47619047619047616], [0.5714285714285714, -0.5238095238095237], [0.38095238095238093, -0.5714285714285714], [0.2857142857142857, -0.6190476190476191], [0.23809523809523808, -0.6666666666666666], [0.19047619047619047, -0.7619047619047619], [0.19047619047619047, -0.8571428571428571], [0.23809523809523808, -0.9523809523809523], [0.2857142857142857, -1.0], [0.38095238095238093, -1.0476190476190474], [0.6190476190476191, -1.0476190476190474], [0.7619047619047619, -1.0]]]}, &quot;D&quot;: {&quot;w&quot;: 1.0, &quot;l&quot;: [[[0.23809523809523803, -0.047619047619047616], [0.23809523809523803, -1.0476190476190474], [0.4761904761904761, -1.0476190476190474], [0.619047619047619, -1.0], [0.7142857142857142, -0.9047619047619047], [0.7619047619047619, -0.8095238095238095], [0.8095238095238094, -0.6190476190476191], [0.8095238095238094, -0.47619047619047616], [0.7619047619047619, -0.2857142857142857], [0.7142857142857142, -0.19047619047619047], [0.619047619047619, -0.09523809523809523], [0.4761904761904761, -0.047619047619047616], [0.23809523809523803, -0.047619047619047616]]]}, &quot;C&quot;: {&quot;w&quot;: 1.0, &quot;l&quot;: [[[0.8095238095238095, -0.14285714285714285], [0.7619047619047619, -0.09523809523809523], [0.6190476190476191, -0.047619047619047616], [0.5238095238095237, -0.047619047619047616], [0.38095238095238093, -0.09523809523809523], [0.2857142857142857, -0.19047619047619047], [0.23809523809523808, -0.2857142857142857], [0.19047619047619047, -0.47619047619047616], [0.19047619047619047, -0.6190476190476191], [0.23809523809523808, -0.8095238095238095], [0.2857142857142857, -0.9047619047619047], [0.38095238095238093, -1.0], [0.5238095238095237, -1.0476190476190474], [0.6190476190476191, -1.0476190476190474], [0.7619047619047619, -1.0], [0.8095238095238095, -0.9523809523809523]]]}, &quot;L&quot;: {&quot;w&quot;: 0.8095238095238095, &quot;l&quot;: [[[0.7142857142857142, -0.047619047619047616], [0.23809523809523808, -0.047619047619047616], [0.23809523809523808, -1.0476190476190474]]]}, &quot;G&quot;: {&quot;w&quot;: 1.0, &quot;l&quot;: [[[0.7619047619047619, -1.0], [0.6666666666666666, -1.0476190476190474], [0.5238095238095237, -1.0476190476190474], [0.38095238095238093, -1.0], [0.2857142857142857, -0.9047619047619047], [0.23809523809523808, -0.8095238095238095], [0.19047619047619047, -0.6190476190476191], [0.19047619047619047, -0.47619047619047616], [0.23809523809523808, -0.2857142857142857], [0.2857142857142857, -0.19047619047619047], [0.38095238095238093, -0.09523809523809523], [0.5238095238095237, -0.047619047619047616], [0.6190476190476191, -0.047619047619047616], [0.7619047619047619, -0.09523809523809523], [0.8095238095238095, -0.14285714285714285], [0.8095238095238095, -0.47619047619047616], [0.6190476190476191, -0.47619047619047616]]]}, &quot;N&quot;: {&quot;w&quot;: 1.0476190476190474, &quot;l&quot;: [[[0.23809523809523803, -0.047619047619047616], [0.23809523809523803, -1.0476190476190474], [0.8095238095238094, -0.047619047619047616], [0.8095238095238094, -1.0476190476190474]]]}, &quot;3&quot;: {&quot;w&quot;: 0.9523809523809523, &quot;l&quot;: [[[0.14285714285714285, -1.0476190476190474], [0.7619047619047619, -1.0476190476190474], [0.42857142857142855, -0.6666666666666666], [0.5714285714285714, -0.6666666666666666], [0.6666666666666666, -0.6190476190476191], [0.7142857142857142, -0.5714285714285714], [0.7619047619047619, -0.47619047619047616], [0.7619047619047619, -0.23809523809523808], [0.7142857142857142, -0.14285714285714285], [0.6666666666666666, -0.09523809523809523], [0.5714285714285714, -0.047619047619047616], [0.2857142857142857, -0.047619047619047616], [0.19047619047619047, -0.09523809523809523], [0.14285714285714285, -0.14285714285714285]]]}, &quot;5&quot;: {&quot;w&quot;: 0.9523809523809523, &quot;l&quot;: [[[0.7142857142857142, -1.0476190476190474], [0.23809523809523808, -1.0476190476190474], [0.19047619047619047, -0.5714285714285714], [0.23809523809523808, -0.6190476190476191], [0.3333333333333333, -0.6666666666666666], [0.5714285714285714, -0.6666666666666666], [0.6666666666666666, -0.6190476190476191], [0.7142857142857142, -0.5714285714285714], [0.7619047619047619, -0.47619047619047616], [0.7619047619047619, -0.23809523809523808], [0.7142857142857142, -0.14285714285714285], [0.6666666666666666, -0.09523809523809523], [0.5714285714285714, -0.047619047619047616], [0.3333333333333333, -0.047619047619047616], [0.23809523809523808, -0.09523809523809523], [0.19047619047619047, -0.14285714285714285]]]}, &quot;2&quot;: {&quot;w&quot;: 0.9523809523809523, &quot;l&quot;: [[[0.19047619047619047, -0.9523809523809523], [0.23809523809523808, -1.0], [0.3333333333333333, -1.0476190476190474], [0.5714285714285714, -1.0476190476190474], [0.6666666666666666, -1.0], [0.7142857142857142, -0.9523809523809523], [0.7619047619047619, -0.8571428571428571], [0.7619047619047619, -0.7619047619047619], [0.7142857142857142, -0.6190476190476191], [0.14285714285714285, -0.047619047619047616], [0.7619047619047619, -0.047619047619047616]]]}, &quot;B&quot;: {&quot;w&quot;: 1.0, &quot;l&quot;: [[[0.5714285714285714, -0.5714285714285714], [0.7142857142857142, -0.5238095238095237], [0.7619047619047619, -0.47619047619047616], [0.8095238095238094, -0.38095238095238093], [0.8095238095238094, -0.23809523809523808], [0.7619047619047619, -0.14285714285714285], [0.7142857142857142, -0.09523809523809523], [0.619047619047619, -0.047619047619047616], [0.23809523809523803, -0.047619047619047616], [0.23809523809523803, -1.0476190476190474], [0.5714285714285714, -1.0476190476190474], [0.6666666666666665, -1.0], [0.7142857142857142, -0.9523809523809523], [0.7619047619047619, -0.8571428571428571], [0.7619047619047619, -0.7619047619047619], [0.7142857142857142, -0.6666666666666666], [0.6666666666666665, -0.6190476190476191], [0.5714285714285714, -0.5714285714285714], [0.23809523809523803, -0.5714285714285714]]]}, &quot;J&quot;: {&quot;w&quot;: 0.7619047619047619, &quot;l&quot;: [[[0.5238095238095237, -1.0476190476190474], [0.5238095238095237, -0.3333333333333333], [0.47619047619047616, -0.19047619047619047], [0.38095238095238093, -0.09523809523809523], [0.23809523809523808, -0.047619047619047616], [0.14285714285714285, -0.047619047619047616]]]}, &quot;4&quot;: {&quot;w&quot;: 0.9523809523809523, &quot;l&quot;: [[[0.6666666666666666, -0.7142857142857142], [0.6666666666666666, -0.047619047619047616]], [[0.42857142857142855, -1.0952380952380951], [0.19047619047619047, -0.38095238095238093], [0.8095238095238095, -0.38095238095238093]]]}, &quot;6&quot;: {&quot;w&quot;: 0.9523809523809523, &quot;l&quot;: [[[0.6666666666666666, -1.0476190476190474], [0.47619047619047616, -1.0476190476190474], [0.38095238095238093, -1.0], [0.3333333333333333, -0.9523809523809523], [0.23809523809523808, -0.8095238095238095], [0.19047619047619047, -0.6190476190476191], [0.19047619047619047, -0.23809523809523808], [0.23809523809523808, -0.14285714285714285], [0.2857142857142857, -0.09523809523809523], [0.38095238095238093, -0.047619047619047616], [0.5714285714285714, -0.047619047619047616], [0.6666666666666666, -0.09523809523809523], [0.7142857142857142, -0.14285714285714285], [0.7619047619047619, -0.23809523809523808], [0.7619047619047619, -0.47619047619047616], [0.7142857142857142, -0.5714285714285714], [0.6666666666666666, -0.6190476190476191], [0.5714285714285714, -0.6666666666666666], [0.38095238095238093, -0.6666666666666666], [0.2857142857142857, -0.6190476190476191], [0.23809523809523808, -0.5714285714285714], [0.19047619047619047, -0.47619047619047616]]]}, &quot;U&quot;: {&quot;w&quot;: 1.0476190476190474, &quot;l&quot;: [[[0.23809523809523803, -1.0476190476190474], [0.23809523809523803, -0.23809523809523808], [0.28571428571428564, -0.14285714285714285], [0.33333333333333326, -0.09523809523809523], [0.4285714285714285, -0.047619047619047616], [0.619047619047619, -0.047619047619047616], [0.7142857142857142, -0.09523809523809523], [0.7619047619047619, -0.14285714285714285], [0.8095238095238094, -0.23809523809523808], [0.8095238095238094, -1.0476190476190474]]]}, &quot;T&quot;: {&quot;w&quot;: 0.7619047619047619, &quot;l&quot;: [[[0.09523809523809523, -1.0476190476190474], [0.6666666666666666, -1.0476190476190474]], [[0.38095238095238093, -0.047619047619047616], [0.38095238095238093, -1.0476190476190474]]]}, &quot;0&quot;: {&quot;w&quot;: 0.9523809523809523, &quot;l&quot;: [[[0.42857142857142855, -1.0476190476190474], [0.5238095238095237, -1.0476190476190474], [0.6190476190476191, -1.0], [0.6666666666666666, -0.9523809523809523], [0.7142857142857142, -0.8571428571428571], [0.7619047619047619, -0.6666666666666666], [0.7619047619047619, -0.42857142857142855], [0.7142857142857142, -0.23809523809523808], [0.6666666666666666, -0.14285714285714285], [0.6190476190476191, -0.09523809523809523], [0.5238095238095237, -0.047619047619047616], [0.42857142857142855, -0.047619047619047616], [0.3333333333333333, -0.09523809523809523], [0.2857142857142857, -0.14285714285714285], [0.23809523809523808, -0.23809523809523808], [0.19047619047619047, -0.42857142857142855], [0.19047619047619047, -0.6666666666666666], [0.23809523809523808, -0.8571428571428571], [0.2857142857142857, -0.9523809523809523], [0.3333333333333333, -1.0], [0.42857142857142855, -1.0476190476190474]]]}, &quot;u&quot;: {&quot;w&quot;: 0.9047619047619047, &quot;l&quot;: [[[0.6666666666666666, -0.7142857142857142], [0.6666666666666666, -0.047619047619047616]], [[0.23809523809523808, -0.7142857142857142], [0.23809523809523808, -0.19047619047619047], [0.2857142857142857, -0.09523809523809523], [0.38095238095238093, -0.047619047619047616], [0.5238095238095237, -0.047619047619047616], [0.6190476190476191, -0.09523809523809523], [0.6666666666666666, -0.14285714285714285]]]}, &quot;F&quot;: {&quot;w&quot;: 0.8571428571428571, &quot;l&quot;: [[[0.5714285714285714, -0.5714285714285714], [0.23809523809523808, -0.5714285714285714]], [[0.23809523809523808, -0.047619047619047616], [0.23809523809523808, -1.0476190476190474], [0.7142857142857142, -1.0476190476190474]]]}, &quot;_&quot;: {&quot;w&quot;: 0.7619047619047619, &quot;l&quot;: [[[0.0, 0.047619047619047616], [0.7619047619047619, 0.047619047619047616]]]}, &quot;e&quot;: {&quot;w&quot;: 0.8571428571428571, &quot;l&quot;: [[[0.6190476190476191, -0.09523809523809523], [0.5238095238095237, -0.047619047619047616], [0.3333333333333333, -0.047619047619047616], [0.23809523809523808, -0.09523809523809523], [0.19047619047619047, -0.19047619047619047], [0.19047619047619047, -0.5714285714285714], [0.23809523809523808, -0.6666666666666666], [0.3333333333333333, -0.7142857142857142], [0.5238095238095237, -0.7142857142857142], [0.6190476190476191, -0.6666666666666666], [0.6666666666666666, -0.5714285714285714], [0.6666666666666666, -0.47619047619047616], [0.19047619047619047, -0.38095238095238093]]]}, &quot;g&quot;: {&quot;w&quot;: 0.9047619047619047, &quot;l&quot;: [[[0.6666666666666666, -0.7142857142857142], [0.6666666666666666, 0.09523809523809523], [0.6190476190476191, 0.19047619047619047], [0.5714285714285714, 0.23809523809523808], [0.47619047619047616, 0.2857142857142857], [0.3333333333333333, 0.2857142857142857], [0.23809523809523808, 0.23809523809523808]], [[0.6666666666666666, -0.09523809523809523], [0.5714285714285714, -0.047619047619047616], [0.38095238095238093, -0.047619047619047616], [0.2857142857142857, -0.09523809523809523], [0.23809523809523808, -0.14285714285714285], [0.19047619047619047, -0.23809523809523808], [0.19047619047619047, -0.5238095238095237], [0.23809523809523808, -0.6190476190476191], [0.2857142857142857, -0.6666666666666666], [0.38095238095238093, -0.7142857142857142], [0.5714285714285714, -0.7142857142857142], [0.6666666666666666, -0.6666666666666666]]]}, &quot;l&quot;: {&quot;w&quot;: 0.5238095238095237, &quot;l&quot;: [[[0.38095238095238093, -0.047619047619047616], [0.2857142857142857, -0.09523809523809523], [0.23809523809523808, -0.19047619047619047], [0.23809523809523808, -1.0476190476190474]]]}, &quot;y&quot;: {&quot;w&quot;: 0.7619047619047619, &quot;l&quot;: [[[0.14285714285714285, -0.7142857142857142], [0.38095238095238093, -0.047619047619047616]], [[0.6190476190476191, -0.7142857142857142], [0.38095238095238093, -0.047619047619047616], [0.2857142857142857, 0.19047619047619047], [0.23809523809523808, 0.23809523809523808], [0.14285714285714285, 0.2857142857142857]]]}, &quot;w&quot;: {&quot;w&quot;: 1.0476190476190474, &quot;l&quot;: [[[0.1428571428571428, -0.7142857142857142], [0.33333333333333326, -0.047619047619047616], [0.5238095238095237, -0.5238095238095237], [0.7142857142857142, -0.047619047619047616], [0.9047619047619047, -0.7142857142857142]]]}, &quot;m&quot;: {&quot;w&quot;: 1.3333333333333333, &quot;l&quot;: [[[0.23809523809523808, -0.047619047619047616], [0.23809523809523808, -0.7142857142857142]], [[0.23809523809523808, -0.6190476190476191], [0.2857142857142857, -0.6666666666666666], [0.38095238095238093, -0.7142857142857142], [0.5238095238095237, -0.7142857142857142], [0.6190476190476191, -0.6666666666666666], [0.6666666666666666, -0.5714285714285714], [0.6666666666666666, -0.047619047619047616]], [[0.6666666666666666, -0.5714285714285714], [0.7142857142857142, -0.6666666666666666], [0.8095238095238095, -0.7142857142857142], [0.9523809523809523, -0.7142857142857142], [1.0476190476190474, -0.6666666666666666], [1.0952380952380951, -0.5714285714285714], [1.0952380952380951, -0.047619047619047616]]]}, &quot;I&quot;: {&quot;w&quot;: 0.47619047619047616, &quot;l&quot;: [[[0.23809523809523808, -0.047619047619047616], [0.23809523809523808, -1.0476190476190474]]]}, &quot;x&quot;: {&quot;w&quot;: 0.8095238095238095, &quot;l&quot;: [[[0.14285714285714285, -0.047619047619047616], [0.6666666666666666, -0.7142857142857142]], [[0.14285714285714285, -0.7142857142857142], [0.6666666666666666, -0.047619047619047616]]]}, &quot;c&quot;: {&quot;w&quot;: 0.8571428571428571, &quot;l&quot;: [[[0.6666666666666666, -0.09523809523809523], [0.5714285714285714, -0.047619047619047616], [0.38095238095238093, -0.047619047619047616], [0.2857142857142857, -0.09523809523809523], [0.23809523809523808, -0.14285714285714285], [0.19047619047619047, -0.23809523809523808], [0.19047619047619047, -0.5238095238095237], [0.23809523809523808, -0.6190476190476191], [0.2857142857142857, -0.6666666666666666], [0.38095238095238093, -0.7142857142857142], [0.5714285714285714, -0.7142857142857142], [0.6666666666666666, -0.6666666666666666]]]}, &quot;h&quot;: {&quot;w&quot;: 0.9047619047619047, &quot;l&quot;: [[[0.23809523809523808, -0.047619047619047616], [0.23809523809523808, -1.0476190476190474]], [[0.6666666666666666, -0.047619047619047616], [0.6666666666666666, -0.5714285714285714], [0.6190476190476191, -0.6666666666666666], [0.5238095238095237, -0.7142857142857142], [0.38095238095238093, -0.7142857142857142], [0.2857142857142857, -0.6666666666666666], [0.23809523809523808, -0.6190476190476191]]]}, &quot;8&quot;: {&quot;w&quot;: 0.9523809523809523, &quot;l&quot;: [[[0.38095238095238093, -0.6190476190476191], [0.2857142857142857, -0.6666666666666666], [0.23809523809523808, -0.7142857142857142], [0.19047619047619047, -0.8095238095238095], [0.19047619047619047, -0.8571428571428571], [0.23809523809523808, -0.9523809523809523], [0.2857142857142857, -1.0], [0.38095238095238093, -1.0476190476190474], [0.5714285714285714, -1.0476190476190474], [0.6666666666666666, -1.0], [0.7142857142857142, -0.9523809523809523], [0.7619047619047619, -0.8571428571428571], [0.7619047619047619, -0.8095238095238095], [0.7142857142857142, -0.7142857142857142], [0.6666666666666666, -0.6666666666666666], [0.5714285714285714, -0.6190476190476191], [0.38095238095238093, -0.6190476190476191], [0.2857142857142857, -0.5714285714285714], [0.23809523809523808, -0.5238095238095237], [0.19047619047619047, -0.42857142857142855], [0.19047619047619047, -0.23809523809523808], [0.23809523809523808, -0.14285714285714285], [0.2857142857142857, -0.09523809523809523], [0.38095238095238093, -0.047619047619047616], [0.5714285714285714, -0.047619047619047616], [0.6666666666666666, -0.09523809523809523], [0.7142857142857142, -0.14285714285714285], [0.7619047619047619, -0.23809523809523808], [0.7619047619047619, -0.42857142857142855], [0.7142857142857142, -0.5238095238095237], [0.6666666666666666, -0.5714285714285714], [0.5714285714285714, -0.6190476190476191]]]}, &quot;M&quot;: {&quot;w&quot;: 1.1428571428571428, &quot;l&quot;: [[[0.23809523809523808, -0.047619047619047616], [0.23809523809523808, -1.0476190476190474], [0.5714285714285714, -0.3333333333333333], [0.9047619047619047, -1.0476190476190474], [0.9047619047619047, -0.047619047619047616]]]}, &quot;9&quot;: {&quot;w&quot;: 0.9523809523809523, &quot;l&quot;: [[[0.2857142857142857, -0.047619047619047616], [0.47619047619047616, -0.047619047619047616], [0.5714285714285714, -0.09523809523809523], [0.6190476190476191, -0.14285714285714285], [0.7142857142857142, -0.2857142857142857], [0.7619047619047619, -0.47619047619047616], [0.7619047619047619, -0.8571428571428571], [0.7142857142857142, -0.9523809523809523], [0.6666666666666666, -1.0], [0.5714285714285714, -1.0476190476190474], [0.38095238095238093, -1.0476190476190474], [0.2857142857142857, -1.0], [0.23809523809523808, -0.9523809523809523], [0.19047619047619047, -0.8571428571428571], [0.19047619047619047, -0.6190476190476191], [0.23809523809523808, -0.5238095238095237], [0.2857142857142857, -0.47619047619047616], [0.38095238095238093, -0.42857142857142855], [0.5714285714285714, -0.42857142857142855], [0.6666666666666666, -0.47619047619047616], [0.7142857142857142, -0.5238095238095237], [0.7619047619047619, -0.6190476190476191]]]}, &quot;.&quot;: {&quot;w&quot;: 0.47619047619047616, &quot;l&quot;: [[[0.23809523809523808, -0.14285714285714285], [0.2857142857142857, -0.09523809523809523], [0.23809523809523808, -0.047619047619047616], [0.19047619047619047, -0.09523809523809523], [0.23809523809523808, -0.14285714285714285], [0.23809523809523808, -0.047619047619047616]]]}, &quot;7&quot;: {&quot;w&quot;: 0.9523809523809523, &quot;l&quot;: [[[0.14285714285714285, -1.0476190476190474], [0.8095238095238095, -1.0476190476190474], [0.38095238095238093, -0.047619047619047616]]]}, &quot;O&quot;: {&quot;w&quot;: 1.0476190476190474, &quot;l&quot;: [[[0.4285714285714285, -1.0476190476190474], [0.619047619047619, -1.0476190476190474], [0.7142857142857142, -1.0], [0.8095238095238094, -0.9047619047619047], [0.857142857142857, -0.7142857142857142], [0.857142857142857, -0.38095238095238093], [0.8095238095238094, -0.19047619047619047], [0.7142857142857142, -0.09523809523809523], [0.619047619047619, -0.047619047619047616], [0.4285714285714285, -0.047619047619047616], [0.33333333333333326, -0.09523809523809523], [0.23809523809523803, -0.19047619047619047], [0.1904761904761904, -0.38095238095238093], [0.1904761904761904, -0.7142857142857142], [0.23809523809523803, -0.9047619047619047], [0.33333333333333326, -1.0], [0.4285714285714285, -1.0476190476190474]]]}, &quot;H&quot;: {&quot;w&quot;: 1.0476190476190474, &quot;l&quot;: [[[0.23809523809523803, -0.047619047619047616], [0.23809523809523803, -1.0476190476190474]], [[0.23809523809523803, -0.5714285714285714], [0.8095238095238094, -0.5714285714285714]], [[0.8095238095238094, -0.047619047619047616], [0.8095238095238094, -1.0476190476190474]]]}}}
+///////////////////////////////////////////////</p>
+<p>///////////////////////////////////////////////
+/* Utility functions */</p>
+<p>var storagePrefix = 'KiCad_HTML_BOM__' + pcbdata.metadata.title + '<strong>' +
+pcbdata.metadata.revision + '</strong>';
+var storage;</p>
+<p>function initStorage(key) {
+try {
+window.localStorage.getItem(&quot;blank&quot;);
+storage = window.localStorage;
+} catch (e) {
+// localStorage not available
+}
+if (!storage) {
+try {
+window.sessionStorage.getItem(&quot;blank&quot;);
+storage = window.sessionStorage;
+} catch (e) {
+// sessionStorage also not available
+}
+}
+}</p>
+<p>function readStorage(key) {
+if (storage) {
+return storage.getItem(storagePrefix + '#' + key);
+} else {
+return null;
+}
+}</p>
+<p>function writeStorage(key, value) {
+if (storage) {
+storage.setItem(storagePrefix + '#' + key, value);
+}
+}</p>
+<p>function fancyDblClickHandler(el, onsingle, ondouble) {
+return function() {
+if (el.getAttribute(&quot;data-dblclick&quot;) == null) {
+el.setAttribute(&quot;data-dblclick&quot;, 1);
+setTimeout(function() {
+if (el.getAttribute(&quot;data-dblclick&quot;) == 1) {
+onsingle();
+}
+el.removeAttribute(&quot;data-dblclick&quot;);
+}, 200);
+} else {
+el.removeAttribute(&quot;data-dblclick&quot;);
+ondouble();
+}
+}
+}</p>
+<p>function smoothScrollToRow(rowid) {
+document.getElementById(rowid).scrollIntoView({
+behavior: &quot;smooth&quot;,
+block: &quot;center&quot;,
+inline: &quot;nearest&quot;
+});
+}</p>
+<p>function focusInputField(input) {
+input.scrollIntoView(false);
+input.focus();
+input.select();
+}</p>
+<p>function copyToClipboard() {
+var text = '';
+for (var node of bomhead.childNodes[0].childNodes) {
+if (node.firstChild) {
+text = text + node.firstChild.nodeValue;
+}
+if (node != bomhead.childNodes[0].lastChild) {
+text += '\t';
+}
+}
+text += '\n';
+for (var row of bombody.childNodes) {
+for (var cell of row.childNodes) {
+for (var node of cell.childNodes) {
+if (node.nodeName == &quot;INPUT&quot;) {
+if (node.checked) {
+text = text + '✓';
+}
+} else if (node.nodeName == &quot;MARK&quot;) {
+text = text + node.firstChild.nodeValue;
+} else {
+text = text + node.nodeValue;
+}
+}
+if (cell != row.lastChild) {
+text += '\t';
+}
+}
+text += '\n';
+}
+var textArea = document.createElement(&quot;textarea&quot;);
+textArea.classList.add('clipboard-temp');
+textArea.value = text;</p>
+<p>document.body.appendChild(textArea);
+textArea.focus();
+textArea.select();</p>
+<p>try {
+if (document.execCommand('copy')) {
+console.log('Bom copied to clipboard.');
+}
+} catch (err) {
+console.log('Can not copy to clipboard.');
+}</p>
+<p>document.body.removeChild(textArea);
+}</p>
+<p>function removeGutterNode(node) {
+for (var i = 0; i &lt; node.childNodes.length; i++) {
+if (node.childNodes[i].classList &amp;&amp;
+node.childNodes[i].classList.contains(&quot;gutter&quot;)) {
+node.removeChild(node.childNodes[i]);
+break;
+}
+}
+}</p>
+<p>function cleanGutters() {
+removeGutterNode(document.getElementById(&quot;bot&quot;));
+removeGutterNode(document.getElementById(&quot;canvasdiv&quot;));
+}</p>
+<p>var units = {
+prefixes: {
+giga: [&quot;G&quot;, &quot;g&quot;, &quot;giga&quot;, &quot;Giga&quot;, &quot;GIGA&quot;],
+mega: [&quot;M&quot;, &quot;mega&quot;, &quot;Mega&quot;, &quot;MEGA&quot;],
+kilo: [&quot;K&quot;, &quot;k&quot;, &quot;kilo&quot;, &quot;Kilo&quot;, &quot;KILO&quot;],
+milli: [&quot;m&quot;, &quot;milli&quot;, &quot;Milli&quot;, &quot;MILLI&quot;],
+micro: [&quot;U&quot;, &quot;u&quot;, &quot;micro&quot;, &quot;Micro&quot;, &quot;MICRO&quot;, &quot;μ&quot;, &quot;µ&quot;], // different utf8 μ
+nano: [&quot;N&quot;, &quot;n&quot;, &quot;nano&quot;, &quot;Nano&quot;, &quot;NANO&quot;],
+pico: [&quot;P&quot;, &quot;p&quot;, &quot;pico&quot;, &quot;Pico&quot;, &quot;PICO&quot;],
+},
+unitsShort: [&quot;R&quot;, &quot;r&quot;, &quot;Ω&quot;, &quot;F&quot;, &quot;f&quot;, &quot;H&quot;, &quot;h&quot;],
+unitsLong: [
+&quot;OHM&quot;, &quot;Ohm&quot;, &quot;ohm&quot;, &quot;ohms&quot;,
+&quot;FARAD&quot;, &quot;Farad&quot;, &quot;farad&quot;,
+&quot;HENRY&quot;, &quot;Henry&quot;, &quot;henry&quot;
+],
+getMultiplier: function(s) {
+if (this.prefixes.giga.includes(s)) return 1e9;
+if (this.prefixes.mega.includes(s)) return 1e6;
+if (this.prefixes.kilo.includes(s)) return 1e3;
+if (this.prefixes.milli.includes(s)) return 1e-3;
+if (this.prefixes.micro.includes(s)) return 1e-6;
+if (this.prefixes.nano.includes(s)) return 1e-9;
+if (this.prefixes.pico.includes(s)) return 1e-12;
+return 1;
+},
+valueRegex: null,
+}</p>
+<p>function initUtils() {
+var allPrefixes = units.prefixes.giga
+.concat(units.prefixes.mega)
+.concat(units.prefixes.kilo)
+.concat(units.prefixes.milli)
+.concat(units.prefixes.micro)
+.concat(units.prefixes.nano)
+.concat(units.prefixes.pico);
+var allUnits = units.unitsShort.concat(units.unitsLong);
+units.valueRegex = new RegExp(&quot;^([0-9.]+)&quot; +
+&quot;\s*(&quot; + allPrefixes.join(&quot;|&quot;) + &quot;)?&quot; +
+&quot;(&quot; + allUnits.join(&quot;|&quot;) + &quot;)?&quot; +
+&quot;(\b.<em>)?$&quot;, &quot;&quot;);
+units.valueAltRegex = new RegExp(&quot;^([0-9]</em>)&quot; +
+&quot;(&quot; + units.unitsShort.join(&quot;|&quot;) + &quot;)?&quot; +
+&quot;([GgMmKkUuNnPp])?&quot; +
+&quot;([0-9]<em>)&quot; +
+&quot;(\b.</em>)?$&quot;, &quot;&quot;);
+for (var bomtable of Object.values(pcbdata.bom)) {
+for (var row of bomtable) {
+row.push(parseValue(row[1], row[3][0][0]));
+}
+}
+}</p>
+<p>function parseValue(val, ref) {
+var inferUnit = (unit, ref) =&gt; {
+if (unit) {
+unit = unit.toLowerCase();
+if (unit == 'Ω' || unit == &quot;ohm&quot; || unit == &quot;ohms&quot;) {
+unit = 'r';
+}
+unit = unit[0];
+} else {
+ref = /^([a-z]+)\d+$/i.exec(ref);
+if (ref) {
+ref = ref[1].toLowerCase();
+if (ref == &quot;c&quot;) unit = 'f';
+else if (ref == &quot;l&quot;) unit = 'h';
+else if (ref == &quot;r&quot; || ref == &quot;rv&quot;) unit = 'r';
+else unit = null;
+}
+}
+return unit;
+};
+val = val.replace(/,/g, &quot;&quot;);
+var match = units.valueRegex.exec(val);
+var unit;
+if (match) {
+val = parseFloat(match[1]);
+if (match[2]) {
+val = val * units.getMultiplier(match[2]);
+}
+unit = inferUnit(match[3], ref);
+if (!unit) return null;
+else return {
+val: val,
+unit: unit,
+extra: match[4],
+}
+}
+match = units.valueAltRegex.exec(val);
+if (match &amp;&amp; (match[1] || match[4])) {
+val = parseFloat(match[1] + &quot;.&quot; + match[4]);
+if (match[3]) {
+val = val * units.getMultiplier(match[3]);
+}
+unit = inferUnit(match[2], ref);
+if (!unit) return null;
+else return {
+val: val,
+unit: unit,
+extra: match[5],
+}
+}
+return null;
+}</p>
+<p>function valueCompare(a, b, stra, strb) {
+if (a === null &amp;&amp; b === null) {
+// Failed to parse both values, compare them as strings.
+if (stra != strb) return stra &gt; strb ? 1 : -1;
+else return 0;
+} else if (a === null) {
+return 1;
+} else if (b === null) {
+return -1;
+} else {
+if (a.unit != b.unit) return a.unit &gt; b.unit ? 1 : -1;
+else if (a.val != b.val) return a.val &gt; b.val ? 1 : -1;
+else if (a.extra != b.extra) return a.extra &gt; b.extra ? 1 : -1;
+else return 0;
+}
+}</p>
+<p>///////////////////////////////////////////////</p>
+<p>///////////////////////////////////////////////
+/* PCB rendering code */</p>
+<p>var redrawOnDrag = true;
+var boardRotation = 0;
+var renderPads = true;</p>
+<p>function deg2rad(deg) {
+return deg * Math.PI / 180;
+}</p>
+<p>function calcFontPoint(linepoint, text, offsetx, offsety, tilt) {
+var point = [
+linepoint[0] * text.width + offsetx,
+linepoint[1] * text.height + offsety
+];
+// Adding half a line height here is technically a bug
+// but pcbnew currently does the same, text is slightly shifted.
+point[0] -= (point[1] + text.height * 0.5) * tilt;
+return point;
+}</p>
+<p>function drawtext(ctx, text, color, flip) {
+ctx.save();
+ctx.translate(...text.pos);
+var angle = -text.angle;
+if (text.attr.includes(&quot;mirrored&quot;)) {
+ctx.scale(-1, 1);
+angle = -angle;
+}
+var tilt = 0;
+if (text.attr.includes(&quot;italic&quot;)) {
+tilt = 0.125;
+}
+var interline = (text.height * 1.5 + text.thickness) / 2;
+var txt = text.text.split(&quot;\n&quot;);
+// KiCad ignores last empty line.
+if (txt[txt.length - 1] == '') txt.pop();
+ctx.rotate(deg2rad(angle));
+ctx.fillStyle = color;
+ctx.strokeStyle = color;
+ctx.lineCap = &quot;round&quot;;
+ctx.lineWidth = text.thickness;
+for (var i in txt) {
+var offsety = (-(txt.length - 1) + i * 2) * interline + text.height / 2;
+var lineWidth = 0;
+for (var c of txt[i]) {
+lineWidth += pcbdata.font_data[c].w * text.width;
+}
+var offsetx = 0;
+switch (text.horiz_justify) {
+case -1:
+// Justify left, do nothing
+break;
+case 0:
+// Justify center
+offsetx -= lineWidth / 2;
+break;
+case 1:
+// Justify right
+offsetx -= lineWidth;
+break;
+}
+for (var c of txt[i]) {
+for (var line of pcbdata.font_data[c].l) {
+// Drawing each segment separately instead of
+// polyline because round line caps don't work in joints
+for (var i = 0; i &lt; line.length - 1; i++) {
+ctx.beginPath();
+ctx.moveTo(...calcFontPoint(line[i], text, offsetx, offsety, tilt));
+ctx.lineTo(...calcFontPoint(line[i + 1], text, offsetx, offsety, tilt));
+ctx.stroke();
+}
+}
+offsetx += pcbdata.font_data[c].w * text.width;
+}
+}
+ctx.restore();
+}</p>
+<p>function drawedge(ctx, scalefactor, edge, color) {
+ctx.strokeStyle = color;
+ctx.lineWidth = Math.max(1 / scalefactor, edge.width);
+ctx.lineCap = &quot;round&quot;;
+if (edge.type == &quot;segment&quot;) {
+ctx.beginPath();
+ctx.moveTo(...edge.start);
+ctx.lineTo(...edge.end);
+ctx.stroke();
+}
+if (edge.type == &quot;arc&quot;) {
+ctx.beginPath();
+ctx.arc(
+...edge.start,
+edge.radius,
+deg2rad(edge.startangle),
+deg2rad(edge.endangle));
+ctx.stroke();
+}
+if (edge.type == &quot;circle&quot;) {
+ctx.beginPath();
+ctx.arc(
+...edge.start,
+edge.radius,
+0, 2 * Math.PI);
+ctx.closePath();
+ctx.stroke();
+}
+}</p>
+<p>function drawRoundRect(ctx, color, size, radius, ctxmethod) {
+ctx.beginPath();
+ctx.strokeStyle = color;
+var x = size[0] * -0.5;
+var y = size[1] * -0.5;
+var width = size[0];
+var height = size[1];
+ctx.moveTo(x, 0);
+ctx.arcTo(x, y + height, x + width, y + height, radius);
+ctx.arcTo(x + width, y + height, x + width, y, radius);
+ctx.arcTo(x + width, y, x, y, radius);
+ctx.arcTo(x, y, x, y + height, radius);
+ctx.closePath();
+ctxmethod();
+}</p>
+<p>function drawOblong(ctx, color, size, ctxmethod) {
+drawRoundRect(ctx, color, size, Math.min(size[0], size[1]) / 2, ctxmethod);
+}</p>
+<p>function drawPolygons(ctx, color, polygons, ctxmethod) {
+ctx.fillStyle = color;
+for (var polygon of polygons) {
+ctx.beginPath();
+for (var vertex of polygon) {
+ctx.lineTo(...vertex)
+}
+ctx.closePath();
+ctxmethod();
+}
+}</p>
+<p>function drawPolygonShape(ctx, shape, color) {
+ctx.save();
+ctx.translate(...shape.pos);
+ctx.rotate(deg2rad(-shape.angle));
+drawPolygons(ctx, color, shape.polygons, ctx.fill.bind(ctx));
+ctx.restore();
+}</p>
+<p>function drawDrawing(ctx, layer, scalefactor, drawing, color) {
+if ([&quot;segment&quot;, &quot;arc&quot;, &quot;circle&quot;].includes(drawing.type)) {
+drawedge(ctx, scalefactor, drawing, color);
+} else if (drawing.type == &quot;polygon&quot;) {
+drawPolygonShape(ctx, drawing, color);
+} else {
+drawtext(ctx, drawing, color, layer == &quot;B&quot;);
+}
+}</p>
+<p>function drawCircle(ctx, radius, ctxmethod) {
+ctx.beginPath();
+ctx.arc(0, 0, radius, 0, 2 * Math.PI);
+ctx.closePath();
+ctxmethod();
+}</p>
+<p>function drawPad(ctx, pad, color, outline) {
+ctx.save();
+ctx.translate(...pad.pos);
+ctx.rotate(deg2rad(pad.angle));
+if (pad.offset) {
+ctx.translate(...pad.offset);
+}
+ctx.fillStyle = color;
+ctx.strokeStyle = color;
+var ctxmethod = outline ? ctx.stroke.bind(ctx) : ctx.fill.bind(ctx);
+if (pad.shape == &quot;rect&quot;) {
+var rect = [...pad.size.map(c =&gt; -c * 0.5), ...pad.size];
+if (outline) {
+ctx.strokeRect(...rect);
+} else {
+ctx.fillRect(...rect);
+}
+} else if (pad.shape == &quot;oval&quot;) {
+drawOblong(ctx, color, pad.size, ctxmethod);
+} else if (pad.shape == &quot;circle&quot;) {
+drawCircle(ctx, pad.size[0] / 2, ctxmethod);
+} else if (pad.shape == &quot;roundrect&quot;) {
+drawRoundRect(ctx, color, pad.size, pad.radius, ctxmethod);
+} else if (pad.shape == &quot;custom&quot;) {
+drawPolygons(ctx, color, pad.polygons, ctxmethod);
+}
+if (pad.type == &quot;th&quot; &amp;&amp; !outline) {
+ctx.fillStyle = &quot;#CCCCCC&quot;;
+if (pad.drillshape == &quot;oblong&quot;) {
+drawOblong(ctx, &quot;#CCCCCC&quot;, pad.drillsize, ctxmethod);
+} else {
+drawCircle(ctx, pad.drillsize[0] / 2, ctxmethod);
+}
+}
+ctx.restore();
+}</p>
+<p>function drawModule(ctx, layer, scalefactor, module, padcolor, outlinecolor, highlight) {
+if (highlight) {
+// draw bounding box
+if (module.layer == layer) {
+ctx.save();
+ctx.globalAlpha = 0.2;
+ctx.translate(...module.bbox.pos);
+ctx.fillStyle = padcolor;
+ctx.fillRect(
+0, 0,
+...module.bbox.size);
+ctx.globalAlpha = 1;
+ctx.strokeStyle = padcolor;
+ctx.strokeRect(
+0, 0,
+...module.bbox.size);
+ctx.restore();
+}
+}
+// draw drawings
+for (var drawing of module.drawings) {
+if (drawing.layer == layer) {
+drawDrawing(ctx, layer, scalefactor, drawing.drawing, padcolor);
+}
+}
+// draw pads
+if (renderPads) {
+for (var pad of module.pads) {
+if (pad.layers.includes(layer)) {
+drawPad(ctx, pad, padcolor, false);
+if (pad.pin1 &amp;&amp; highlightpin1) {
+drawPad(ctx, pad, outlinecolor, true);
+}
+}
+}
+}
+}</p>
+<p>function drawEdges(canvas, scalefactor) {
+var ctx = canvas.getContext(&quot;2d&quot;);
+var edgecolor = getComputedStyle(topmostdiv).getPropertyValue('--pcb-edge-color');
+for (var edge of pcbdata.edges) {
+drawedge(ctx, scalefactor, edge, edgecolor);
+}
+}</p>
+<p>function drawModules(canvas, layer, scalefactor, highlight) {
+var ctx = canvas.getContext(&quot;2d&quot;);
+ctx.lineWidth = 3 / scalefactor;
+var style = getComputedStyle(topmostdiv);
+var padcolor = style.getPropertyValue('--pad-color');
+var outlinecolor = style.getPropertyValue('--pin1-outline-color');
+if (highlight &gt; 0) {
+padcolor = style.getPropertyValue('--pad-color-highlight');
+outlinecolor = style.getPropertyValue('--pin1-outline-color-highlight');
+}
+for (var i = 0; i &lt; pcbdata.modules.length; i++) {
+var mod = pcbdata.modules[i];
+if (!highlight || highlightedModules.includes(i)) {
+drawModule(ctx, layer, scalefactor, mod, padcolor, outlinecolor, highlight);
+}
+}
+}</p>
+<p>function drawBgLayer(layername, canvas, layer, scalefactor, edgeColor, polygonColor, textColor) {
+var ctx = canvas.getContext(&quot;2d&quot;);
+for (var d of pcbdata[layername][layer]) {
+if ([&quot;segment&quot;, &quot;arc&quot;, &quot;circle&quot;].includes(d.type)) {
+drawedge(ctx, scalefactor, d, edgeColor);
+} else if (d.type == &quot;polygon&quot;) {
+drawPolygonShape(ctx, d, polygonColor);
+} else {
+drawtext(ctx, d, textColor, layer == &quot;B&quot;);
+}
+}
+}</p>
+<p>function clearCanvas(canvas) {
+var ctx = canvas.getContext(&quot;2d&quot;);
+ctx.save();
+ctx.setTransform(1, 0, 0, 1, 0, 0);
+ctx.clearRect(0, 0, canvas.width, canvas.height);
+ctx.restore();
+}</p>
+<p>function drawHighlightsOnLayer(canvasdict) {
+clearCanvas(canvasdict.highlight);
+drawModules(canvasdict.highlight, canvasdict.layer,
+canvasdict.transform.s * canvasdict.transform.zoom, true);
+}</p>
+<p>function drawHighlights() {
+drawHighlightsOnLayer(allcanvas.front);
+drawHighlightsOnLayer(allcanvas.back);
+}</p>
+<p>function drawBackground(canvasdict) {
+clearCanvas(canvasdict.bg);
+clearCanvas(canvasdict.fab);
+clearCanvas(canvasdict.silk);
+drawEdges(canvasdict.bg, canvasdict.transform.s);
+drawModules(canvasdict.bg, canvasdict.layer,
+canvasdict.transform.s * canvasdict.transform.zoom, false);</p>
+<p>var style = getComputedStyle(topmostdiv);
+var edgeColor = style.getPropertyValue('--silkscreen-edge-color');
+var polygonColor = style.getPropertyValue('--silkscreen-polygon-color');
+var textColor = style.getPropertyValue('--silkscreen-text-color');
+drawBgLayer(
+&quot;silkscreen&quot;, canvasdict.silk, canvasdict.layer, canvasdict.transform.s,
+edgeColor, polygonColor, textColor);</p>
+<p>edgeColor = style.getPropertyValue('--fabrication-edge-color');
+polygonColor = style.getPropertyValue('--fabrication-polygon-color');
+textColor = style.getPropertyValue('--fabrication-text-color');
+drawBgLayer(
+&quot;fabrication&quot;, canvasdict.fab, canvasdict.layer, canvasdict.transform.s,
+edgeColor, polygonColor, textColor);
+}</p>
+<p>function prepareCanvas(canvas, flip, transform) {
+var ctx = canvas.getContext(&quot;2d&quot;);
+ctx.setTransform(1, 0, 0, 1, 0, 0);
+var fontsize = 1.55;
+ctx.scale(transform.zoom, transform.zoom);
+ctx.translate(transform.panx, transform.pany);
+if (flip) {
+ctx.scale(-1, 1);
+}
+ctx.translate(transform.x, transform.y);
+ctx.rotate(deg2rad(boardRotation));
+ctx.scale(transform.s, transform.s);
+}</p>
+<p>function prepareLayer(canvasdict) {
+var flip = (canvasdict.layer == &quot;B&quot;);
+for (var c of [&quot;bg&quot;, &quot;fab&quot;, &quot;silk&quot;, &quot;highlight&quot;]) {
+prepareCanvas(canvasdict[c], flip, canvasdict.transform);
+}
+}</p>
+<p>function rotateVector(v, angle) {
+angle = deg2rad(angle);
+return [
+v[0] * Math.cos(angle) - v[1] * Math.sin(angle),
+v[0] * Math.sin(angle) + v[1] * Math.cos(angle)
+];
+}</p>
+<p>function applyRotation(bbox) {
+var corners = [
+[bbox.minx, bbox.miny],
+[bbox.minx, bbox.maxy],
+[bbox.maxx, bbox.miny],
+[bbox.maxx, bbox.maxy],
+];
+corners = corners.map((v) =&gt; rotateVector(v, boardRotation));
+return {
+minx: corners.reduce((a, v) =&gt; Math.min(a, v[0]), Infinity),
+miny: corners.reduce((a, v) =&gt; Math.min(a, v[1]), Infinity),
+maxx: corners.reduce((a, v) =&gt; Math.max(a, v[0]), -Infinity),
+maxy: corners.reduce((a, v) =&gt; Math.max(a, v[1]), -Infinity),
+}
+}</p>
+<p>function recalcLayerScale(canvasdict) {
+var canvasdivid = {
+&quot;F&quot;: &quot;frontcanvas&quot;,
+&quot;B&quot;: &quot;backcanvas&quot;
+} [canvasdict.layer];
+var width = document.getElementById(canvasdivid).clientWidth * devicePixelRatio;
+var height = document.getElementById(canvasdivid).clientHeight * devicePixelRatio;
+var bbox = applyRotation(pcbdata.edges_bbox);
+var scalefactor = 0.98 * Math.min(
+width / (bbox.maxx - bbox.minx),
+height / (bbox.maxy - bbox.miny)
+);
+if (scalefactor &lt; 0.1) {
+scalefactor = 1;
+}
+canvasdict.transform.s = scalefactor;
+var flip = (canvasdict.layer == &quot;B&quot;);
+if (flip) {
+canvasdict.transform.x = -((bbox.maxx + bbox.minx) * scalefactor + width) * 0.5;
+} else {
+canvasdict.transform.x = -((bbox.maxx + bbox.minx) * scalefactor - width) * 0.5;
+}
+canvasdict.transform.y = -((bbox.maxy + bbox.miny) * scalefactor - height) * 0.5;
+for (var c of [&quot;bg&quot;, &quot;fab&quot;, &quot;silk&quot;, &quot;highlight&quot;]) {
+canvas = canvasdict[c];
+canvas.width = width;
+canvas.height = height;
+canvas.style.width = (width / devicePixelRatio) + &quot;px&quot;;
+canvas.style.height = (height / devicePixelRatio) + &quot;px&quot;;
+}
+}</p>
+<p>function redrawCanvas(layerdict) {
+prepareLayer(layerdict);
+drawBackground(layerdict);
+drawHighlightsOnLayer(layerdict);
+}</p>
+<p>function resizeCanvas(layerdict) {
+recalcLayerScale(layerdict);
+redrawCanvas(layerdict);
+}</p>
+<p>function resizeAll() {
+resizeCanvas(allcanvas.front);
+resizeCanvas(allcanvas.back);
+}</p>
+<p>function bboxScan(layer, x, y) {
+var result = [];
+for (var i = 0; i &lt; pcbdata.modules.length; i++) {
+var module = pcbdata.modules[i];
+if (module.layer == layer) {
+var b = module.bbox;
+if (b.pos[0] &lt;= x &amp;&amp; b.pos[0] + b.size[0] &gt;= x &amp;&amp;
+b.pos[1] &lt;= y &amp;&amp; b.pos[1] + b.size[1] &gt;= y) {
+result.push(i);
+}
+}
+}
+return result;
+}</p>
+<p>function handleMouseDown(e, layerdict) {
+if (e.which != 1) {
+return;
+}
+e.preventDefault();
+e.stopPropagation();
+layerdict.transform.mousestartx = e.offsetX;
+layerdict.transform.mousestarty = e.offsetY;
+layerdict.transform.mousedownx = e.offsetX;
+layerdict.transform.mousedowny = e.offsetY;
+layerdict.transform.mousedown = true;
+}</p>
+<p>function handleMouseClick(e, layerdict) {
+var x = e.offsetX;
+var y = e.offsetY;
+var t = layerdict.transform;
+if (layerdict.layer == &quot;B&quot;) {
+x = (devicePixelRatio * x / t.zoom - t.panx + t.x) / -t.s;
+} else {
+x = (devicePixelRatio * x / t.zoom - t.panx - t.x) / t.s;
+}
+y = (devicePixelRatio * y / t.zoom - t.y - t.pany) / t.s;
+var v = rotateVector([x, y], -boardRotation);
+var modules = bboxScan(layerdict.layer, v[0], v[1]);
+if (modules.length &gt; 0) {
+modulesClicked(modules);
+}
+}</p>
+<p>function handleMouseUp(e, layerdict) {
+e.preventDefault();
+e.stopPropagation();
+if (e.which == 1 &amp;&amp;
+layerdict.transform.mousedown &amp;&amp;
+layerdict.transform.mousedownx == e.offsetX &amp;&amp;
+layerdict.transform.mousedowny == e.offsetY) {
+// This is just a click
+handleMouseClick(e, layerdict);
+layerdict.transform.mousedown = false;
+return;
+}
+if (e.which == 3) {
+// Reset pan and zoom on right click.
+layerdict.transform.panx = 0;
+layerdict.transform.pany = 0;
+layerdict.transform.zoom = 1;
+redrawCanvas(layerdict);
+} else if (!redrawOnDrag) {
+redrawCanvas(layerdict);
+}
+layerdict.transform.mousedown = false;
+}</p>
+<p>function handleMouseMove(e, layerdict) {
+if (!layerdict.transform.mousedown) {
+return;
+}
+e.preventDefault();
+e.stopPropagation();
+var dx = e.offsetX - layerdict.transform.mousestartx;
+var dy = e.offsetY - layerdict.transform.mousestarty;
+layerdict.transform.panx += devicePixelRatio * dx / layerdict.transform.zoom;
+layerdict.transform.pany += devicePixelRatio * dy / layerdict.transform.zoom;
+layerdict.transform.mousestartx = e.offsetX;
+layerdict.transform.mousestarty = e.offsetY;
+if (redrawOnDrag) {
+redrawCanvas(layerdict);
+}
+}</p>
+<p>function handleMouseWheel(e, layerdict) {
+e.preventDefault();
+e.stopPropagation();
+var t = layerdict.transform;
+var wheeldelta = e.deltaY;
+if (e.deltaMode == 1) {
+// FF only, scroll by lines
+wheeldelta *= 30;
+} else if (e.deltaMode == 2) {
+wheeldelta *= 300;
+}
+var m = Math.pow(1.1, -wheeldelta / 40);
+// Limit amount of zoom per tick.
+if (m &gt; 2) {
+m = 2;
+} else if (m &lt; 0.5) {
+m = 0.5;
+}
+t.zoom *= m;
+var zoomd = (1 - m) / t.zoom;
+t.panx += devicePixelRatio * e.offsetX * zoomd;
+t.pany += devicePixelRatio * e.offsetY * zoomd;
+redrawCanvas(layerdict);
+}</p>
+<p>function addMouseHandlers(div, layerdict) {
+div.onmousedown = function(e) {
+handleMouseDown(e, layerdict);
+};
+div.onmousemove = function(e) {
+handleMouseMove(e, layerdict);
+};
+div.onmouseup = function(e) {
+handleMouseUp(e, layerdict);
+};
+div.onmouseout = function(e) {
+handleMouseUp(e, layerdict);
+}
+div.onwheel = function(e) {
+handleMouseWheel(e, layerdict);
+}
+for (var element of [div, layerdict.bg, layerdict.fab, layerdict.silk, layerdict.highlight]) {
+element.addEventListener(&quot;contextmenu&quot;, function(e) {
+e.preventDefault();
+}, false);
+}
+}</p>
+<p>function setRedrawOnDrag(value) {
+redrawOnDrag = value;
+writeStorage(&quot;redrawOnDrag&quot;, value);
+}</p>
+<p>function setBoardRotation(value) {
+boardRotation = value * 5;
+writeStorage(&quot;boardRotation&quot;, boardRotation);
+document.getElementById(&quot;rotationDegree&quot;).textContent = boardRotation;
+resizeAll();
+}</p>
+<p>function initRender() {
+allcanvas = {
+front: {
+transform: {
+x: 0,
+y: 0,
+s: 1,
+panx: 0,
+pany: 0,
+zoom: 1,
+mousestartx: 0,
+mousestarty: 0,
+mousedown: false,
+},
+bg: document.getElementById(&quot;F_bg&quot;),
+fab: document.getElementById(&quot;F_fab&quot;),
+silk: document.getElementById(&quot;F_slk&quot;),
+highlight: document.getElementById(&quot;F_hl&quot;),
+layer: &quot;F&quot;,
+},
+back: {
+transform: {
+x: 0,
+y: 0,
+s: 1,
+panx: 0,
+pany: 0,
+zoom: 1,
+mousestartx: 0,
+mousestarty: 0,
+mousedown: false,
+},
+bg: document.getElementById(&quot;B_bg&quot;),
+fab: document.getElementById(&quot;B_fab&quot;),
+silk: document.getElementById(&quot;B_slk&quot;),
+highlight: document.getElementById(&quot;B_hl&quot;),
+layer: &quot;B&quot;,
+}
+};
+addMouseHandlers(document.getElementById(&quot;frontcanvas&quot;), allcanvas.front);
+addMouseHandlers(document.getElementById(&quot;backcanvas&quot;), allcanvas.back);
+}</p>
+<p>///////////////////////////////////////////////</p>
+<p>///////////////////////////////////////////////
+/* DOM manipulation and misc code */</p>
+<p>var bomsplit;
+var canvassplit;
+var canvaslayout = &quot;default&quot;;
+var bomlayout = &quot;default&quot;;
+var initDone = false;
+var bomSortFunction = null;
+var currentSortColumn = null;
+var currentSortOrder = null;
+var currentHighlightedRowId;
+var highlightHandlers = [];
+var moduleIndexToHandler = {};
+var highlightedModules = [];
+var checkboxes = [];
+var bomCheckboxes = &quot;&quot;;
+var highlightpin1 = false;
+var lastClicked;</p>
+<p>function dbg(html) {
+dbgdiv.innerHTML = html;
+}</p>
+<p>function padsVisible(value) {
+renderPads = value;
+if (initDone) {
+redrawCanvas(allcanvas.front);
+redrawCanvas(allcanvas.back);
+}
+}</p>
+<p>function setDarkMode(value) {
+if (value) {
+topmostdiv.classList.add(&quot;dark&quot;);
+} else {
+topmostdiv.classList.remove(&quot;dark&quot;);
+}
+writeStorage(&quot;darkmode&quot;, value);
+if (initDone) {
+redrawCanvas(allcanvas.front);
+redrawCanvas(allcanvas.back);
+}
+}</p>
+<p>function layerVisible(visible, frontCavnas, backCanvas, storageString) {
+var display = (visible) ? &quot;&quot; : &quot;none&quot;;
+frontCavnas.style.display = display;
+backCanvas.style.display = display;
+writeStorage(storageString, visible);
+}</p>
+<p>function fabricationVisible(visible) {
+layerVisible(visible, allcanvas.front.fab, allcanvas.back.fab, &quot;fabricationVisible&quot;);
+}</p>
+<p>function silkscreenVisible(visible) {
+layerVisible(visible, allcanvas.front.silk, allcanvas.back.silk, &quot;silkscreenVisible&quot;);
+}</p>
+<p>function setHighlightPin1(value) {
+writeStorage(&quot;highlightpin1&quot;, value);
+highlightpin1 = value;
+if (initDone) {
+redrawCanvas(allcanvas.front);
+redrawCanvas(allcanvas.back);
+}
+}</p>
+<p>function getStoredCheckboxRefs(checkbox) {
+function convert(ref) {
+var intref = parseInt(ref);
+if (isNaN(intref)) {
+for (var i = 0; i &lt; pcbdata.modules.length; i++) {
+if (pcbdata.modules[i].ref == ref) {
+return i;
+}
+}
+return -1;
+} else {
+return intref;
+}
+}
+var existingRefs = readStorage(&quot;checkbox_&quot; + checkbox);
+if (!existingRefs) {
+return new Set();
+} else {
+return new Set(existingRefs.split(&quot;,&quot;).map(r =&gt; convert(r)));
+}
+}</p>
+<p>function getCheckboxState(checkbox, references) {
+var storedRefsSet = getStoredCheckboxRefs(checkbox);
+var currentRefsSet = new Set(references.map(r =&gt; r[1]));
+// Get difference of current - stored
+var difference = new Set(currentRefsSet);
+for (ref of storedRefsSet) {
+difference.delete(ref);
+}
+if (difference.size == 0) {
+// All the current refs are stored
+return &quot;checked&quot;;
+} else if (difference.size == currentRefsSet.size) {
+// None of the current refs are stored
+return &quot;unchecked&quot;;
+} else {
+// Some of the refs are stored
+return &quot;indeterminate&quot;;
+}
+}</p>
+<p>function setBomCheckboxState(checkbox, element, references) {
+var state = getCheckboxState(checkbox, references);
+element.checked = (state == &quot;checked&quot;);
+element.indeterminate = (state == &quot;indeterminate&quot;);
+}</p>
+<p>function createCheckboxChangeHandler(checkbox, references) {
+return function() {
+refsSet = getStoredCheckboxRefs(checkbox);
+if (this.checked) {
+// checkbox ticked
+for (var ref of references) {
+refsSet.add(ref[1]);
+}
+} else {
+// checkbox unticked
+for (var ref of references) {
+refsSet.delete(ref[1]);
+}
+}
+writeStorage(&quot;checkbox_&quot; + checkbox, [...refsSet].join(&quot;,&quot;));
+}
+}</p>
+<p>function createRowHighlightHandler(rowid, refs) {
+return function() {
+if (currentHighlightedRowId) {
+if (currentHighlightedRowId == rowid) {
+return;
+}
+document.getElementById(currentHighlightedRowId).classList.remove(&quot;highlighted&quot;);
+}
+document.getElementById(rowid).classList.add(&quot;highlighted&quot;);
+currentHighlightedRowId = rowid;
+highlightedModules = refs.map(r =&gt; r[1]);
+drawHighlights();
+}
+}</p>
+<p>function entryMatches(entry) {
+// check refs
+for (var ref of entry[3]) {
+if (ref[0].toLowerCase().indexOf(filter) &gt;= 0) {
+return true;
+}
+}
+// check extra fields
+for (var i in config.extra_fields) {
+if (entry[4][i].toLowerCase().indexOf(filter) &gt;= 0) {
+return true;
+}
+}
+// check value
+if (entry[1].toLowerCase().indexOf(filter) &gt;= 0) {
+return true;
+}
+// check footprint
+if (entry[2].toLowerCase().indexOf(filter) &gt;= 0) {
+return true;
+}
+return false;
+}</p>
+<p>function findRefInEntry(entry) {
+return entry[3].filter(r =&gt; r[0].toLowerCase() == reflookup);
+}</p>
+<p>function highlightFilter(s) {
+if (!filter) {
+return s;
+}
+var parts = s.toLowerCase().split(filter);
+if (parts.length == 1) {
+return s;
+}
+var r = &quot;&quot;;
+var pos = 0;
+for (var i in parts) {
+if (i &gt; 0) {
+r += '<mark class="highlight">' +
+s.substring(pos, pos + filter.length) +
+'</mark>';
+pos += filter.length;
+}
+r += s.substring(pos, pos + parts[i].length);
+pos += parts[i].length;
+}
+return r;
+}</p>
+<p>function checkboxSetUnsetAllHandler(checkboxname) {
+return function() {
+var checkboxnum = 0;
+while (checkboxnum &lt; checkboxes.length &amp;&amp;
+checkboxes[checkboxnum].toLowerCase() != checkboxname.toLowerCase()) {
+checkboxnum++;
+}
+if (checkboxnum &gt;= checkboxes.length) {
+return;
+}
+var allset = true;
+var checkbox;
+var row;
+for (row of bombody.childNodes) {
+checkbox = row.childNodes[checkboxnum + 1].childNodes[0];
+if (!checkbox.checked || checkbox.indeterminate) {
+allset = false;
+break;
+}
+}
+for (row of bombody.childNodes) {
+checkbox = row.childNodes[checkboxnum + 1].childNodes[0];
+checkbox.checked = !allset;
+checkbox.indeterminate = false;
+checkbox.onchange();
+}
+}
+}</p>
+<p>function createColumnHeader(name, cls, comparator) {
+var th = document.createElement(&quot;TH&quot;);
+th.innerHTML = name;
+th.classList.add(cls);
+th.style.cursor = &quot;pointer&quot;;
+var span = document.createElement(&quot;SPAN&quot;);
+span.classList.add(&quot;sortmark&quot;);
+span.classList.add(&quot;none&quot;);
+th.appendChild(span);
+th.onclick = function() {
+if (currentSortColumn &amp;&amp; this !== currentSortColumn) {
+// Currently sorted by another column
+currentSortColumn.childNodes[1].classList.remove(currentSortOrder);
+currentSortColumn.childNodes[1].classList.add(&quot;none&quot;);
+currentSortColumn = null;
+currentSortOrder = null;
+}
+if (currentSortColumn &amp;&amp; this === currentSortColumn) {
+// Already sorted by this column
+if (currentSortOrder == &quot;asc&quot;) {
+// Sort by this column, descending order
+bomSortFunction = function(a, b) {
+return -comparator(a, b);
+}
+currentSortColumn.childNodes[1].classList.remove(&quot;asc&quot;);
+currentSortColumn.childNodes[1].classList.add(&quot;desc&quot;);
+currentSortOrder = &quot;desc&quot;;
+} else {
+// Unsort
+bomSortFunction = null;
+currentSortColumn.childNodes[1].classList.remove(&quot;desc&quot;);
+currentSortColumn.childNodes[1].classList.add(&quot;none&quot;);
+currentSortColumn = null;
+currentSortOrder = null;
+}
+} else {
+// Sort by this column, ascending order
+bomSortFunction = comparator;
+currentSortColumn = this;
+currentSortColumn.childNodes[1].classList.remove(&quot;none&quot;);
+currentSortColumn.childNodes[1].classList.add(&quot;asc&quot;);
+currentSortOrder = &quot;asc&quot;;
+}
+populateBomBody();
+}
+return th;
+}</p>
+<p>function populateBomHeader() {
+while (bomhead.firstChild) {
+bomhead.removeChild(bomhead.firstChild);
+}
+var tr = document.createElement(&quot;TR&quot;);
+var th = document.createElement(&quot;TH&quot;);
+th.classList.add(&quot;numCol&quot;);
+tr.appendChild(th);
+checkboxes = bomCheckboxes.split(&quot;,&quot;).filter((e) =&gt; e);
+var checkboxCompareClosure = function(checkbox) {
+return (a, b) =&gt; {
+var stateA = getCheckboxState(checkbox, a[3]);
+var stateB = getCheckboxState(checkbox, b[3]);
+if (stateA &gt; stateB) return -1;
+if (stateA &lt; stateB) return 1;
+return 0;
+}
+}
+for (var checkbox of checkboxes) {
+th = createColumnHeader(
+checkbox, &quot;bom-checkbox&quot;, checkboxCompareClosure(checkbox));
+th.onclick = fancyDblClickHandler(
+th, th.onclick.bind(th), checkboxSetUnsetAllHandler(checkbox));
+tr.appendChild(th);
+}
+tr.appendChild(createColumnHeader(&quot;References&quot;, &quot;References&quot;, (a, b) =&gt; {
+var i = 0;
+while (i &lt; a[3].length &amp;&amp; i &lt; b[3].length) {
+if (a[3][i] != b[3][i]) return a[3][i] &gt; b[3][i] ? 1 : -1;
+i++;
+}
+return a[3].length - b[3].length;
+}));
+// Extra fields
+if (config.extra_fields.length &gt; 0) {
+var extraFieldCompareClosure = function(fieldIndex) {
+return (a, b) =&gt; {
+var fa = a[4][fieldIndex];
+var fb = b[4][fieldIndex];
+if (fa != fb) return fa &gt; fb ? 1 : -1;
+else return 0;
+}
+}
+for (var i in config.extra_fields) {
+tr.appendChild(createColumnHeader(
+config.extra_fields[i], &quot;extra&quot;, extraFieldCompareClosure(i)));
+}
+}
+tr.appendChild(createColumnHeader(&quot;Value&quot;, &quot;Value&quot;, (a, b) =&gt; {
+return valueCompare(a[5], b[5], a[1], b[1]);
+}));
+tr.appendChild(createColumnHeader(&quot;Footprint&quot;, &quot;Footprint&quot;, (a, b) =&gt; {
+if (a[2] != b[2]) return a[2] &gt; b[2] ? 1 : -1;
+else return 0;
+}));
+tr.appendChild(createColumnHeader(&quot;Quantity&quot;, &quot;Quantity&quot;, (a, b) =&gt; {
+return a[3].length - b[3].length;
+}));
+bomhead.appendChild(tr);
+}</p>
+<p>function populateBomBody() {
+while (bom.firstChild) {
+bom.removeChild(bom.firstChild);
+}
+highlightHandlers = [];
+moduleIndexToHandler = {};
+currentHighlightedRowId = null;
+var first = true;
+switch (canvaslayout) {
+case 'F':
+bomtable = pcbdata.bom.F;
+break;
+case 'FB':
+bomtable = pcbdata.bom.both;
+break;
+case 'B':
+bomtable = pcbdata.bom.B;
+break;
+}
+if (bomSortFunction) {
+bomtable = bomtable.slice().sort(bomSortFunction);
+}
+for (var i in bomtable) {
+var bomentry = bomtable[i];
+if (filter &amp;&amp; !entryMatches(bomentry)) {
+continue;
+}
+var references = bomentry[3];
+if (reflookup) {
+references = findRefInEntry(bomentry);
+if (references.length == 0) {
+continue;
+}
+}
+var tr = document.createElement(&quot;TR&quot;);
+var td = document.createElement(&quot;TD&quot;);
+var rownum = +i + 1;
+tr.id = &quot;bomrow&quot; + rownum;
+td.textContent = rownum;
+tr.appendChild(td);
+// Checkboxes
+for (var checkbox of checkboxes) {
+if (checkbox) {
+td = document.createElement(&quot;TD&quot;);
+var input = document.createElement(&quot;input&quot;);
+input.type = &quot;checkbox&quot;;
+input.onchange = createCheckboxChangeHandler(checkbox, references);
+setBomCheckboxState(checkbox, input, references);
+td.appendChild(input);
+tr.appendChild(td);
+}
+}
+// References
+td = document.createElement(&quot;TD&quot;);
+td.innerHTML = highlightFilter(references.map(r =&gt; r[0]).join(&quot;, &quot;));
+tr.appendChild(td);
+// Extra fields
+for (var i in config.extra_fields) {
+td = document.createElement(&quot;TD&quot;);
+td.innerHTML = highlightFilter(bomentry[4][i]);
+tr.appendChild(td);
+}
+// Value
+td = document.createElement(&quot;TD&quot;);
+td.innerHTML = highlightFilter(bomentry[1]);
+tr.appendChild(td);
+// Footprint
+td = document.createElement(&quot;TD&quot;);
+td.innerHTML = highlightFilter(bomentry[2]);
+tr.appendChild(td);
+// Quantity
+td = document.createElement(&quot;TD&quot;);
+td.textContent = bomentry[3].length;
+tr.appendChild(td);
+bom.appendChild(tr);
+var handler = createRowHighlightHandler(tr.id, references);
+tr.onmousemove = handler;
+highlightHandlers.push({
+id: tr.id,
+handler: handler,
+refs: references
+});
+for (var refIndex of references.map(r =&gt; r[1])) {
+moduleIndexToHandler[refIndex] = handler;
+}
+if ((filter || reflookup) &amp;&amp; first) {
+handler();
+first = false;
+}
+}
+}</p>
+<p>function highlightPreviousRow() {
+if (!currentHighlightedRowId) {
+highlightHandlers[highlightHandlers.length - 1].handler();
+} else {
+if (highlightHandlers.length &gt; 1 &amp;&amp;
+highlightHandlers[0].id == currentHighlightedRowId) {
+highlightHandlers[highlightHandlers.length - 1].handler();
+} else {
+for (var i = 0; i &lt; highlightHandlers.length - 1; i++) {
+if (highlightHandlers[i + 1].id == currentHighlightedRowId) {
+highlightHandlers[i].handler();
+break;
+}
+}
+}
+}
+smoothScrollToRow(currentHighlightedRowId);
+}</p>
+<p>function highlightNextRow() {
+if (!currentHighlightedRowId) {
+highlightHandlers[0].handler();
+} else {
+if (highlightHandlers.length &gt; 1 &amp;&amp;
+highlightHandlers[highlightHandlers.length - 1].id == currentHighlightedRowId) {
+highlightHandlers[0].handler();
+} else {
+for (var i = 1; i &lt; highlightHandlers.length; i++) {
+if (highlightHandlers[i - 1].id == currentHighlightedRowId) {
+highlightHandlers[i].handler();
+break;
+}
+}
+}
+}
+smoothScrollToRow(currentHighlightedRowId);
+}</p>
+<p>function populateBomTable() {
+populateBomHeader();
+populateBomBody();
+}</p>
+<p>function modulesClicked(moduleIndexes) {
+var lastClickedIndex = moduleIndexes.indexOf(lastClicked);
+for (var i = 1; i &lt;= moduleIndexes.length; i++) {
+var refIndex = moduleIndexes[(lastClickedIndex + i) % moduleIndexes.length];
+if (refIndex in moduleIndexToHandler) {
+lastClicked = refIndex;
+moduleIndexToHandler<a href="_generated/">refIndex</a>;
+smoothScrollToRow(currentHighlightedRowId);
+break;
+}
+}
+}</p>
+<p>function updateFilter(input) {
+filter = input.toLowerCase();
+populateBomTable();
+}</p>
+<p>function updateRefLookup(input) {
+reflookup = input.toLowerCase();
+populateBomTable();
+}</p>
+<p>function changeCanvasLayout(layout) {
+document.getElementById(&quot;fl-btn&quot;).classList.remove(&quot;depressed&quot;);
+document.getElementById(&quot;fb-btn&quot;).classList.remove(&quot;depressed&quot;);
+document.getElementById(&quot;bl-btn&quot;).classList.remove(&quot;depressed&quot;);
+switch (layout) {
+case 'F':
+document.getElementById(&quot;fl-btn&quot;).classList.add(&quot;depressed&quot;);
+if (bomlayout != &quot;bom-only&quot;) {
+canvassplit.collapse(1);
+}
+break;
+case 'B':
+document.getElementById(&quot;bl-btn&quot;).classList.add(&quot;depressed&quot;);
+if (bomlayout != &quot;bom-only&quot;) {
+canvassplit.collapse(0);
+}
+break;
+default:
+document.getElementById(&quot;fb-btn&quot;).classList.add(&quot;depressed&quot;);
+if (bomlayout != &quot;bom-only&quot;) {
+canvassplit.setSizes([50, 50]);
+}
+}
+canvaslayout = layout;
+writeStorage(&quot;canvaslayout&quot;, layout);
+resizeAll();
+populateBomTable();
+}</p>
+<p>function populateMetadata() {
+document.getElementById(&quot;title&quot;).innerHTML = pcbdata.metadata.title;
+document.getElementById(&quot;revision&quot;).innerHTML = &quot;Rev: &quot; + pcbdata.metadata.revision;
+document.getElementById(&quot;company&quot;).innerHTML = pcbdata.metadata.company;
+document.getElementById(&quot;filedate&quot;).innerHTML = pcbdata.metadata.date;
+if (pcbdata.metadata.title != &quot;&quot;) {
+document.title = pcbdata.metadata.title + &quot; BOM&quot;;
+}
+}</p>
+<p>function changeBomLayout(layout) {
+document.getElementById(&quot;bom-btn&quot;).classList.remove(&quot;depressed&quot;);
+document.getElementById(&quot;lr-btn&quot;).classList.remove(&quot;depressed&quot;);
+document.getElementById(&quot;tb-btn&quot;).classList.remove(&quot;depressed&quot;);
+switch (layout) {
+case 'bom-only':
+document.getElementById(&quot;bom-btn&quot;).classList.add(&quot;depressed&quot;);
+if (bomsplit) {
+bomsplit.destroy();
+bomsplit = null;
+canvassplit.destroy();
+canvassplit = null;
+}
+document.getElementById(&quot;frontcanvas&quot;).style.display = &quot;none&quot;;
+document.getElementById(&quot;backcanvas&quot;).style.display = &quot;none&quot;;
+document.getElementById(&quot;bot&quot;).style.height = &quot;&quot;;
+break;
+case 'top-bottom':
+document.getElementById(&quot;tb-btn&quot;).classList.add(&quot;depressed&quot;);
+document.getElementById(&quot;frontcanvas&quot;).style.display = &quot;&quot;;
+document.getElementById(&quot;backcanvas&quot;).style.display = &quot;&quot;;
+document.getElementById(&quot;bot&quot;).style.height = &quot;calc(100% - 80px)&quot;;
+document.getElementById(&quot;bomdiv&quot;).classList.remove(&quot;split-horizontal&quot;);
+document.getElementById(&quot;canvasdiv&quot;).classList.remove(&quot;split-horizontal&quot;);
+document.getElementById(&quot;frontcanvas&quot;).classList.add(&quot;split-horizontal&quot;);
+document.getElementById(&quot;backcanvas&quot;).classList.add(&quot;split-horizontal&quot;);
+if (bomsplit) {
+bomsplit.destroy();
+bomsplit = null;
+canvassplit.destroy();
+canvassplit = null;
+}
+bomsplit = Split(['#bomdiv', '#canvasdiv'], {
+sizes: [50, 50],
+onDragEnd: resizeAll,
+direction: &quot;vertical&quot;,
+gutterSize: 5
+});
+canvassplit = Split(['#frontcanvas', '#backcanvas'], {
+sizes: [50, 50],
+gutterSize: 5,
+onDragEnd: resizeAll
+});
+break;
+case 'left-right':
+document.getElementById(&quot;lr-btn&quot;).classList.add(&quot;depressed&quot;);
+document.getElementById(&quot;frontcanvas&quot;).style.display = &quot;&quot;;
+document.getElementById(&quot;backcanvas&quot;).style.display = &quot;&quot;;
+document.getElementById(&quot;bot&quot;).style.height = &quot;calc(100% - 80px)&quot;;
+document.getElementById(&quot;bomdiv&quot;).classList.add(&quot;split-horizontal&quot;);
+document.getElementById(&quot;canvasdiv&quot;).classList.add(&quot;split-horizontal&quot;);
+document.getElementById(&quot;frontcanvas&quot;).classList.remove(&quot;split-horizontal&quot;);
+document.getElementById(&quot;backcanvas&quot;).classList.remove(&quot;split-horizontal&quot;);
+if (bomsplit) {
+bomsplit.destroy();
+bomsplit = null;
+canvassplit.destroy();
+canvassplit = null;
+}
+bomsplit = Split(['#bomdiv', '#canvasdiv'], {
+sizes: [50, 50],
+onDragEnd: resizeAll,
+gutterSize: 5
+});
+canvassplit = Split(['#frontcanvas', '#backcanvas'], {
+sizes: [50, 50],
+gutterSize: 5,
+direction: &quot;vertical&quot;,
+onDragEnd: resizeAll
+});
+}
+bomlayout = layout;
+writeStorage(&quot;bomlayout&quot;, layout);
+changeCanvasLayout(canvaslayout);
+}</p>
+<p>function focusFilterField() {
+focusInputField(document.getElementById(&quot;filter&quot;));
+}</p>
+<p>function focusRefLookupField() {
+focusInputField(document.getElementById(&quot;reflookup&quot;));
+}</p>
+<p>function toggleBomCheckbox(bomrowid, checkboxnum) {
+if (!bomrowid || checkboxnum &gt; checkboxes.length) {
+return;
+}
+var bomrow = document.getElementById(bomrowid);
+var checkbox = bomrow.childNodes[checkboxnum].childNodes[0];
+checkbox.checked = !checkbox.checked;
+checkbox.indeterminate = false;
+checkbox.onchange();
+}</p>
+<p>function checkBomCheckbox(bomrowid, checkboxname) {
+var checkboxnum = 0;
+while (checkboxnum &lt; checkboxes.length &amp;&amp;
+checkboxes[checkboxnum].toLowerCase() != checkboxname.toLowerCase()) {
+checkboxnum++;
+}
+if (!bomrowid || checkboxnum &gt;= checkboxes.length) {
+return;
+}
+var bomrow = document.getElementById(bomrowid);
+var checkbox = bomrow.childNodes[checkboxnum + 1].childNodes[0];
+checkbox.checked = true;
+checkbox.indeterminate = false;
+checkbox.onchange();
+}</p>
+<p>function setBomCheckboxes(value) {
+bomCheckboxes = value;
+writeStorage(&quot;bomCheckboxes&quot;, value);
+populateBomTable();
+}</p>
+<p>document.onkeydown = function(e) {
+switch (e.key) {
+case &quot;n&quot;:
+if (document.activeElement.type == &quot;text&quot;) {
+return;
+}
+if (currentHighlightedRowId !== null) {
+checkBomCheckbox(currentHighlightedRowId, &quot;placed&quot;);
+highlightNextRow();
+e.preventDefault();
+}
+break;
+case &quot;ArrowUp&quot;:
+highlightPreviousRow();
+e.preventDefault();
+break;
+case &quot;ArrowDown&quot;:
+highlightNextRow();
+e.preventDefault();
+break;
+default:
+break;
+}
+if (e.altKey) {
+switch (e.key) {
+case &quot;f&quot;:
+focusFilterField();
+e.preventDefault();
+break;
+case &quot;r&quot;:
+focusRefLookupField();
+e.preventDefault();
+break;
+case &quot;z&quot;:
+changeBomLayout(&quot;bom-only&quot;);
+e.preventDefault();
+break;
+case &quot;x&quot;:
+changeBomLayout(&quot;left-right&quot;);
+e.preventDefault();
+break;
+case &quot;c&quot;:
+changeBomLayout(&quot;top-bottom&quot;);
+e.preventDefault();
+break;
+case &quot;v&quot;:
+changeCanvasLayout(&quot;F&quot;);
+e.preventDefault();
+break;
+case &quot;b&quot;:
+changeCanvasLayout(&quot;FB&quot;);
+e.preventDefault();
+break;
+case &quot;n&quot;:
+changeCanvasLayout(&quot;B&quot;);
+e.preventDefault();
+break;
+default:
+break;
+}
+if (e.key &gt;= '1' &amp;&amp; e.key &lt;= '9') {
+toggleBomCheckbox(currentHighlightedRowId, parseInt(e.key));
+}
+}
+}</p>
+<p>function getStorageBooleanOrDefault(storageString, def) {
+var b = readStorage(storageString);
+if (b === null) {
+b = def;
+} else {
+b = (b == &quot;true&quot;);
+}
+return b;
+}</p>
+<p>function initDefaults() {
+bomlayout = readStorage(&quot;bomlayout&quot;);
+if (bomlayout === null) {
+bomlayout = config.bom_view;
+}
+if (!['bom-only', 'left-right', 'top-bottom'].includes(bomlayout)) {
+bomlayout = config.bom_view;
+}
+canvaslayout = readStorage(&quot;canvaslayout&quot;);
+if (canvaslayout === null) {
+canvaslayout = config.layer_view;
+}
+bomCheckboxes = readStorage(&quot;bomCheckboxes&quot;);
+if (bomCheckboxes === null) {
+bomCheckboxes = config.checkboxes;
+}
+document.getElementById(&quot;bomCheckboxes&quot;).value = bomCheckboxes;</p>
+<p>var b = getStorageBooleanOrDefault(&quot;padsVisible&quot;, config.show_pads);
+document.getElementById(&quot;fabricationCheckbox&quot;).checked = b;
+padsVisible(b);</p>
+<p>b = getStorageBooleanOrDefault(&quot;fabricationVisible&quot;, config.show_fabrication);
+document.getElementById(&quot;fabricationCheckbox&quot;).checked = b;
+fabricationVisible(b);</p>
+<p>b = getStorageBooleanOrDefault(&quot;silkscreenVisible&quot;, config.show_silkscreen);
+document.getElementById(&quot;silkscreenCheckbox&quot;).checked = b;
+silkscreenVisible(b);</p>
+<p>b = getStorageBooleanOrDefault(&quot;redrawOnDrag&quot;, config.redraw_on_drag);
+document.getElementById(&quot;dragCheckbox&quot;).checked = b;
+setRedrawOnDrag(b);</p>
+<p>b = getStorageBooleanOrDefault(&quot;darkmode&quot;, config.dark_mode);
+document.getElementById(&quot;darkmodeCheckbox&quot;).checked = b;
+setDarkMode(b);</p>
+<p>b = getStorageBooleanOrDefault(&quot;highlightpin1&quot;, config.highlight_pin1);
+document.getElementById(&quot;highlightpin1Checkbox&quot;).checked = b;
+setHighlightPin1(b);</p>
+<p>boardRotation = readStorage(&quot;boardRotation&quot;);
+if (boardRotation === null) {
+boardRotation = config.board_rotation * 5;
+} else {
+boardRotation = parseInt(boardRotation);
+}
+document.getElementById(&quot;boardRotation&quot;).value = boardRotation / 5;
+document.getElementById(&quot;rotationDegree&quot;).textContent = boardRotation;
+}</p>
+<p>window.onload = function(e) {
+initUtils();
+initRender();
+initStorage();
+initDefaults();
+cleanGutters();
+populateMetadata();
+dbgdiv = document.getElementById(&quot;dbg&quot;);
+bom = document.getElementById(&quot;bombody&quot;);
+bomhead = document.getElementById(&quot;bomhead&quot;);
+filter = &quot;&quot;;
+reflookup = &quot;&quot;;
+initDone = true;
+// Triggers render
+changeBomLayout(bomlayout);
+}</p>
+<p>window.onresize = resizeAll;
+window.matchMedia(&quot;print&quot;).addListener(resizeAll);</p>
+<p>///////////////////////////////////////////////</p>
+</script>
+</head>
+<body>
+<div id="topmostdiv" style="width: 100%; height: 100%">
+  <div id="top">
+    <div style="float: right;">
+      <div class="hideonprint menu" style="float: right; margin: 10px; top: 8px;">
+        <button class="menubtn"></button>
+        <div class="menu-content">
+          <label class="menu-label menu-label-top">
+            <input id="darkmodeCheckbox" type="checkbox" onchange="setDarkMode(this.checked)">
+            Dark mode
+          </label>
+          <label class="menu-label">
+            <input id="padsCheckbox" type="checkbox" checked onchange="padsVisible(this.checked)">
+            Show footprint pads
+          </label>
+          <label class="menu-label">
+            <input id="fabricationCheckbox" type="checkbox" checked onchange="fabricationVisible(this.checked)">
+            Show fabrication layer
+          </label>
+          <label class="menu-label">
+            <input id="silkscreenCheckbox" type="checkbox" checked onchange="silkscreenVisible(this.checked)">
+            Show silkscreen
+          </label>
+          <label class="menu-label">
+            <input id="highlightpin1Checkbox" type="checkbox" onchange="setHighlightPin1(this.checked)">
+            Highlight first pin
+          </label>
+          <label class="menu-label">
+            <input id="dragCheckbox" type="checkbox" checked onchange="setRedrawOnDrag(this.checked)">
+            Continuous redraw on drag
+          </label>
+          <label class="menu-label">
+            <span>Board rotation</span>
+            <span style="float: right"><span id="rotationDegree">0</span>&#176;</span>
+            <input id="boardRotation" type="range" min="-36" max="36" value="0" class="slider" oninput="setBoardRotation(this.value)">
+          </label>
+          <label class="menu-label">
+            <div style="margin-left: 5px">Bom checkboxes</div>
+            <input id="bomCheckboxes" class="menu-textbox" type=text
+                   oninput="setBomCheckboxes(this.value)">
+          </label>
+          <label class="menu-label">
+            <span class="shameless-plug">
+              <span>Created using</span>
+              <a target="blank" href="https://github.com/openscopeproject/InteractiveHtmlBom">InteractiveHtmlBom</a>
+            </span>
+          </label>
+        </div>
+      </div>
+      <div class="button-container hideonprint"
+           style="float: right; margin: 10px; position: relative; top: 8px">
+        <button id="fl-btn" class="left-most-button" onclick="changeCanvasLayout('F')"
+                title="Front only">F
+        </button>
+        <button id="fb-btn" class="middle-button" onclick="changeCanvasLayout('FB')"
+                title="Front and Back">FB
+        </button>
+        <button id="bl-btn" class="right-most-button" onclick="changeCanvasLayout('B')"
+                title="Back only">B
+        </button>
+      </div>
+      <div class="button-container hideonprint"
+           style="float: right; margin: 10px; position: relative; top: 8px">
+        <button id="bom-btn" class="left-most-button" onclick="changeBomLayout('bom-only')"
+                title="BOM only"></button>
+        <button id="lr-btn" class="middle-button" onclick="changeBomLayout('left-right')"
+                title="BOM left, drawings right"></button>
+        <button id="tb-btn" class="right-most-button" onclick="changeBomLayout('top-bottom')"
+                title="BOM top, drawings bot"></button>
+      </div>
+    </div>
+    <div id="fileinfodiv" style="overflow: auto;">
+      <table class="fileinfo">
+        <tbody>
+          <tr>
+            <td id="title" class="title" style="width: 70%">
+              Title
+            </td>
+            <td id="revision" class="title" style="width: 30%">
+              Revision
+            </td>
+          </tr>
+          <tr>
+            <td id="company">
+              Kicad version
+            </td>
+            <td id="filedate">
+              Date
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div id="bot" class="split" style="height: calc(100% - 80px)">
+    <div id="bomdiv" class="split split-horizontal">
+      <div style="width: 100%">
+        <input id="reflookup" class="searchbox reflookup hideonprint" type="text" placeholder="Ref lookup"
+               oninput="updateRefLookup(this.value)">
+        <input id="filter" class="searchbox filter hideonprint" type="text" placeholder="Filter"
+               oninput="updateFilter(this.value)">
+        <div class="button-container hideonprint" style="float: left">
+          <button id="copy" title="Copy bom table to clipboard"
+               onclick="copyToClipboard()"></button>
+        </div>
+      </div>
+      <div id="dbg"></div>
+      <table class="bom">
+        <thead id="bomhead">
+        </thead>
+        <tbody id="bombody">
+        </tbody>
+      </table>
+    </div>
+    <div id="canvasdiv" class="split split-horizontal">
+      <div id="frontcanvas" class="split" style="overflow: hidden">
+        <div style="position: relative; width: 100%; height: 100%;">
+          <canvas id="F_bg" style="position: absolute; left: 0; top: 0; z-index: 0;"></canvas>
+          <canvas id="F_fab" style="position: absolute; left: 0; top: 0; z-index: 1;"></canvas>
+          <canvas id="F_slk" style="position: absolute; left: 0; top: 0; z-index: 2;"></canvas>
+          <canvas id="F_hl" style="position: absolute; left: 0; top: 0; z-index: 3;"></canvas>
+        </div>
+      </div>
+      <div id="backcanvas" class="split" style="overflow: hidden">
+        <div style="position: relative; width: 100%; height: 100%;">
+          <canvas id="B_bg" style="position: absolute; left: 0; top: 0; z-index: 0;"></canvas>
+          <canvas id="B_fab" style="position: absolute; left: 0; top: 0; z-index: 1;"></canvas>
+          <canvas id="B_slk" style="position: absolute; left: 0; top: 0; z-index: 2;"></canvas>
+          <canvas id="B_hl" style="position: absolute; left: 0; top: 0; z-index: 3;"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+        
+        <script type="text/javascript">
+        window.addEventListener('load', function() {
+            window.setTimeout(window.print, 100);
+        });
+        </script>
+        
+        
+
+    </body>
+</html>
