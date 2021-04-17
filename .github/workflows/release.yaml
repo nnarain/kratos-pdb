@@ -1,0 +1,69 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - '*'
+
+jobs:
+  kicad:
+    name: KiCAD
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v1
+      - run: git submodule update --init --recursive
+      - name: Install KiCAD tools
+        run: git clone --branch=ci https://github.com/nnarain/kicad-tools /opt/kicad-tools
+      - name: Generate KiCAD outputs
+        env:
+          DOCKER_CONTAINER: nnarain/kicad-tools
+          DOCKER_INTERACTIVE: ""
+          KICAD_TOOLS_PATH: /opt/kicad-tools
+        run: make build-assets
+      - name: Collect Build Assets
+        run: python3 scripts/collect-assets.py --zip-name kratos-build-assets.zip --search-dir hardware/kratos
+      - uses: actions/upload-artifact@v2
+        with:
+          name: kicad
+          path: build-assets
+
+  docs:
+    name: Docs
+    runs-on: ubuntu-latest
+    needs: [kicad]
+
+    steps:
+      - uses: actions/checkout@v1
+      - name: Setup mdBook
+        uses: peaceiris/actions-mdbook@v1
+        with:
+          mdbook-version: 'latest'
+      - uses: actions/download-artifact@v2
+        with:
+          name: kicad
+          path: build-assets
+      - run: make book
+      - name: Deploy to Github Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.ACCESS_TOKEN }}
+          publish_dir: ./docs/book
+
+  release:
+    name: Deploy to Github Releases
+    runs-on: ubuntu-latest
+    needs: [kicad]
+
+    steps:
+      - uses: actions/download-artifact@v2
+        with:
+          name: kicad
+      - uses: softprops/action-gh-release@v1
+        with:
+          files: |
+            ./kratos-build-assets.zip
+            ./bom.csv
+            ./kratos.pdf
+        env:
+          GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
