@@ -3,7 +3,7 @@ EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 6 6
+Sheet 6 5
 Title "Voltage Input"
 Date "2021-03-04"
 Rev "A"
@@ -14,28 +14,6 @@ Comment3 ""
 Comment4 ""
 $EndDescr
 $Comp
-L dk_barrel:PJ-102A J?
-U 1 1 60428798
-P 4300 1950
-AR Path="/60428798" Ref="J?"  Part="1" 
-AR Path="/60426E80/60428798" Ref="J5"  Part="1" 
-F 0 "J5" H 4233 2175 50  0000 C CNN
-F 1 "PJ-102A" H 4233 2084 50  0000 C CNN
-F 2 "digikey-footprints:Barrel_Jack_5.5mmODx2.1mmID_PJ-102A" H 4500 2150 60  0001 L CNN
-F 3 "https://www.cui.com/product/resource/digikeypdf/pj-102a.pdf" H 4500 2250 60  0001 L CNN
-F 4 "CP-102A-ND" H 4500 2350 60  0001 L CNN "Digi-Key_PN"
-F 5 "PJ-102A" H 4500 2450 60  0001 L CNN "MPN"
-F 6 "Connectors, Interconnects" H 4500 2550 60  0001 L CNN "Category"
-F 7 "Barrel - Power Connectors" H 4500 2650 60  0001 L CNN "Family"
-F 8 "https://www.cui.com/product/resource/digikeypdf/pj-102a.pdf" H 4500 2750 60  0001 L CNN "DK_Datasheet_Link"
-F 9 "/product-detail/en/cui-inc/PJ-102A/CP-102A-ND/275425" H 4500 2850 60  0001 L CNN "DK_Detail_Page"
-F 10 "CONN PWR JACK 2X5.5MM SOLDER" H 4500 2950 60  0001 L CNN "Description"
-F 11 "CUI Inc." H 4500 3050 60  0001 L CNN "Manufacturer"
-F 12 "Active" H 4500 3150 60  0001 L CNN "Status"
-	1    4300 1950
-	1    0    0    -1  
-$EndComp
-$Comp
 L Connector_Generic:Conn_01x02 J?
 U 1 1 604287B1
 P 4100 2950
@@ -43,26 +21,15 @@ AR Path="/604287B1" Ref="J?"  Part="1"
 AR Path="/60426E80/604287B1" Ref="J4"  Part="1" 
 F 0 "J4" H 4018 3167 50  0000 C CNN
 F 1 "VIN" H 4018 3076 50  0000 C CNN
-F 2 "Connector_JST:JST_EH_B02B-EH-A_1x02_P2.50mm_Vertical" H 4100 2950 50  0001 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 4100 2950 50  0001 C CNN
 F 3 "~" H 4100 2950 50  0001 C CNN
 	1    4100 2950
 	-1   0    0    -1  
 $EndComp
 Text HLabel 7350 1950 2    50   Output ~ 0
 VOUT
-Text Notes 2350 2650 0    50   ~ 0
+Text Notes 3200 2750 0    50   ~ 0
 Input from barrel jack or 2 pin header\n\n9V - 26V
-$Comp
-L Connector_Generic:Conn_01x02 J6
-U 1 1 604496EC
-P 5200 1600
-F 0 "J6" V 5164 1412 50  0000 R CNN
-F 1 "External Switch" V 5073 1412 50  0000 R CNN
-F 2 "Connector_PinSocket_2.54mm:PinSocket_1x02_P2.54mm_Vertical" H 5200 1600 50  0001 C CNN
-F 3 "~" H 5200 1600 50  0001 C CNN
-	1    5200 1600
-	0    -1   -1   0   
-$EndComp
 $Comp
 L Battery_Management:DS2745U U4
 U 1 1 6045194E
@@ -99,16 +66,6 @@ F 3 "" H 5000 4400 50  0001 C CNN
 	1    5000 4400
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	4400 2150 4500 2150
-Wire Wire Line
-	4400 2050 4500 2050
-Wire Wire Line
-	4500 2050 4500 2150
-Wire Wire Line
-	4300 2950 5200 2950
-Wire Wire Line
-	5300 1800 5300 1950
 $Comp
 L Device:R R1
 U 1 1 6045AF5C
@@ -206,8 +163,6 @@ F 3 "" H 7300 2300 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	7200 2300 7300 2300
-Wire Wire Line
-	5200 1800 5200 1950
 $Comp
 L Device:CP C3
 U 1 1 60474238
@@ -241,7 +196,6 @@ Wire Wire Line
 	5350 2550 5300 2550
 Wire Wire Line
 	5300 2550 5300 1950
-Connection ~ 5300 1950
 Wire Wire Line
 	6300 2300 6300 1950
 Connection ~ 6300 1950
@@ -252,15 +206,6 @@ Wire Wire Line
 Wire Wire Line
 	5000 3050 5000 3750
 Connection ~ 5000 3750
-Wire Wire Line
-	4500 2150 5000 2150
-Wire Wire Line
-	5000 2150 5000 3050
-Connection ~ 4500 2150
-Connection ~ 5000 3050
-Connection ~ 5200 1950
-Wire Wire Line
-	5200 1950 5200 2950
 Text Notes 7750 2750 0    50   ~ 0
 Voltage supply monitoring (voltage, current and temperature).\n\nDS2745U's Vin is pulled up to a voltage divider that drops the max input voltage\nof 26V down to 5V.
 Wire Notes Line
@@ -275,14 +220,6 @@ Wire Notes Line
 	7600 2100 7600 4650
 Wire Notes Line
 	7600 4650 4900 4650
-Wire Notes Line
-	4000 1650 4000 3200
-Wire Notes Line
-	4000 3200 4650 3200
-Wire Notes Line
-	4650 3200 4650 1650
-Wire Notes Line
-	4650 1650 4000 1650
 $Comp
 L Connector:TestPoint VBAT1
 U 1 1 60479995
@@ -295,11 +232,7 @@ F 3 "~" H 7000 2300 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	4400 1950 5200 1950
-Wire Wire Line
 	5300 1950 6300 1950
-Text Notes 5150 1450 0    50   ~ 0
-Jumper for external switch (connect terminals when no external switch is needed)
 $Comp
 L Device:R R4
 U 1 1 6046BAD6
@@ -312,4 +245,11 @@ F 4 "A131799TR-ND" H 6800 2700 50  0001 C CNN "Digi-Key_PN"
 	1    6800 2700
 	1    0    0    -1  
 $EndComp
+Wire Wire Line
+	4300 2950 5000 2950
+Wire Wire Line
+	5000 2950 5000 1950
+Wire Wire Line
+	5000 1950 5300 1950
+Connection ~ 5300 1950
 $EndSCHEMATC
