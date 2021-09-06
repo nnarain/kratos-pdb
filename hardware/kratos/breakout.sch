@@ -3,7 +3,7 @@ EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 3 6
+Sheet 3 5
 Title "Power and IO Breakout"
 Date "2021-03-06"
 Rev "A"
@@ -15,7 +15,7 @@ Comment4 ""
 $EndDescr
 Text HLabel 5150 3250 0    50   Input ~ 0
 VRAW
-Text HLabel 5150 3450 0    50   Input ~ 0
+Text HLabel 5150 3350 0    50   Input ~ 0
 5V
 Text HLabel 5150 3550 0    50   Input ~ 0
 3V3
@@ -36,27 +36,10 @@ F 3 "" H 5200 3650 50  0001 C CNN
 	1    5200 3650
 	0    1    1    0   
 $EndComp
-Text HLabel 5150 3350 0    50   Input ~ 0
-12V
-$Comp
-L Connector:Screw_Terminal_01x05 J3
-U 1 1 604FA9FC
-P 6300 3450
-F 0 "J3" H 6380 3492 50  0000 L CNN
-F 1 "Power Terminal" H 6380 3401 50  0000 L CNN
-F 2 "TerminalBlock:TerminalBlock_bornier-5_P5.08mm" H 6300 3450 50  0001 C CNN
-F 3 "~" H 6300 3450 50  0001 C CNN
-	1    6300 3450
-	1    0    0    -1  
-$EndComp
 Text Notes 4700 4450 0    50   ~ 0
 External pull-ups for SDA and SCL are required\n
 Wire Wire Line
 	5150 3250 6100 3250
-Wire Wire Line
-	5150 3350 6100 3350
-Wire Wire Line
-	5150 3450 6100 3450
 Wire Wire Line
 	5200 3650 5750 3650
 $Comp
@@ -92,4 +75,17 @@ Wire Wire Line
 Connection ~ 5750 3650
 Wire Wire Line
 	5750 3650 6100 3650
+$Comp
+L Connector_Generic:Conn_01x05 J3
+U 1 1 60AC5538
+P 6300 3450
+F 0 "J3" H 6380 3492 50  0000 L CNN
+F 1 "Power Terminal" H 6380 3401 50  0000 L CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x05_P2.54mm_Vertical" H 6300 3450 50  0001 C CNN
+F 3 "~" H 6300 3450 50  0001 C CNN
+	1    6300 3450
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5150 3350 6100 3350
 $EndSCHEMATC
