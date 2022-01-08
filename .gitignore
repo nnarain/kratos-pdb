@@ -30,5 +30,6 @@ fp-info-cache
 
 hardware/kratos/export/*
 hardware/kratos/out/*
+hardware/kratos/kratos-backups/*
 
 build-assets/*
