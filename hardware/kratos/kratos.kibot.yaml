@@ -1,0 +1,105 @@
+kibot:
+  version: 1
+
+preflight:
+  run_erc: false
+  run_drc: false
+
+outputs:
+
+  # Design Docs
+
+  - name: 'print_sch'
+    comment: 'Print schematic (PDF)'
+    type: pdf_sch_print
+    dir: design
+
+  - name: "download_ds"
+    comment: "Download Datasheets"
+    type: download_datasheets
+    dir: design/datasheets
+
+  - name: 'design_docs'
+    comment: "Design Documentation"
+    type: compress
+    dir: .
+    options:
+      files:
+        - {from_output: print_sch, dest: /}
+        - {from_output: download_ds, dest: /datasheets}
+
+  # Fabrication
+
+  - name: gerbers
+    comment: Gerbers files
+    type: gerber
+    dir: fab/gerbers
+    layers:
+      - F.Cu
+      - B.Cu
+      - PWR
+      - GND
+
+      - F.SilkS
+      - B.SilkS
+      - F.Mask
+      - B.Mask
+
+      - Edge.Cuts
+
+  - name: drill
+    comment: Drill files
+    type: excellon
+    dir: fab/drill
+    options:
+      pth_and_npth_single_file: false
+      pth_id: '-PTH'
+      npth_id: '-NPTH'
+      metric_units: false
+      output: "%f%i.%x"
+
+  # TODO: JLCPCB Format
+  - name: 'bom'
+    comment: "Bill of Materials in CSV format"
+    type: bom
+    dir: fab
+    options:
+      format: CSV
+
+  - name: 'position'
+    comment: "Pick and place file for JLCPCB"
+    type: position
+    dir: fab/position
+    options:
+      format: CSV
+      only_smd: true
+      units: millimeters
+      separate_files_for_front_and_back: true
+      columns:
+        - {id: Ref, name: Designator}
+        - Val
+        - Package
+        - {id: PosX, name: 'Mid X'}
+        - {id: PosY, name: 'Mid Y'}
+        - {id: Rot, name: Rotation}
+        - {id: Side, name: Layer}
+
+  - name: 'jlcpcb_fab'
+    comment: "All build files for JLCPCB"
+    type: compress
+    dir: .
+    options:
+      files:
+        - {from_output: gerbers, dest: /}
+        - {from_output: drill, dest: /}
+        - {from_output: bom, dest: /}
+        - {from_output: position, dest: /}
+
+  # Misc.
+
+  - name: 'ibom'
+    comment: 'Interactive BOM'
+    type: ibom
+    dir: html
+    options:
+      dark_mode: true
