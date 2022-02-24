@@ -13,20 +13,17 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - run: git submodule update --init --recursive
-      - name: Install KiCAD tools
-        run: git clone --branch=ci https://github.com/nnarain/kicad-tools /opt/kicad-tools
-      - name: Generate KiCAD outputs
-        env:
-          DOCKER_CONTAINER: nnarain/kicad-tools
-          DOCKER_INTERACTIVE: ""
-          KICAD_TOOLS_PATH: /opt/kicad-tools
-        run: make build-assets
-      - name: Collect Build Assets
-        run: python3 scripts/collect-assets.py --zip-name kratos-build-assets.zip --search-dir hardware/kratos
+      - uses: INTI-CMNB/KiBot@v1_k6
+        with:
+          config: hardware/kratos/kratos.kibot.yaml
+          dir: output
+          schema: 'hardware/kratos/*.kicad_sch'
+          board: 'hardware/kratos/*.kicad_pcb'
+          verbose: 1
       - uses: actions/upload-artifact@v2
         with:
-          name: kicad
-          path: build-assets
+          name: output
+          path: output
 
   docs:
     name: Docs
@@ -39,11 +36,12 @@ jobs:
         uses: peaceiris/actions-mdbook@v1
         with:
           mdbook-version: 'latest'
+      - run: cargo install --git https://github.com/nnarain/mdbook-file-search
       - uses: actions/download-artifact@v2
         with:
-          name: kicad
-          path: build-assets
-      - run: make book
+          name: output
+          path: hardware/kratos/out
+      - run: cd docs && mdbook build
       - name: Deploy to Github Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
@@ -58,12 +56,11 @@ jobs:
     steps:
       - uses: actions/download-artifact@v2
         with:
-          name: kicad
+          name: output
       - uses: softprops/action-gh-release@v1
         with:
           files: |
-            ./kratos-build-assets.zip
-            ./bom.csv
-            ./kratos.pdf
+            ./kratos-design_docs.zip
+            ./kratos-jlcpcb_fab.zip
         env:
           GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}

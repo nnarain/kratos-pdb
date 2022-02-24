@@ -1,6 +1,12 @@
 
 ![Image not found](./_images/banner.png)
 
-This is a simple power distribution board for personal projects. It has 12V, 5V and 3.3V linear regulators and can draw from a wall DC adapter or a battery.
+This is a simple power distribution board for personal projects.
 
-Maximum input voltage is 26V and the board and has onboard voltage, current and temperature sensing over I2C.
+Features:
+
+* 5V and 3.3V output
+* Can support 2s to 6s LiPo batteries
+* 30.5mm x 30.5mm mounting holes
+* 6 servo headers
+* Pads for ESCs
